@@ -1,0 +1,76 @@
+/* this is a single line comment */
+/* this
+  is
+  a
+  multi-line
+  comment
+*/
+
+/* selecting by id */
+
+#div1 {
+  color: #ff0000;
+}
+
+/* selecting by class */
+
+.divs {
+  background-color: yellow;
+}
+
+/*selecting by tag*/
+
+p {
+  color: green;
+}
+
+a {
+  background-color: red;
+}
+
+/* selecting by attribute's content, http://www.w3.org/TR/selectors/#selectors */
+
+a[href="http://google.com"] {
+  color: yellow;
+}
+
+a[href$="cnn.com"] { /* ends in "cnn.com" */
+  background-color: green;
+}
+
+a[href*="yahoo"] { /* contains "yahoo" somewhere within it */
+  background-color: blue;
+}
+
+ul li:nth-child(3) span:nth-child(2) {
+  /*finding the ul, selecting third child
+  list item and then the 2nd span child of that. */
+  text-decoration: underline;
+}
+
+ul li:nth-child(3) span:nth-child(2n) {
+  /* find ul. find 3rd list item child of ul.
+  every 2nd span children of that list item. */
+  font-size: 40px;
+}
+
+ul li:nth-child(3) span:nth-child(2n-1) {
+  /* selecting odd (2n-1) */
+  color: blue;
+}
+
+a:hover {
+  background-color: white;
+}
+
+/* specificity:
+-id span2 is more specific than span
+*/
+
+#span2 {
+  background-color: green;
+}
+
+span {
+  background-color: red;
+}
