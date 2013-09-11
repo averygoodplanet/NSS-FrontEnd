@@ -20,6 +20,7 @@ h1 {
 
 h2 {
   font-size: 25px;
+  margin-top: 15px;
 }
 
 #logoimg {
@@ -38,6 +39,20 @@ h2 {
   padding-bottom: 6px;
 }
 
-section ul li {
-  list-style: disc;
+ul {
+  list-style: inside lower-greek;
+}
+
+ul > li {
+  padding-left: 20px;
+}
+
+section p {
+  padding: 10px;
+  line-height: 20px;
+}
+
+section p:nth-child(2n) {
+  font-style: italic;
+  text-align: justify;
 }
