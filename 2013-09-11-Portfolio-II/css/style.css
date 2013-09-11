@@ -52,7 +52,11 @@ section p {
   line-height: 20px;
 }
 
-section p:nth-child(2n) {
+section p:nth-child(2n-1) {
   font-style: italic;
   text-align: justify;
+}
+
+nav a:hover {
+  background-color: rgba(204, 204, 204, 0.61);
 }
