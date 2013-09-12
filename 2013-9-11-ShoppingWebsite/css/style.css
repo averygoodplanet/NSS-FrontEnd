@@ -43,6 +43,13 @@ nav {
 ***********
 */
 
+
+/*
+***********
+*** ContactUs Page Style
+***********
+*/
+
 /*positioning address relative so that can absolute position phone*/
 address {
   position: relative;
@@ -113,3 +120,9 @@ a .followUsLink {
   height: 71px;
   border-radius: 33px;
 }
+
+/*
+***********
+*** End of ContactUs Page Style Section
+***********
+*/
