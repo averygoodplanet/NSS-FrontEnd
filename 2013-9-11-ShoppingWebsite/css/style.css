@@ -43,3 +43,28 @@ nav {
 *** End of General Style Section
 ***********
 */
+
+address header {
+  font-size: 48px;
+  margin-left: 20px;
+}
+
+address h3 {
+  margin-left: 226px;
+  padding-top: 20px;
+}
+
+address h3 em {
+  margin: 0px 5px;
+  text-decoration: underline;
+}
+
+address p {
+  margin-left: 19px;
+}
+
+address h4 {
+  padding-left: 197px;
+  padding-top: 36px;
+  font-size: 28px;
+}
