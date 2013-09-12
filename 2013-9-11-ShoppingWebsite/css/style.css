@@ -17,11 +17,12 @@ body {
 
 #body_wrapper {
   width: 960px;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
 #inner_wrapper {
   border: 1px solid #bcbaba;
+  margin-top: 30px;
 }
 
 h2 {
@@ -263,7 +264,9 @@ a .followUsLink {
 ***********
 */
 
-
+#faq_title {
+  font-size: 48px;
+}
 
 
 
