@@ -186,10 +186,10 @@ address {
   position: relative;
 }
 
-address header {
-  font-size: 48px;
+#reachUs {
+  font-size: 48px !important;
   margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
 address h3 {
