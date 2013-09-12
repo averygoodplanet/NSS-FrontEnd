@@ -324,3 +324,36 @@ main ul li {
 ***********
 */
 
+
+/*
+***********
+*** ShoppingCart page style - START of section
+***********
+*/
+
+#cart_h3 {
+  font-size: 44px;
+  margin-left: 117px;
+}
+
+#shopping_cart_left {
+  margin-left: 117px;
+}
+
+#shopping_cart_left tr:nth-child(2n-1) {
+  border-top: 1px solid #bcbaba;
+}
+
+#shopping_cart_left tr td:1st-child {
+  width: 450px;
+  padding-right: 20px;
+}
+
+#shopping_cart_left tr td,
+#shopping_cart_left tr td img {
+  height: 50px;
+}
+
+#shopping_cart_left td {
+  padding-right: 21px;
+}
