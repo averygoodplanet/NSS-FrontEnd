@@ -301,7 +301,21 @@ main ul li {
   margin-left: 42px;
 }
 
+#talk_p {
+  position: fixed;
+  top: 409px;
+  right: 12px;
+  width: 124px;
+  color: white !important;
+  background: black;
+  padding: 16px;
+  border-top-left-radius: 21px;
+  border-bottom-right-radius: 74px;
+}
 
+#talk_link {
+  color: white;
+}
 
 
 /*
