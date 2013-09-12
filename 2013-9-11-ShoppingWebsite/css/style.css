@@ -20,6 +20,10 @@ body {
   margin: 0px auto;
 }
 
+#inner_wrapper {
+  border: 1px solid #bcbaba;
+}
+
 h2 {
   font-size: 24px;
 }
@@ -31,6 +35,10 @@ h2 {
 
 .border_bottom {
   border-bottom: 1px solid #bcbaba;
+}
+
+.border_around {
+  border: 1px solid #bcbaba;
 }
 
 nav {
@@ -126,3 +134,24 @@ a .followUsLink {
 *** End of ContactUs Page Style Section
 ***********
 */
+
+/*
+***********
+*** FAQs page style - START of section
+***********
+*/
+
+
+
+
+
+
+
+
+
+/*
+***********
+*** FAQs page style - END of section
+***********
+*/
+
