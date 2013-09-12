@@ -114,7 +114,8 @@ header > h1{
   border-bottom: 1px solid rgb(130, 120, 120);
   color: rgb(130, 120, 120);
 }
-#clear_both{
+
+.clear_both{
   clear: both;
   height: 30px;
 }
@@ -266,8 +267,28 @@ a .followUsLink {
 
 #faq_title {
   font-size: 48px;
+  padding-left: 199px;
 }
 
+.faq_top_ul {
+  padding-left: 100px;
+}
+
+.faq_top_li {
+  width: 700px;
+  text-align: center;
+  list-style: none;
+  padding-bottom: 25px;
+}
+
+.faq_top_question, .faq_top_question:visited {
+  color: #333333;
+  font-size: 45px;
+}
+
+.faq_top_question:hover {
+  color: #336699;
+}
 
 
 
