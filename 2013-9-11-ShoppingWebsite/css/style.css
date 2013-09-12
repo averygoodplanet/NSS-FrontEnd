@@ -1,5 +1,45 @@
+/*Using http://oakstreetbootmakers.com/footwear as inspiration for general style.*/
+
+/*
+**********************************
+***** General Shared Styles (don't change)
+**********************************
+*/
+@import url(https://fonts.googleapis.com/css?family=Pathway+Gothic+One);
+
+html {
+  background-color: rgb(255, 254, 249);
+}
+
+body {
+  font-family: 'Pathway Gothic One', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 #body_wrapper {
   width: 960px;
   border: 1px solid black;
   margin: 0px auto;
 }
+
+h2 {
+  font-size: 24px;
+}
+
+/*This is for adding borders like the ones on oakstreetboot.com */
+.border_top {
+  border-top: 1px solid #bcbaba;
+}
+
+.border_bottom {
+  border-bottom: 1px solid #bcbaba;
+}
+
+nav {
+  font-size: 13px;
+}
+
+/*
+***********
+*** End of General Style Section
+***********
+*/
