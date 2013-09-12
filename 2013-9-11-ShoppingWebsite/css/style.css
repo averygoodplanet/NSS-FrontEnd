@@ -338,6 +338,7 @@ main ul li {
 
 #shopping_cart_left {
   margin-left: 117px;
+  float: left;
 }
 
 #shopping_cart_left tr:nth-child(2n-1) {
@@ -357,3 +358,26 @@ main ul li {
 #shopping_cart_left td {
   padding-right: 21px;
 }
+
+#shopping_cart_right {
+  float: right;
+  margin-right: 274px;
+}
+
+#update_quantity {
+  clear: both;
+}
+
+#checkout_now {
+  clear: both;
+}
+
+#clear_cart {
+  display: block;
+  clear: both;
+}
+/*
+***********
+*** ShoppingCart page style - END of section
+***********
+*/
