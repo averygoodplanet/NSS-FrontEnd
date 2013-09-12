@@ -17,7 +17,6 @@ body {
 
 #body_wrapper {
   width: 960px;
-  border: 1px solid black;
   margin: 0px auto;
 }
 
@@ -43,6 +42,8 @@ nav {
 *** End of General Style Section
 ***********
 */
+
+/*positioning address relative so that can absolute position phone*/
 address {
   position: relative;
 }
@@ -50,6 +51,7 @@ address {
 address header {
   font-size: 48px;
   margin-left: 20px;
+  margin-top: 10px;
 }
 
 address h3 {
@@ -90,4 +92,24 @@ address #frankie {
   position: absolute;
   right: 297px;
   top: 21px;
+}
+
+address li {
+  display: inline;
+  list-style: none;
+}
+
+#followUs {
+  font-size: 37px;
+}
+
+address ul {
+  position: absolute;
+  left: 150px;
+  bottom: -33px;
+}
+
+a .followUsLink {
+  height: 71px;
+  border-radius: 33px;
 }
