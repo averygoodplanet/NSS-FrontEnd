@@ -42,7 +42,7 @@ h2 {
 }
 
 nav {
-  font-size: 13px;
+  display: inline;
 }
 
 /*
@@ -51,6 +51,126 @@ nav {
 ***********
 */
 
+
+
+/*
+********************************************
+****This is the banner header for all pages
+********************************************
+*/
+#invisible_header{
+  height: 30px;
+}
+
+header{
+  height: 150px;
+}
+
+#header_left {
+  width: 318px;
+  height: 150px;
+  border-right: 1px solid rgb(130, 120, 120);
+  float: left;
+  font-style: italic;
+  text-align: center;
+  padding-top: 100px
+  padding-bottom: 60px;
+}
+
+#header_left p{
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgb(130, 120, 120);
+  color: rgb(130, 120, 120);
+}
+
+header > h1{
+  width: 318px;
+  float: left;
+  text-align: center;
+  line-height: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-size: 50px;
+  text-transform: uppercase;
+  margin-top: 0px;
+}
+
+#header_right{
+  width: 318px;
+  height: 150px;
+  border-left: 1px solid rgb(130, 120, 120);
+  float: left;
+  font-style: italic;
+  text-align: center;
+  padding-top: 100px
+  padding-bottom: 60px;
+}
+
+#header_right p{
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgb(130, 120, 120);
+  color: rgb(130, 120, 120);
+}
+#clear_both{
+  clear: both;
+  height: 30px;
+}
+
+header nav{
+  width: 150px;
+}
+
+header ul{
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 30px;
+}
+
+header li{
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+}
+nav a{
+  text-decoration: none;
+  color: rgb(130, 120, 120);
+}
+/*
+********************************************
+****End of banner header for all pages
+********************************************
+*/
+
+/*
+********************************************
+****This is the footer for all pages
+********************************************
+*/
+footer{
+    text-decoration: none;
+    color: rgb(130, 120, 120);
+}
+
+footer p{
+   width: 200px;
+  float: left;
+  padding-left: 35px;
+}
+footer li{
+  display: inline;
+  float: left;
+  text-decoration: none;
+  padding-left: 70px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+
+/*
+********************************************
+****End of footer for all pages
+********************************************
+*/
 
 /*
 ***********
