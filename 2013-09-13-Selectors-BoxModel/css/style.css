@@ -1,3 +1,7 @@
+html {
+  background: url(../images/meerkat_tile.jpg) repeat;
+}
+
 body > div {
   width: 960px;
   margin: auto;
@@ -23,4 +27,8 @@ body > div > section:nth-child(1) p:nth-of-type(2) {
   float: left;
   margin: 0 5px;
   width: 290px;
+}
+
+.clear {
+  clear: both;
 }
