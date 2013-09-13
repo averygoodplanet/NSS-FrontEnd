@@ -23,6 +23,7 @@ body {
 #inner_wrapper {
   border: 1px solid #bcbaba;
   margin-top: 30px;
+  border-radius: 10px;
 }
 
 h2 {
@@ -49,6 +50,16 @@ nav {
 p {
   color: rgb(130, 120, 120);
 }
+
+.padded{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+article h3{
+  text-align: center;
+}
+
 /*
 ***********
 *** End of General Style Section
@@ -105,8 +116,6 @@ header > h1{
   float: left;
   font-style: italic;
   text-align: center;
-  padding-top: 100px
-  padding-bottom: 60px;
 }
 
 #header_right p{
@@ -175,6 +184,138 @@ footer li{
 ****End of footer for all pages
 ********************************************
 */
+
+
+/*
+********************************************
+****Gabrielle's Index Page CSS
+********************************************
+*/
+
+#index_iframe {
+  margin-left: 200px;
+}
+
+.feature {
+  border:0 solid rgb(255, 254, 249);
+  margin-top: 40px;
+  text-align: center;
+}
+
+/*
+********************************************
+****End of Gabrielle's index page css
+********************************************
+*/
+
+/*
+********************************************
+****Gabrielle's Product Listing Page CSS
+********************************************
+*/
+
+.car_image{
+  width: 150px;
+  height: 100px;
+  border-radius: 8px;
+  padding-top: 5px;
+}
+
+.float {
+  width: 200px;
+  float: left;
+}
+#products_list li{
+  list-style: none;
+  text-decoration: none;
+  height: 120px;
+  width: 860px;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  padding-top: 10px;
+  border-radius: 20px;
+  background-color: rgba(130, 120, 120, 0.1)
+}
+
+#products_list li:hover{
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+#products_list a{
+  color: black;
+}
+
+#products_list div{
+  float: left;
+  padding-left: 15px;
+}
+
+#products_list a:visited{
+  color: rgb(130, 120, 120);
+}
+
+
+#products_list a:hover{
+  color: rgb(70, 50, 50);
+}
+
+
+
+/*
+********************************************
+****End of Gabrielle's Product Listing page css
+********************************************
+*/
+
+
+
+/*
+********************************************
+****Ali about page css
+********************************************
+*/
+
+.enzo{
+  width: 400px;
+  margin-left: 280px;
+  border-radius: 10px;
+}
+
+.supercar{
+  margin-left: 15px;
+  width: 460px;
+  height: 259px;
+  float: left;
+  border-radius: 10px;
+}
+
+.buy{
+  position: absolute;
+  right: 180px;
+  top: 230px;
+}
+
+.buy a {
+  text-decoration: none;
+  font-family: 'Pathway Gothic One', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: black;
+  font-size: 25px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color:rgba(130, 120, 120, 0.4)
+}
+
+
+/*
+********************************************
+****End of Ali's about page
+********************************************
+*/
+
+
 
 /*
 ***********
