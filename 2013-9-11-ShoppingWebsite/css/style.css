@@ -345,6 +345,14 @@ main ul li {
   border-top: 1px solid #bcbaba;
 }
 
+#shopping_cart_left tr:last-child {
+  border-bottom: 1px solid #bcbaba;
+}
+
+#shopping_cart_left tr:last-child td {
+  padding-bottom: 10px;
+}
+
 #shopping_cart_left tr td:1st-child {
   width: 450px;
   padding-right: 20px;
@@ -359,17 +367,31 @@ main ul li {
   padding-right: 21px;
 }
 
+#shopping_cart_left tr span {
+  position: relative;
+  padding-bottom: 0px;
+  bottom: 18px;
+  left: 10px;
+}
+
 #shopping_cart_right {
   float: right;
   margin-right: 274px;
 }
 
+#shopping_cart_right tr:nth-child(2n-1) {
+  border-top: 1px solid #bcbaba;
+}
+
+
 #update_quantity {
   clear: both;
+  margin: 120px 0 80px 400px;
 }
 
 #checkout_now {
   clear: both;
+  margin-left: 100px;
 }
 
 #clear_cart {
