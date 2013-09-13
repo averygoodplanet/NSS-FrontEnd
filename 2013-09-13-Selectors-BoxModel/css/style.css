@@ -1,0 +1,14 @@
+body > div {
+  width: 960px;
+  margin: auto;
+}
+
+#leftsection {
+  width: 600px;
+  float: left;
+}
+
+#rightsection {
+  width: 360px;
+  float:right;
+}
