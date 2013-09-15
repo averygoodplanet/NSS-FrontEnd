@@ -4,7 +4,7 @@
 *****************
 */
 
-#wrapper {
+#wrapper1170px {
   width: 1170px;
   margin: 0 auto;
 }
@@ -26,6 +26,12 @@
 #top_picture figure img {
   height: 360px;
   width: 760px;
+}
+
+
+
+.clear {
+  clear: both;
 }
 
 /*
