@@ -23,12 +23,31 @@
   background-color: red;
 }
 
+#top_picture {
+  position: relative;
+  /*Positioning relative so that figcaption (#top_picture's child) can be absolute positioned*/
+}
+
 #top_picture figure img {
   height: 360px;
   width: 760px;
 }
 
+#top_picture figcaption {
+  background-color: black;
+  height: 80px;
+  width: 760px;
+  position: absolute;
+  bottom: 0px;
+}
 
+#top_picture figcaption span {
+  position: absolute;
+  color: white;
+  font-size: 25px;
+  top: 22px;
+  left: 40px;
+}
 
 .clear {
   clear: both;
