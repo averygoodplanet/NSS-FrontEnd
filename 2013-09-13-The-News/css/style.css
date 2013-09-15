@@ -1,5 +1,61 @@
 /*
 *****************
+* =GENERAL style of index.html START-Styles
+*****************
+*/
+
+@import url(http://fonts.googleapis.com/css?family=UnifrakturMaguntia|Averia+Serif+Libre:400,400italic,700);
+
+body {
+  font-family: 'Averia Serif Libre', serif;
+  font-size: 14px;
+}
+
+.banner, section, footer {
+  margin: 0 auto;
+}
+
+.banner {
+  width: 1150px;
+  height: 95px;
+  padding: 10px;
+}
+
+h1 {
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: 82px;
+  color: #303436;
+  margin-top: 7px;
+}
+
+nav, #wrapper1170px, footer {
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, .15);
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .15);
+  box-shadow: 0 0
+  20px rgba(0, 0, 0, .15);
+}
+
+footer {
+  background: #303436;
+  width: 1170px;
+  /*padding: 10px;*/
+  margin: 0 auto;
+}
+
+.copyright {
+  color: #AFAFAF;
+  padding: 10px;
+}
+
+/*
+*****************
+* =GENERAL style of index.html END-Styles
+*****************
+*/
+
+
+/*
+*****************
 * =MIDDLE of index.html START-Styles
 *****************
 */
