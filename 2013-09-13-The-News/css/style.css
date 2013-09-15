@@ -1,0 +1,36 @@
+/*
+*****************
+* =MIDDLE of index.html START-Styles
+*****************
+*/
+
+#wrapper {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+#left_column {
+  width: 760px;
+  float: left;
+  margin-left: 20px;
+  background-color: blue;
+}
+
+#right_column {
+  width: 338px;
+  float: left;
+  margin-left: 32px;
+  background-color: red;
+}
+
+#top_picture figure img {
+  height: 360px;
+  width: 760px;
+}
+
+/*
+*****************
+* END styles for MIDDLE of index.html
+*****************
+*/
+
