@@ -152,19 +152,29 @@ section {
 
 #primary_column article img {
   float: left;
+  width: 220px;
   height: 170px;
 }
 
 #primary_column .article_text {
   float: left;
+  width: 525px;
   height: 170px;
   margin-left: 15px;
+}
+
+#primary_column h2 {
+  margin: 0;
 }
 
 #primary_column article {
     margin-bottom: 20px;
     border-bottom: 1px solid #d9d9d9;
     padding-bottom: 12px;
+}
+
+#primary_column article:last-child {
+    border-bottom: none;
 }
 
 #secondary_column article img {
@@ -184,11 +194,27 @@ section {
   margin: 0;
 }
 
+#secondary_column p {
+  text-align: justify;
+}
+
 #secondary_column article {
     margin-bottom: 10px;
     border-bottom: 1px solid #d9d9d9;
     /*padding-bottom: 12px;*/
     /*background-color: purple;*/
+}
+
+#secondary_column article:last-child {
+    border-bottom: none;
+}
+
+a{
+color:#000000;
+text-decoration: none;
+}
+a:hover{
+text-decoration: underline;
 }
 
 /*
