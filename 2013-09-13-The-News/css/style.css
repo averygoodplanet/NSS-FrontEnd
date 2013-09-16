@@ -223,3 +223,38 @@ text-decoration: underline;
 *****************
 */
 
+/*
+*****************
+* START styles for Story Pages
+*****************
+*/
+
+.story_page img {
+  padding: 50px 20px 20px 20px;
+}
+
+.story_page h2,
+.story_page p,
+.story_page h3 {
+  padding-left: 20px;
+}
+
+.story_page h3 {
+  font-size: 14px;
+  color: #a3a2a2;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+*****************
+* END styles for Story Pages
+*****************
+*/
