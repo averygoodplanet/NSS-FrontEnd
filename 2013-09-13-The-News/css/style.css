@@ -114,7 +114,6 @@ footer {
   float: left;
   margin-left: 32px;
   margin-top:40px;
-  background-color: red;
 }
 
 #top_picture {
@@ -159,12 +158,37 @@ section {
 #primary_column .article_text {
   float: left;
   height: 170px;
+  margin-left: 15px;
 }
 
 #primary_column article {
     margin-bottom: 20px;
     border-bottom: 1px solid #d9d9d9;
     padding-bottom: 12px;
+}
+
+#secondary_column article img {
+  float: left;
+  width: 70px;
+  height: 70px;
+}
+
+#secondary_column .article_text {
+  float: left;
+  width: 253px;
+  margin-left: 15px;
+  /*background-color: lightgray;*/
+}
+
+#secondary_column h2 {
+  margin: 0;
+}
+
+#secondary_column article {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #d9d9d9;
+    /*padding-bottom: 12px;*/
+    /*background-color: purple;*/
 }
 
 /*
