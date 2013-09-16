@@ -102,17 +102,18 @@ footer {
   margin: 0 auto;
 }
 
-#left_column {
+#primary_column {
   width: 760px;
   float: left;
   margin-left: 20px;
-  background-color: blue;
+  margin-top:40px;
 }
 
-#right_column {
+#secondary_column {
   width: 338px;
   float: left;
   margin-left: 32px;
+  margin-top:40px;
   background-color: red;
 }
 
@@ -144,6 +145,26 @@ footer {
 
 .clear {
   clear: both;
+}
+
+section {
+  margin-top: 20px;
+}
+
+#primary_column article img {
+  float: left;
+  height: 170px;
+}
+
+#primary_column .article_text {
+  float: left;
+  height: 170px;
+}
+
+#primary_column article {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #d9d9d9;
+    padding-bottom: 12px;
 }
 
 /*
