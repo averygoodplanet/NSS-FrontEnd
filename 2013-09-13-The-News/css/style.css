@@ -26,35 +26,30 @@ nav {
   height:30px;
   background-color:#303436;
   margin:0 auto;
-  /*display:inline;
-  /*list-style: none;*/
 }
 
  ul{
-    padding:10px;
+    padding:20px;
  }
 
  li {
-
- margin-left:10px;
-display:block;
-line-height: 10px;
-
+  font-size: 16px;
+  padding-left: 50px;
+  display: block;
+  line-height: 1px;
  }
 
  nav a{
   color:#FFFFFF;
   float:left;
-  padding-right:10px;
+  padding-right:83px;
   text-decoration: none;
 
  }
 
 nav a:hover{
+  color: #bababa;
   text-decoration: underline;
-
-
-
 }
 
 
