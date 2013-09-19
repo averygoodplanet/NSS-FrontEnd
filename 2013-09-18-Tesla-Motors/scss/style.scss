@@ -1,5 +1,8 @@
+// The order of import statements matters--e.g. must define variables before using them.
+// 1st files that declare any variables, then file that defines functions, then others.
 @import 'colors';
 @import 'fonts';
+@import 'functions';
 @import 'header';
 @import 'nav';
 @import 'content';
