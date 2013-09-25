@@ -52,7 +52,20 @@ do
 2. Room objects contain: Name, Length, Width, area, number_windows.
 3. Pushed room objects (with properties) to array called rooms.
 4. Calculated and assigned the following to house object: number_rooms, total_area, total_windows.
+5. If statement prompt let's user decide whether to add a pool.
+6. Get pool diameter and depth as floats and assign pool object as house.pool property.
 */
+if(prompt("To add a pool, type 'Y':") == 'Y')
+{
+  var pool = {};
+  pool.diameter = parseFloat(prompt("What's the pool's diameter?"));
+  pool.depth = parseFloat(prompt("How deep is the pool?"));
+  //add a function call here to a function that calculates volume of pool in gallon
+  //then determine price of pool as $0.25 * gallons. $0.25 will be inside pool_gallon_price.
+
+  house.pool = pool;
+}
+
 
 house.number_rooms = rooms.length;
 house.total_area = total_area();
