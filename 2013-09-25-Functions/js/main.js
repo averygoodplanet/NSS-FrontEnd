@@ -47,5 +47,6 @@ function volume_cylinder(radius, depth)
 var diameter = 30;
 var depth = 9;
 
-console.log(volume_cylinder((diameter / 2), depth));
+console.log("You have " + volume_cylinder((diameter / 2), depth) + ' gallons of water in your pool.');
+
 
