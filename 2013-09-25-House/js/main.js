@@ -2,6 +2,7 @@ var rooms = [];
 var another = "";
 var window_price = 250;
 var sq_ft_price = 200;
+var pool_gallon_price = 0.25;
 var house = {};
 
 // function total(propertyname, array)
@@ -35,6 +36,16 @@ function total_windows()
   return sum;
 }
 
+function pool_gallons(diameter, depth)
+{
+  // pi r squared
+  var radius = diameter / 2;
+  var circle_area = Math.PI * Math.pow(radius, 2);
+  var cubic_volume = circle_area * depth;
+  console.log("cubic_volume: "+cubic_volume);
+  return cubic_volume * 7.48052; // 7.48052 gallons per cubic foot.
+}
+
 do
 {
   var room = {};
@@ -54,19 +65,22 @@ do
 4. Calculated and assigned the following to house object: number_rooms, total_area, total_windows.
 5. If statement prompt let's user decide whether to add a pool.
 6. Get pool diameter and depth as floats and assign pool object as house.pool property.
+7. pool_volume function determines pool volume in gallons
+8. Everything works (including pool) except for need to display results.
 */
 if(prompt("To add a pool, type 'Y':") == 'Y')
 {
   var pool = {};
-  pool.diameter = parseFloat(prompt("What's the pool's diameter?"));
-  pool.depth = parseFloat(prompt("How deep is the pool?"));
+  pool.diameter = parseFloat(prompt("What's the pool's diameter in feet?"));
+  pool.depth = parseFloat(prompt("How deep is the pool in feet?"));
   //add a function call here to a function that calculates volume of pool in gallon
   //then determine price of pool as $0.25 * gallons. $0.25 will be inside pool_gallon_price.
-
+  pool.volume = pool_gallons(pool.diameter, pool.depth);
+  pool.cost = pool.volume * pool_gallon_price;
   house.pool = pool;
 }
 
-
+house.rooms = rooms;
 house.number_rooms = rooms.length;
 house.total_area = total_area();
 house.total_windows = total_windows();
