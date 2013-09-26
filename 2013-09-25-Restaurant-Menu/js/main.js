@@ -1,5 +1,7 @@
 var menu = [];
+var menu_types = ["side", "veggies", "chicken", "beef", "shrimp", "appetizer", "beverage"];
 var another_item = "";
+
 
 function user_creates_items ()
 {
@@ -22,6 +24,22 @@ function show_item (item) //e.g. item --> "- Shrimp curry (shrimp peppers curry 
   return item_statement;
 }
 
+function print_items_by_type ()
+{
+  for(type in menu_types)
+  {
+    console.log(menu_types[type]);
+    for(item in menu)
+    {
+      if(menu[item].Type == menu_types[type])
+      {
+        console.log(show_item(menu[item]));
+      }
+    }
+  }
+}
+
 user_creates_items();
-console.log(menu);
+// console.log(menu);
 // console.log(show_item(menu[0]));
+print_items_by_type();
