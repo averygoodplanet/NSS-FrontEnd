@@ -50,13 +50,26 @@ function total_cost()
   return ((sum/100).toFixed(2));
 }
 
+function total_calories()
+{
+  var sum = 0;
+  for(i in menu)
+  {
+    sum += menu[i].calories;
+  }
+  return sum;
+}
+
+
 user_creates_items();
 console.log("Our Menu:");
 print_items_by_type();
 console.log("Number menu items: "+menu.length);
 console.log("Number of sections on our menu: "+menu_types.length);
+console.log("Total calories of all items: "+total_calories());
+console.log("Average calories per item: "+( (total_calories()) / menu.length ) );
 /* menu_types.length assumes that each hard-coded menu_type will be used
-at least once */
+at least once, i.e. it always display "appetizer" even if no items in menu with item.type = "appetizer" */
 console.log("Total cost of all items: $"+total_cost());
 console.log("Average item cost: $"+((total_cost())/menu.length));
 
