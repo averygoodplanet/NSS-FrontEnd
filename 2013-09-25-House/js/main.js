@@ -5,17 +5,6 @@ var sq_ft_price = 200;
 var pool_gallon_price = 0.25;
 var house = {};
 
-// function total(propertyname, array)
-// {
-//   var sum = 0;
-//   for(var i = 0; i < array.length; i++)
-//   {
-//     sum += array[i].propertyname;
-//     console.log(array[i].propertyname);
-//   }
-//   return sum;
-// }
-
 function total_area()
 {
   var sum = 0;
@@ -44,6 +33,25 @@ function pool_gallons(diameter, depth)
   var cubic_volume = circle_area * depth;
   console.log("cubic_volume: "+cubic_volume);
   return cubic_volume * 7.48052; // 7.48052 gallons per cubic foot.
+}
+
+function display()
+{
+  for(property in house)
+  {
+    if( house[property] instanceof Array != true)
+    {
+          console.log(property + ": "+house[property]);
+    }
+    else
+    {
+      console.log(property + " (an Array):");
+      for(var i = 0; i < house[property].length; i++)
+      {
+        console.log(house[property][i]);
+      }
+    }
+  }
 }
 
 do
@@ -88,9 +96,7 @@ house.windows_cost = house.total_windows * window_price;
 house.area_cost = house.total_area * sq_ft_price;
 house.total_cost = house.windows_cost + house.area_cost;
 
-
-
-
+display();
 
 
 
