@@ -1,8 +1,8 @@
 var menu = [];
 var another_item = "";
-// debugger;
 
-
+function user_creates_items ()
+{
   do
   {
   var item = {};
@@ -14,5 +14,7 @@ var another_item = "";
   menu.push(item);
   another_item = prompt("Enter anything to add another item, otherwise just press enter.");
   } while(another_item);
+}
 
+user_creates_items();
 console.log(menu);
