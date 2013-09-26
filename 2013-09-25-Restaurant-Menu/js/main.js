@@ -10,7 +10,8 @@ function user_creates_items ()
   var item = {};
   item.Name = prompt("Name of the item: ");
   item.Type = prompt("Type of item (e.g. side, veggies, chicken, beef, shrimp, appetizer, beverage): ");
-  item.price = parseFloat(prompt("Price?: "));
+  item.price = parseInt((prompt("Price?: "))*100);
+  //storing price as number of cents to avoid having e.g. $1.1098374948.
   item.calories = parseFloat(prompt("Calories?: "));
   item.ingredients = prompt("Ingredients?: ");
   menu.push(item);
@@ -20,7 +21,7 @@ function user_creates_items ()
 
 function show_item (item) //e.g. item --> "- Shrimp curry (shrimp peppers curry powder) $2.99"
 {
-  var item_statement = "- "+item.Name+" ("+item.ingredients+") $"+item.price;
+  var item_statement = "- "+item.Name+" ("+item.ingredients+") $"+((item.price/100).toFixed(2));
   return item_statement;
 }
 
@@ -39,6 +40,16 @@ function print_items_by_type ()
   }
 }
 
+function total_cost()
+{
+  var sum = 0;
+  for(i in menu)
+  {
+    sum += menu[i].price;
+  }
+  return ((sum/100).toFixed(2));
+}
+
 user_creates_items();
 console.log("Our Menu:");
 print_items_by_type();
@@ -46,3 +57,5 @@ console.log("Number menu items: "+menu.length);
 console.log("Number of sections on our menu: "+menu_types.length);
 /* menu_types.length assumes that each hard-coded menu_type will be used
 at least once */
+console.log("Total cost of all items: $"+total_cost());
+
