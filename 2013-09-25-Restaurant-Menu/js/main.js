@@ -40,6 +40,9 @@ function print_items_by_type ()
 }
 
 user_creates_items();
-// console.log(menu);
-// console.log(show_item(menu[0]));
+console.log("Our Menu:");
 print_items_by_type();
+console.log("Number menu items: "+menu.length);
+console.log("Number of sections on our menu: "+menu_types.length);
+/* menu_types.length assumes that each hard-coded menu_type will be used
+at least once */
