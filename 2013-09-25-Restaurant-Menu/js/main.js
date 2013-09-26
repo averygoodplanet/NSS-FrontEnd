@@ -58,4 +58,5 @@ console.log("Number of sections on our menu: "+menu_types.length);
 /* menu_types.length assumes that each hard-coded menu_type will be used
 at least once */
 console.log("Total cost of all items: $"+total_cost());
+console.log("Average item cost: $"+((total_cost())/menu.length));
 
