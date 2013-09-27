@@ -24,9 +24,11 @@ test( "Filter 'A'-beginning Strings", function () {
 
 test( "Find String", function () {
   var strings = ["apple", "hello", "there", "a", "the", "cat", "Aardvark", "elephant", "encyclopedia"];
+  //example of multiple assertions in one test.
   deepEqual(find_string(strings, "elephant"), "elephant", "Should find and return 'elephant' ");
   deepEqual(find_string(strings, "cat"), "cat", "Should find and return 'cat' ");
   deepEqual(find_string(strings, "Aardvark"), "Aardvark", "Should find and return 'the' ");
-  //example of multiple assertions in one test.
+  //a "negative test" below
+  deepEqual(find_string(strings, "not here"), undefined, "Should find and return 'the' ");
 });
 
