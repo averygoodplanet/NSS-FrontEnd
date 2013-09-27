@@ -9,3 +9,9 @@ test( "Filter Odd Numbers", function () {
   var expected = [1, 3, 5, 7, 9];
   deepEqual(filter_odds(numbers), expected, "Testing the filter_odds function");
 });
+
+test( "Filter Short Strings", function () {
+  var strings = ["hello", "there", "a", "the", "cat", "elephant", "encyclopedia"];
+  var expected = ["a", "the", "cat"];
+  deepEqual(filter_short_strings(strings), expected, "Testing short strings under 4 characters");
+});
