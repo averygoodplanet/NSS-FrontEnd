@@ -14,3 +14,14 @@ function filter_short_strings(strings)
 {
   return _.filter(strings, function(string){return string.length < 4;});
 }
+
+function filter_a_strings(strings)
+{
+  return _.filter(strings, function(string){ return ((string[0] == 'a') ||  (string[0] =='A'));});
+  //alternative solution: "return string[0].toLowerCase() == 'a' "
+}
+
+function find_string(strings, looking_for)
+{
+  return _.find(strings, function(string){return string == looking_for;});
+}

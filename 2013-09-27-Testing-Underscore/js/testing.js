@@ -15,3 +15,16 @@ test( "Filter Short Strings", function () {
   var expected = ["a", "the", "cat"];
   deepEqual(filter_short_strings(strings), expected, "Testing short strings under 4 characters");
 });
+
+test( "Filter 'A' Strings", function () {
+  var strings = ["apple", "hello", "there", "a", "the", "cat", "Aardvark", "elephant", "encyclopedia"];
+  var expected = ["apple", "a", "Aardvark"];
+  deepEqual(filter_a_strings(strings), expected, "strings should begin with letter 'a'");
+});
+
+test( "Find a String", function () {
+  var strings = ["apple", "hello", "there", "a", "the", "cat", "Aardvark", "elephant", "encyclopedia"];
+  var expected = "elephant" ;
+  deepEqual(find_string(strings, "elephant"), expected, "Should find and return 'elephant' ");
+});
+
