@@ -32,3 +32,10 @@ test( "Find String", function () {
   deepEqual(find_string(strings, "not here"), undefined, "Should find and return 'the' ");
 });
 
+test( "Find Strings Ending in a particular letter", function () {
+  var strings = ["dog", "cats", "lion", "tigers"];
+  //example of multiple assertions in one test.
+  deepEqual(find_string_ending_letter(strings, "s"), "cats", "Should find and return ending in s ");
+  deepEqual(find_string_ending_letter(strings, "z"), undefined, "Should not find string ending in z ");
+});
+

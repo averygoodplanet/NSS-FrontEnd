@@ -25,3 +25,8 @@ function find_string(strings, looking_for)
 {
   return _.find(strings, function(string){return string == looking_for;});
 }
+
+function find_string_ending_letter(strings, ending_letter)
+{
+  return _.find(strings, function(string){return string[string.length - 1] == ending_letter;});
+}
