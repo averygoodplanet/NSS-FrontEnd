@@ -16,15 +16,17 @@ test( "Filter Short Strings", function () {
   deepEqual(filter_short_strings(strings), expected, "Testing short strings under 4 characters");
 });
 
-test( "Filter 'A' Strings", function () {
+test( "Filter 'A'-beginning Strings", function () {
   var strings = ["apple", "hello", "there", "a", "the", "cat", "Aardvark", "elephant", "encyclopedia"];
   var expected = ["apple", "a", "Aardvark"];
   deepEqual(filter_a_strings(strings), expected, "strings should begin with letter 'a'");
 });
 
-test( "Find a String", function () {
+test( "Find String", function () {
   var strings = ["apple", "hello", "there", "a", "the", "cat", "Aardvark", "elephant", "encyclopedia"];
-  var expected = "elephant" ;
-  deepEqual(find_string(strings, "elephant"), expected, "Should find and return 'elephant' ");
+  deepEqual(find_string(strings, "elephant"), "elephant", "Should find and return 'elephant' ");
+  deepEqual(find_string(strings, "cat"), "cat", "Should find and return 'cat' ");
+  deepEqual(find_string(strings, "Aardvark"), "Aardvark", "Should find and return 'the' ");
+  //example of multiple assertions in one test.
 });
 
