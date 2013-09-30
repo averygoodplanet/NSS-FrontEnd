@@ -48,3 +48,19 @@ function pig_latin(word)
 {
   return word.slice(1) + word.slice(0,1) + "a";
 }
+
+function pig_greeting(salutation, name)
+{
+  return pig_latin(salutation) + ", " + pig_latin(name) + "!";
+}
+
+function pig_sentence(sentence)
+{
+  var word_array = sentence.split(" ");
+  var pig_word_array = [];
+  for(var i = 0; i < word_array.length; i++)
+  {
+    pig_word_array.push(pig_latin(word_array[i]));
+  }
+  return pig_word_array.join(" ");
+}

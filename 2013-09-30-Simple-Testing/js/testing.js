@@ -51,3 +51,12 @@ test("pig latin", function() {
   deepEqual(pig_latin("hello"), "elloha", "hello in pig latin");
 });
 
+test("pig_greeting", function(){
+  deepEqual(pig_greeting("hello", "janet"), "elloha, anetja!", "saying hello to janet in PL");
+});
+
+test( "pig_sentence", function () {
+  var sentence = "four score and seven years ago";
+  var expected = "ourfa coresa ndaa evensa earsya goaa";
+  deepEqual(pig_sentence(sentence), expected, "gettysburg address sentence in pig latin");
+});
