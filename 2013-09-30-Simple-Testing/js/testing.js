@@ -46,3 +46,8 @@ test("power", function() {
 test("greeting", function() {
   deepEqual(greeting("hello", "janet"), "hello, janet!", "greeting janet");
 });
+
+test("pig latin", function() {
+  deepEqual(pig_latin("hello"), "elloha", "hello in pig latin");
+});
+

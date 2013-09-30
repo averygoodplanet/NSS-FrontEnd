@@ -43,3 +43,8 @@ function greeting(salutation, name)
 {
   return salutation + ", "+name+"!";
 }
+
+function pig_latin(word)
+{
+  return word.slice(1) + word.slice(0,1) + "a";
+}
