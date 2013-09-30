@@ -40,5 +40,9 @@ test("power", function() {
   deepEqual(power(2, 3), 8, "2 to 3rd power");
   deepEqual(power(2, -1), 0.5, "2 to -1 power");
   deepEqual(power(2, -2), 0.25, "2 to -2 power");
-  deepEqual(power(9, -3), 0.00137174211, "9 to -3 power");
+  deepEqual(power(9, -3), 0.0013717421124828531, "9 to -3 power");
+});
+
+test("greeting", function() {
+  deepEqual(greeting("hello", "janet"), "hello, janet!", "greeting janet");
 });

@@ -38,3 +38,8 @@ function power(number, exponent) {
     return result;
   }
 }
+
+function greeting(salutation, name)
+{
+  return salutation + ", "+name+"!";
+}
