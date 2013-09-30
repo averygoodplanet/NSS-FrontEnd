@@ -25,8 +25,16 @@ function power(number, exponent) {
     }
     return result;
   }
-  else
+  else if(exponent == 0)
   {
+    return result;
+  }
+  else //if exponent less than zero.
+  {
+    for(var i = 0; i < (Math.abs(exponent)); i++)
+    {
+      result *= (1 / number);
+    }
     return result;
   }
 }
