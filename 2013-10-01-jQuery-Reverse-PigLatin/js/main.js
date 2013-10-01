@@ -19,6 +19,10 @@ function reverse_word_order(string) {
   return string.split(", ").reverse().join(', ')
 }
 
+function make_semicolon_string(string){
+ return string.split(', ').join('; ');
+}
+
 function initialize () {
 
 }
