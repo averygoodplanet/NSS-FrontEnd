@@ -1,0 +1,21 @@
+!!! 5
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %title Bank Balance
+    %link{rel: 'stylesheet', href: 'css/normalize.css'}
+    %link{rel: 'stylesheet', href: 'css/qunit-theme-gabe.css'}
+    %link{rel: 'stylesheet', href: 'css/style.css'}
+  %body
+    %h1 Bank of Nashville
+    %input#balance{type: 'text', readonly: 'true'}
+    %span Balance
+    %input#amount{type: 'text', placeholder: 'enter amount here'}
+    %input#deposit{type: 'button', value: 'Deposit'}
+    %input#withdraw{type: 'button', value: 'Withdraw'}
+
+
+
+    %script{src: 'js/jquery-1.10.2.min.js'}
+    %script{src: 'js/underscore-min.js'}
+    %script{src: 'js/main.js'}
