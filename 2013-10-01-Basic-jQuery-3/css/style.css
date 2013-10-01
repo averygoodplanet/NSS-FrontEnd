@@ -1,0 +1,15 @@
+#result {
+  height: 25px;
+  width: 60px;
+  border: 1px solid black;
+  display: inline-block;
+  top: 7px;
+  position: relative;
+  font-size: 18px;
+  line-height: 26px;
+  padding-bottom: 6px;
+  height: 17px;
+  padding-left: 6px; }
+
+#add {
+  margin-left: 24px; }
