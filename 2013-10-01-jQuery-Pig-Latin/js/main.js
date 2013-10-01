@@ -7,7 +7,7 @@ function convert_to_piglatin(word) {
 function displayresult() {
   var original = $('#original').val();
   var piglatin = convert_to_piglatin(original);
-  $('#piglatin').text(piglatin);
+  $('#piglatin').val(piglatin);
 }
 
 function initialize(){
