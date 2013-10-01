@@ -13,3 +13,7 @@ test("reverse_word_order", function() {
 test("make_semicolon_string", function() {
   deepEqual(make_semicolon_string("bill, harry, todd"), "bill; harry; todd", "make comma separated string to semicolon string");
 });
+
+test("link_changes(string)", function() {
+  deepEqual(link_changes("hello, nashville, code"),"odeca; ashvillena; elloha", "link_changes");
+});
