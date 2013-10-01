@@ -27,6 +27,12 @@ function link_changes(string){
   return make_semicolon_string((reverse_word_order((comma_string_to_pl(string)))));
 }
 
-function initialize () {
+function display_results(){
+  var userinput = $('#original').val();
+  var result = link_changes(userinput);
+  $('#result').val(result);
+}
 
+function initialize () {
+  $('#convert').click(display_results);
 }
