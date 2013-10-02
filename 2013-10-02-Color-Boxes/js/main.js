@@ -5,10 +5,10 @@ function makeColorBoxes() {
   console.log(colorstring);
   var colors = colorstring.split(', ');
   for(i in colors){
-    var box = $('<div>');
-    box.addClass('box');
-    box.css('background-color', colors[i]);
-    $('#boxes').append(box);
+    var $box = $('<div>');
+    $box.addClass('box');
+    $box.css('background-color', colors[i]);
+    $('#boxes').append($box);
   }
 }
 
