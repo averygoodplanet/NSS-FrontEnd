@@ -5,7 +5,7 @@ function addColor() {
   var box_color = $('#color').val();
   $box.addClass('box');
   $box.css('background-color', box_color);
-  $('#colors').append($box);
+  $('#colors').prepend($box);
   $('#color').val('');
   $('#color').focus();
 }
