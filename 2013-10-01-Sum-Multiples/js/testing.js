@@ -2,10 +2,14 @@
 //   deepEqual(userinput_to_a_b("5,3"), [5, 3], " '5,3' in input field to [5, 3] ");
 // });
 
-test("a_to_range",  function () {
-  deepEqual(a_to_range(5), [1,2,3,4,5], "converting 5 to [1,2,3,4,5]");
-});
+// test("a_to_range",  function () {
+//   deepEqual(a_to_range(5), [1,2,3,4,5], "converting 5 to [1,2,3,4,5]");
+// });
 
-test("make_multiples_array", function() {
-  deepEqual(make_multiples_array(), [3,6,9,12,15], "converting 5,3 to [3,6,9,12,15]");
+// test("make_multiples_array", function() {
+//   deepEqual(make_multiples_array(), [3,6,9,12,15], "converting 5,3 to [3,6,9,12,15]");
+// });
+
+test("sum_array()", function () {
+  deepEqual(sum_array([2,4,6]), 12, "sum array [2, 4, 6] to 12");
 });

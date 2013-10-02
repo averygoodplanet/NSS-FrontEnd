@@ -1,6 +1,5 @@
 $(document).ready(initialize);
 
-
 function userinput_to_a_b () {
   var user_string = $('#userinput').val();
   // var user_string = "5,3";  //for testing
@@ -27,6 +26,13 @@ function make_multiples_array() { // e.g. [3,6,9,12,15]
   return multiples_array;
 }
 
-function initialize(){
-  make_multiples_array();
+function sum_array(array) {
+  var sum = 0;
+  for(i in array)
+    sum += array[i];
+  return sum;
+}
+
+function initialize() {
+
 }
