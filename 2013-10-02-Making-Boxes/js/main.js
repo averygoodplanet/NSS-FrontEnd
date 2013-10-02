@@ -8,6 +8,7 @@ function makingBoxes() {
     var $box = $('<div>');
     $box.addClass('box');
     $box.css('background-color', colors[i%7]);
+    $box.css('border-radius', _.random(0, 50));
     $("#boxes").append($box);
   }
 }
