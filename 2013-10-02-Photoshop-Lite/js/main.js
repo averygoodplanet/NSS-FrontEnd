@@ -17,4 +17,11 @@ function initialize() {
   $('#color').val('');
   $('#color').focus();
   $('#addColor').click(addColor);
+
+
+  //on Enter keypress call addColor function.
+  $('#color').keypress(function (event) {
+    if(event.which == 13)
+      addColor();
+  });
 }
