@@ -7,10 +7,10 @@
     %link{rel: 'stylesheet', href: 'css/qunit-theme-gabe.css'}
     %link{rel: 'stylesheet', href: 'css/style.css'}
   %body
-    = Haml::Engine.new(File.read('haml/_header.haml')).render
-    = Haml::Engine.new(File.read('haml/_nav.haml')).render
-    = Haml::Engine.new(File.read('haml/_content.haml')).render
-    = Haml::Engine.new(File.read('haml/_footer.haml')).render
+    %h1 Making Boxes
+    %input#amount{type: 'text', placeholder: "enter number of boxes here"}
+    %input#make_boxes{type: 'button', value: "Make Boxes!"}
+    #boxes
 
     %script{src: 'js/jquery-1.10.2.min.js'}
     %script{src: 'js/underscore-min.js'}
