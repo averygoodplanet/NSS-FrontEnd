@@ -62,3 +62,6 @@
   float: left;
   width: 260px;
   margin-left: 27px; }
+
+#transactions p {
+  padding-bottom: 4px; }

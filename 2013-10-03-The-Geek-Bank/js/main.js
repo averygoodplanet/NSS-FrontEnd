@@ -22,11 +22,19 @@ function setBalance() {
 function deposit() {
   balance += parseFloat($('#amount').val());
   $('#balanceDisplay').val(balance);
+  $('#depositsColumn').append(makeTransactionItem());
 }
 
 function withdraw() {
   balance -= parseFloat($('#amount').val());
   $('#balanceDisplay').val(balance);
+  $('#withdrawalsColumn').append(makeTransactionItem());
+}
+
+function makeTransactionItem(){
+  var $item = $('<p>');
+  $item.text('$'+($('#amount').val()));
+  return $item;
 }
 
 function initialize() {
