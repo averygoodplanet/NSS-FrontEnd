@@ -11,17 +11,18 @@ function setLogo() {
 }
 
 function setBalance() {
-  balance = $('#balanceInput').val();
-  alert('balance is now ' + balance);
-  $('#balanceDisplay').val('$'+balance);
+  balance = parseFloat($('#balanceInput').val());
+  $('#balanceDisplay').val(balance);
 }
 
 function deposit() {
-  alert('deposit function');
+  balance += parseFloat($('#amount').val());
+  $('#balanceDisplay').val(balance);
 }
 
 function withdraw() {
-  alert('withdraw function');
+  balance -= parseFloat($('#amount').val());
+  $('#balanceDisplay').val(balance);
 }
 
 function initialize() {
