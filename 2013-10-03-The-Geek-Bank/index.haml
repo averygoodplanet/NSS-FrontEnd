@@ -15,8 +15,9 @@
     #clear1
     %h3 Current Balance:
     %input#balanceDisplay{type: 'text', readonly: 'true'}
-    %input#balanceInput{type: 'text', placeholder: 'enter initial Balance here'}
-    %input#setBalance{type: 'button', value: 'Set Balance!'}
+    #setBalanceWrapper
+      %input#balanceInput{type: 'text', placeholder: 'enter initial Balance here'}
+      %input#setBalance{type: 'button', value: 'Set Balance!'}
     #clear1
     %input#amount{type: 'text', placeholder: 'enter amount of deposit/withdrawal'}
     %input#deposit{type: 'button', value: 'Deposit!'}

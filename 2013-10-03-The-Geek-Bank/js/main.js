@@ -9,11 +9,13 @@ function setLogo() {
   $('#logo').attr('src', url);
   $('#url').val('');
   $('#setLogoWrapper').hide();
+  $('#balanceInput').focus();
 }
 
 function setBalance() {
   balance = parseFloat($('#balanceInput').val());
   $('#balanceDisplay').val(balance);
+  $('#setBalanceWrapper').hide();
 }
 
 function deposit() {
