@@ -16,6 +16,7 @@ function setBalance() {
   balance = parseFloat($('#balanceInput').val());
   $('#balanceDisplay').val(balance);
   $('#setBalanceWrapper').hide();
+  $('#amount').focus();
 }
 
 function deposit() {

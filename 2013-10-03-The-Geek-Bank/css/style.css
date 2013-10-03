@@ -37,3 +37,6 @@
 #setBalanceWrapper {
   position: relative;
   left: 137px; }
+
+#deposit, #withdraw {
+  margin-left: 16px; }
