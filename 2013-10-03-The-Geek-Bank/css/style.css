@@ -40,3 +40,25 @@
 
 #deposit, #withdraw {
   margin-left: 16px; }
+
+#transactions {
+  width: 620px;
+  position: relative;
+  bottom: 167px;
+  left: 600px;
+  border: 1px solid black; }
+
+#transactions h3 {
+  position: relative;
+  left: 235px;
+  margin: 22px auto 0 auto; }
+
+#depositsColumn {
+  float: left;
+  width: 260px;
+  margin-left: 27px; }
+
+#withdrawalsColumn {
+  float: left;
+  width: 260px;
+  margin-left: 27px; }

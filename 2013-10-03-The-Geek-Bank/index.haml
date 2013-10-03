@@ -2,7 +2,7 @@
 %html{lang: 'en'}
   %head
     %meta{charset: 'utf-8'}
-    %title Template
+    %title The Geek Bank
     %link{rel: 'stylesheet', href: 'css/normalize.css'}
     %link{rel: 'stylesheet', href: 'css/qunit-theme-gabe.css'}
     %link{rel: 'stylesheet', href: 'css/style.css'}
@@ -22,6 +22,15 @@
     %input#amount{type: 'text', placeholder: 'enter amount of deposit/withdrawal'}
     %input#deposit{type: 'button', value: 'Deposit!'}
     %input#withdraw{type: 'button', value: 'Withdraw!'}
+    #clear1
+    #transactions
+      %h3 Transaction List
+      #depositsColumn
+        %h5 Deposits
+      #withdrawalsColumn
+        %h5 Withdrawals
+      .clear
+
 
     %script{src: 'js/jquery-1.10.2.min.js'}
     %script{src: 'js/underscore-min.js'}
