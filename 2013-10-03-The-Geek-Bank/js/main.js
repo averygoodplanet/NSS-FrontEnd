@@ -6,7 +6,6 @@ var balance = 0;
 
 function setLogo() {
   var url = $('#url').val();
-  alert('url: '+url);
   $('#logo').attr('src', url);
 }
 
@@ -26,6 +25,7 @@ function withdraw() {
 }
 
 function initialize() {
+  $('#url').focus();
   $('#setLogo').click(setLogo);
   $('#setBalance').click(setBalance);
   $('#deposit').click(deposit);
