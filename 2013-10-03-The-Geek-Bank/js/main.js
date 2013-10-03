@@ -47,6 +47,16 @@ function reverseDeposit() {
   transaction.remove();
 }
 
+function reverseWithdrawal() {
+  var transaction = $(this);
+  var transactionAmount = parseFloat((transaction.text()).slice(1));
+  //rounding to 2 decimal places
+  transactionAmount = Math.round(transactionAmount*100)/100;
+  balance += transactionAmount;
+  $('#balanceDisplay').val(balance);
+  transaction.remove();
+}
+
 function initialize() {
   $('#url').focus();
   $('#setLogo').click(setLogo);
@@ -54,4 +64,5 @@ function initialize() {
   $('#deposit').click(deposit);
   $('#withdraw').click(withdraw);
   $('#depositsColumn').on('click', 'p', reverseDeposit);
+  $('#withdrawalsColumn').on('click', 'p', reverseWithdrawal);
 }
