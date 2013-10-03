@@ -23,12 +23,16 @@ function deposit() {
   balance += parseFloat($('#amount').val());
   $('#balanceDisplay').val(balance);
   $('#depositsColumn').append(makeTransactionItem());
+  $('#amount').val('');
+  $('#amount').focus();
 }
 
 function withdraw() {
   balance -= parseFloat($('#amount').val());
   $('#balanceDisplay').val(balance);
   $('#withdrawalsColumn').append(makeTransactionItem());
+  $('#amount').val('');
+  $('#amount').focus();
 }
 
 function makeTransactionItem(){
