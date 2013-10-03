@@ -7,6 +7,7 @@ var balance = 0;
 function setLogo() {
   var url = $('#url').val();
   $('#logo').attr('src', url);
+  $('#url').val('');
 }
 
 function setBalance() {
