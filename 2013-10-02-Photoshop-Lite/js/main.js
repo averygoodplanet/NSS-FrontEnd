@@ -1,3 +1,6 @@
+'use strict';
+//JSHint: using strict version of Javascript
+
 $(document).ready(initialize);
 
 function clearInputAndFocus () {
@@ -7,21 +10,36 @@ function clearInputAndFocus () {
 
 function addColor() {
   var $box = $('<div>');
-  var box_color = $('#color').val();
+  var boxColor = $('#color').val();
   $box.addClass('box');
-  $box.css('background-color', box_color);
+  $box.css('background-color', boxColor);
   $('#colors').prepend($box);
   clearInputAndFocus();
+}
+
+function brushClicked() {
+  alert('the brush was clicked');
+}
+
+function boxClicked() {
+  //converting  this-DOM object into jQuery object;
+  var $box = $(this);
+  var color = $box.css('background-color');
+  $('#brush').css('background-color', color);
 }
 
 function initialize() {
   clearInputAndFocus();
   $('#addColor').click(addColor);
-
+  $('#brush').click(brushClicked);
+  //because boxes are created after initialized...
+  //$('parent_selector').on('name of event', 'child selector', name_of_function);
+  $('#colors').on('click', '.box', boxClicked);
   //on Enter keypress call addColor function.
   $('#color').keypress(function (event) {
-    if(event.which == 13)
+    if(event.which === 13){
       addColor();
+    }
   });
 
 }
