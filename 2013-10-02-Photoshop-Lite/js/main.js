@@ -28,6 +28,17 @@ function boxClicked() {
   $('#brush').css('background-color', color);
 }
 
+function addBox() {
+  var numberBoxes = parseInt($('#amount').val());
+  for(var i = 0; i < numberBoxes; i++){
+    $('#boxes').prepend($pixel);
+    var pixelColor = $('#brush').css('background-color');
+    var $pixel = $('<div>');
+    $pixel.css('background-color', pixelColor);
+    $pixel.addClass('pixel');
+  }
+}
+
 function initialize() {
   clearInputAndFocus();
   $('#addColor').click(addColor);
@@ -42,4 +53,5 @@ function initialize() {
     }
   });
 
+  $('#add_box').click(addBox);
 }

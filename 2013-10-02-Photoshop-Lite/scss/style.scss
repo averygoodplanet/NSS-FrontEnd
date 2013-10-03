@@ -28,6 +28,19 @@ input
   clear: both;
 }
 
+.pixel
+{
+  height: 5px;
+  width: 5px;
+  border: 1px solid black;
+  float: left;
+  margin: 0;
+}
+
+#boxes
+{
+  width: 1080px;
+}
 // #colors
 // {
 //   width: 1000px;
