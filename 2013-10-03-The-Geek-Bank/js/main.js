@@ -2,6 +2,8 @@
 
 $(document).ready(initialize);
 
+var balance = 0;
+
 function setLogo() {
   var url = $('#url').val();
   alert('url: '+url);
@@ -9,7 +11,9 @@ function setLogo() {
 }
 
 function setBalance() {
-  alert('setBalance function');
+  balance = $('#balanceInput').val();
+  alert('balance is now ' + balance);
+  $('#balanceDisplay').val('$'+balance);
 }
 
 function deposit() {
