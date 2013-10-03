@@ -3,7 +3,9 @@
 $(document).ready(initialize);
 
 function setLogo() {
-  alert('setLogo function');
+  var url = $('#url').val();
+  alert('url: '+url);
+  $('#logo').attr('src', url);
 }
 
 function setBalance() {
