@@ -37,10 +37,21 @@ function makeTransactionItem(){
   return $item;
 }
 
+function reverseDeposit() {
+  var transaction = $(this);
+  var transactionAmount = parseFloat((transaction.text()).slice(1));
+  //rounding to 2 decimal places
+  transactionAmount = Math.round(transactionAmount*100)/100;
+  balance -= transactionAmount;
+  $('#balanceDisplay').val(balance);
+  transaction.remove();
+}
+
 function initialize() {
   $('#url').focus();
   $('#setLogo').click(setLogo);
   $('#setBalance').click(setBalance);
   $('#deposit').click(deposit);
   $('#withdraw').click(withdraw);
+  $('#depositsColumn').on('click', 'p', reverseDeposit);
 }
