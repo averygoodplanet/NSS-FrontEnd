@@ -39,6 +39,12 @@ function addBox() {
   }
 }
 
+function canvasHover() {
+  var $canvas = $(this);
+  var brushColor = $('#brush').css('background-color');
+  $($canvas).css('background-color', brushColor);
+}
+
 function initialize() {
   clearInputAndFocus();
   $('#addColor').click(addColor);
@@ -54,4 +60,5 @@ function initialize() {
   });
 
   $('#add_box').click(addBox);
+  $('#boxes').on('mouseover', '.pixel', canvasHover);
 }
