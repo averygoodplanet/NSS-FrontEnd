@@ -1,0 +1,31 @@
+#logo {
+  border: 1px solid black;
+  height: 241px;
+  width: 241px; }
+
+#url {
+  position: relative;
+  bottom: 208px;
+  left: 14px; }
+
+#setLogo {
+  position: relative;
+  right: 169px;
+  bottom: 174px; }
+
+#setBalance {
+  position: relative;
+  right: 84px;
+  bottom: 13px; }
+
+#balanceInput {
+  position: relative;
+  left: 100px;
+  bottom: 48px; }
+
+.clear {
+  clear: both; }
+
+#clear1 {
+  clear: both;
+  margin-top: 25px; }
