@@ -9,8 +9,9 @@
   %body
     %h1 The Geek Bank
     %img#logo
-    %input#url{type: 'text', placeholder: 'enter url for logo here'}
-    %input#setLogo{type: 'button', value: 'Set Logo!'}
+    #setLogoWrapper
+      %input#url{type: 'text', placeholder: 'enter url for logo here'}
+      %input#setLogo{type: 'button', value: 'Set Logo!'}
     #clear1
     %h3 Current Balance:
     %input#balanceDisplay{type: 'text', readonly: 'true'}

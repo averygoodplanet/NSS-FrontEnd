@@ -8,6 +8,7 @@ function setLogo() {
   var url = $('#url').val();
   $('#logo').attr('src', url);
   $('#url').val('');
+  $('#setLogoWrapper').hide();
 }
 
 function setBalance() {
