@@ -3,6 +3,7 @@
 $(document).ready(initialize);
 
 var nukeCount = 0;
+var arrowsCount = 0;
 
 function addRow() {
   var $tr = $('<tr>');
@@ -27,6 +28,25 @@ function addRow() {
   $('table').append($tr);
   $input.focus();
   createNuke($tr);
+  createArrows($tr);
+}
+
+function createArrows($currentRow) {
+  //adds 1 header column on first row creation.
+  if(arrowsCount < 1){
+    $('table').children().children().first().append('<td>');
+  }
+
+  arrowsCount += 1;
+  var $cell = $('<td>');
+  var $imgUp = $('<img>');
+  var $imgDown = $('<img>');
+  $imgUp.attr('src', 'images/upArrow.jpg');
+  $imgDown.attr('src', 'images/downArrow.jpg');
+  $imgUp.attr('class', 'up');
+  $imgDown.attr('class', 'down');
+  $cell.append($imgUp, $imgDown);
+  $currentRow.append($cell);
 }
 
 function createNuke($currentRow) {
