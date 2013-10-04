@@ -42,23 +42,23 @@ function makeTransactionItem(){
 }
 
 function reverseDeposit() {
-  var transaction = $(this);
-  var transactionAmount = parseFloat((transaction.text()).slice(1));
+  var $transaction = $(this);
+  var transactionAmount = parseFloat(($transaction.text()).slice(1));
   //rounding to 2 decimal places
   transactionAmount = Math.round(transactionAmount*100)/100;
   balance -= transactionAmount;
   $('#balanceDisplay').val(balance);
-  transaction.remove();
+  $transaction.remove();
 }
 
 function reverseWithdrawal() {
-  var transaction = $(this);
-  var transactionAmount = parseFloat((transaction.text()).slice(1));
+  var $transaction = $(this);
+  var transactionAmount = parseFloat(($transaction.text()).slice(1));
   //rounding to 2 decimal places
   transactionAmount = Math.round(transactionAmount*100)/100;
   balance += transactionAmount;
   $('#balanceDisplay').val(balance);
-  transaction.remove();
+  $transaction.remove();
 }
 
 function initialize() {
