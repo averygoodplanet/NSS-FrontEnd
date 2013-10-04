@@ -24,6 +24,16 @@ function addRow() {
   $tr.append($name, $food, $ctrl);
   $('table').append($tr);
   $input.focus();
+  createNuke($tr);
+}
+
+function createNuke($currentRow) {
+  var $cell = $('<td>');
+  var $button = $('<input>');
+  $button.attr('type', 'button');
+  $button.attr('value', 'Nuke!');
+  $cell.append($button);
+  $currentRow.append($cell);
 }
 
 function rsvp() {
