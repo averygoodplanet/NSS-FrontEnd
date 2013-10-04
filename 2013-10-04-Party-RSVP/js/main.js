@@ -98,8 +98,10 @@ function actionArrow() {
       $thisRow.remove();
     }
   } else if(arrowClass === 'down') {
-    $nextRow.after($cloneThisRow);
-    $thisRow.remove();
+    if($nextRow.length !== 0){
+      $nextRow.after($cloneThisRow);
+      $thisRow.remove();
+    }
   } else {
 
   }
