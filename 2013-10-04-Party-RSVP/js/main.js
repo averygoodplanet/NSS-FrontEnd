@@ -93,13 +93,15 @@ function actionArrow() {
   var $previousRow = $arrow.parent().parent().prev();
   var $nextRow = $arrow.parent().parent().next();
   if(arrowClass === 'up'){
-    $previousRow.before($cloneThisRow);
-    $thisRow.remove();
+    if(!$previousRow.hasClass('home')){
+      $previousRow.before($cloneThisRow);
+      $thisRow.remove();
+    }
   } else if(arrowClass === 'down') {
     $nextRow.after($cloneThisRow);
     $thisRow.remove();
   } else {
-    alert('Something other than "up" or "down" returned for arrowClass');
+
   }
 }
 
