@@ -85,9 +85,27 @@ function rsvp() {
   $button.parent().siblings('.food').text(food);
 }
 
+function actionArrow() {
+  var $arrow = $(this);
+  var $thisRow = $arrow.parent().parent();
+  var $cloneThisRow = $arrow.parent().parent().clone();
+  var arrowClass = $arrow.attr('class');
+  var $previousRow = $arrow.parent().parent().prev();
+  var $nextRow = $arrow.parent().parent().next();
+  if(arrowClass === 'up'){
+    $previousRow.before($cloneThisRow);
+    $thisRow.remove();
+  } else if(arrowClass === 'down') {
+    $nextRow.after($cloneThisRow);
+    $thisRow.remove();
+  } else {
+    alert('Something other than "up" or "down" returned for arrowClass');
+  }
+}
 
 function initialize() {
   $('#add').click(addRow);
   $('table').on('click', '.rsvp', rsvp);
   $('table').on('click', '.nuke', actionNuke);
+  $('table').on('click', '.up, .down', actionArrow);
 }
