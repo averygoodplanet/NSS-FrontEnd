@@ -2,6 +2,8 @@
 
 $(document).ready(initialize);
 
+var nukeCount = 0;
+
 function addRow() {
   var $tr = $('<tr>');
   var $name = $('<td>');
@@ -28,12 +30,24 @@ function addRow() {
 }
 
 function createNuke($currentRow) {
+  //adds 1 header column on first row creation.
+  if(nukeCount < 1){
+    $('table').children().children().first().append('<td>');
+  }
+
+  nukeCount += 1;
   var $cell = $('<td>');
   var $button = $('<input>');
   $button.attr('type', 'button');
   $button.attr('value', 'Nuke!');
+  $button.attr('class', 'nuke');
   $cell.append($button);
   $currentRow.append($cell);
+}
+
+function actionNuke() {
+  var $nuke = $(this);
+  $nuke.parent().parent().remove();
 }
 
 function rsvp() {
@@ -55,4 +69,5 @@ function rsvp() {
 function initialize() {
   $('#add').click(addRow);
   $('table').on('click', '.rsvp', rsvp);
+  $('table').on('click', '.nuke', actionNuke);
 }
