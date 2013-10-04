@@ -1,0 +1,26 @@
+!!! 5
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %title Template
+    %link{rel: 'stylesheet', href: 'css/normalize.css'}
+    %link{rel: 'stylesheet', href: 'css/qunit-theme-gabe.css'}
+    %link{rel: 'stylesheet', href: 'css/style.css'}
+  %body
+    #inputWrapper
+      %h1 To Do
+      %label{for: 'dueDate'}
+      %input#dueDate{type: 'text', placeholder: 'e.g. Next Wednesday'}
+      %label{for: 'task'}
+      %input#task{type: 'text', placeholder: 'e.g. walk the dog'}
+      %label{for: 'colorInput'}
+      %input#colorInput{type: 'text', placeholder: 'e.g. #cdcdcd, grey'}
+      %input#addTask{type: 'button', value: 'Add Task!'}
+    #taskListWrapper
+
+
+
+
+    %script{src: 'js/jquery-1.10.2.min.js'}
+    %script{src: 'js/underscore-min.js'}
+    %script{src: 'js/main.js'}
