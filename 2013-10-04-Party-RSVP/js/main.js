@@ -33,8 +33,12 @@ function rsvp() {
   var items = text.split(', ');
   var name = items[0];
   var food = items[1];
-  $button.parent().prev().prev().text(name);
-  $button.parent().prev().text(food);
+
+  // $button.parent().prev().prev().text(name); //alternate syntax;
+  $button.parent().siblings('.name').text(name);
+
+  // $button.parent().prev().text(food);  //alternate syntax
+  $button.parent().siblings('.food').text(food);
 }
 
 
