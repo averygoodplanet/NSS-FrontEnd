@@ -33,7 +33,6 @@ function rsvp() {
   var items = text.split(', ');
   var name = items[0];
   var food = items[1];
-  alert('name: '+name+'  food: '+food);
   $button.parent().prev().prev().text(name);
   $button.parent().prev().text(food);
 }
