@@ -9,11 +9,11 @@
   %body
     #inputWrapper
       %h1 To Do
-      %label{for: 'dueDate'}
+      %label{for: 'dueDate'} Due Date
       %input#dueDate{type: 'text', placeholder: 'e.g. Next Wednesday'}
-      %label{for: 'task'}
+      %label#taskLabel{for: 'task'} Task
       %input#task{type: 'text', placeholder: 'e.g. walk the dog'}
-      %label{for: 'colorInput'}
+      %label#colorLabel{for: 'colorInput'} Color
       %input#colorInput{type: 'text', placeholder: 'e.g. #cdcdcd, grey'}
       %input#addTask{type: 'button', value: 'Add Task!'}
     #taskListWrapper

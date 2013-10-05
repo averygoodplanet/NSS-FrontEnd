@@ -1,0 +1,28 @@
+#dueDate {
+  position: relative;
+  top: 26px;
+  right: 74px; }
+
+#taskLabel {
+  position: relative;
+  right: 48px; }
+
+#task {
+  position: relative;
+  top: 25px;
+  right: 87px; }
+
+#colorLabel {
+  position: relative;
+  right: 65px; }
+
+#colorInput {
+  position: relative;
+  right: 110px;
+  top: 23px; }
+
+#addTask {
+  position: relative;
+  right: 92px;
+  top: 22px;
+  box-shadow: 3px 4px 5px grey; }
