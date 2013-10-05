@@ -2,14 +2,14 @@
 <html lang='en'>
   <head>
     <meta charset='utf-8'>
-    <title>Template</title>
+    <title>Tasklist</title>
     <link href='css/normalize.css' rel='stylesheet'>
     <link href='css/qunit-theme-gabe.css' rel='stylesheet'>
     <link href='css/style.css' rel='stylesheet'>
   </head>
   <body>
     <div id='inputWrapper'>
-      <h1>To Do</h1>
+      <h1>Enter a Task:</h1>
       <label for='dueDate'>Due Date</label>
       <input id='dueDate' placeholder='e.g. Next Wednesday' type='text'>
       <label for='task' id='taskLabel'>Task</label>
@@ -18,7 +18,19 @@
       <input id='colorInput' placeholder='e.g. #cdcdcd, grey' type='text'>
       <input id='addTask' type='button' value='Add Task!'>
     </div>
-    <div id='taskListWrapper'></div>
+    <div id='taskListWrapper'>
+      <h1>Tasklist</h1>
+      <table>
+        <tr>
+          <th>Due Date</th>
+          <th id='taskColumn'>Task</th>
+          <th>Color</th>
+          <th>Done?</th>
+          <th>Remove?</th>
+          <th>Up/Down</th>
+        </tr>
+      </table>
+    </div>
     <script src='js/jquery-1.10.2.min.js'></script>
     <script src='js/underscore-min.js'></script>
     <script src='js/main.js'></script>

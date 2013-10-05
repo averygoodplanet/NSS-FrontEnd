@@ -26,3 +26,15 @@
   right: 92px;
   top: 22px;
   box-shadow: 3px 4px 5px grey; }
+
+#taskListWrapper {
+  margin-top: 71px; }
+
+th {
+  font-size: 18px;
+  font-weight: lighter;
+  width: 106px;
+  border-bottom: 6px solid grey; }
+
+#taskColumn {
+  width: 446px; }

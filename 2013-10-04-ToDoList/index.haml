@@ -2,13 +2,13 @@
 %html{lang: 'en'}
   %head
     %meta{charset: 'utf-8'}
-    %title Template
+    %title Tasklist
     %link{rel: 'stylesheet', href: 'css/normalize.css'}
     %link{rel: 'stylesheet', href: 'css/qunit-theme-gabe.css'}
     %link{rel: 'stylesheet', href: 'css/style.css'}
   %body
     #inputWrapper
-      %h1 To Do
+      %h1 Enter a Task:
       %label{for: 'dueDate'} Due Date
       %input#dueDate{type: 'text', placeholder: 'e.g. Next Wednesday'}
       %label#taskLabel{for: 'task'} Task
@@ -17,6 +17,16 @@
       %input#colorInput{type: 'text', placeholder: 'e.g. #cdcdcd, grey'}
       %input#addTask{type: 'button', value: 'Add Task!'}
     #taskListWrapper
+      %h1 Tasklist
+      %table
+        %tr
+          %th Due Date
+          %th#taskColumn Task
+          %th Color
+          %th Done?
+          %th Remove?
+          %th Up/Down
+
 
 
 
