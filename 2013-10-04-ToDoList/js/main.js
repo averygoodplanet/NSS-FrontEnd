@@ -57,7 +57,18 @@ function remove() {
 }
 
 function arrows() {
-  alert('clicked arrow');
+  var $arrow = $(this);
+  var $arrowClass = $arrow.attr('class');
+  var $thisRow = $arrow.parent().parent();
+  if($arrowClass === 'up'){
+    if($thisRow.prev().attr('id') !== 'headerRow'){
+      $arrow.parent().parent().prev().before($thisRow);
+    }
+  } else if($arrowClass === 'down') {
+    alert('down');
+  } else {
+    alert('else');
+  }
 }
 
 
