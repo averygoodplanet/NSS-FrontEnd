@@ -56,7 +56,9 @@ function remove() {
   $button.parent().parent().remove();
 }
 
-
+function arrows() {
+  alert('clicked arrow');
+}
 
 
 
@@ -66,4 +68,5 @@ function remove() {
 function initialize () {
   $('#addTask').click(addTask);
   $('table').on('click', '.delete', remove);
+  $('table').on('click', '.up, .down', arrows);
 }
