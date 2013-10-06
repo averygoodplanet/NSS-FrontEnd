@@ -7,10 +7,12 @@ function addTask() {
 
   var dueDateString = $('#dueDate').val();
   var $dueDateCell = $('<td>');
+  $dueDateCell.addClass('dueDateCell');
   $dueDateCell.text(dueDateString);
 
   var taskString = $('#task').val();
   var $taskCell = $('<td>');
+  $taskCell.addClass('taskCell');
   $taskCell.text(taskString);
 
   var colorString = $('#colorInput').val();
@@ -19,6 +21,7 @@ function addTask() {
   $divInsideColorCell.css('background-color', colorString);
   $divInsideColorCell.css('height', '20px');
   $divInsideColorCell.css('width', '20px');
+  $divInsideColorCell.addClass('colorDiv');
   $colorCell.append($divInsideColorCell);
 
   var $doneCell = $('<td>');

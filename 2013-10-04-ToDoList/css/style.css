@@ -38,3 +38,22 @@ th {
 
 #taskColumn {
   width: 446px; }
+
+.dueDateCell, .taskCell {
+  text-align: center; }
+
+.colorDiv {
+  position: relative;
+  left: 43px; }
+
+.checkbox {
+  position: relative;
+  left: 46px; }
+
+.delete {
+  position: relative;
+  left: 18px; }
+
+.up, .down {
+  position: relative;
+  left: 30px; }
