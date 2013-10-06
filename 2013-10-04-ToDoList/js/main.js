@@ -51,7 +51,10 @@ function addTask() {
   $('table').append($newRow);
 }
 
-
+function remove() {
+  var $button = $(this);
+  $button.parent().parent().remove();
+}
 
 
 
@@ -62,4 +65,5 @@ function addTask() {
 
 function initialize () {
   $('#addTask').click(addTask);
+  $('table').on('click', '.delete', remove);
 }
