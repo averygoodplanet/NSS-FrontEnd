@@ -62,10 +62,12 @@ function arrows() {
   var $thisRow = $arrow.parent().parent();
   if($arrowClass === 'up'){
     if($thisRow.prev().attr('id') !== 'headerRow'){
-      $arrow.parent().parent().prev().before($thisRow);
+      $thisRow.prev().before($thisRow);
     }
   } else if($arrowClass === 'down') {
-    alert('down');
+    if($thisRow.next().length !== 0){
+      $thisRow.next().after($thisRow);
+    }
   } else {
     alert('else');
   }
