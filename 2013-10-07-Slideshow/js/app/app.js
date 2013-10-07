@@ -3,7 +3,6 @@
 var photos = [];
 var currentIndex = 0;
 var timer = 0;
-var PER_PAGE = 5;
 var page = 1;
 var total_pages = 2;
 
@@ -16,6 +15,7 @@ function initialize(){
 
 function searchFlickr() {
   var API_KEY = 'f4c1acbf5ca4055d41391a532ca1954d';
+  var PER_PAGE = 5;
   var query = $('#query').val();
   var url = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + API_KEY + '&text=' + query + '&per_page=' + PER_PAGE + '&page=' + page + '&format=json&jsoncallback=?';
   // get JSON is asynchronous; results is the callback function; the data is passed to the callback function;
