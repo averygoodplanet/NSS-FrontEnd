@@ -1,0 +1,13 @@
+.photo {
+  float: left;
+  width: 250px;
+  height: 250px;
+  border: 1px dashed #cccccc;
+  margin: 10px; }
+
+.photo_enlarge {
+  -moz-transform: scale(2);
+  -webkit-transform: scale(2); }
+
+.selectedPhoto {
+  border: 3px solid red; }
