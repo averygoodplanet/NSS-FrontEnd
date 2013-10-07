@@ -56,4 +56,12 @@ th {
 
 .up, .down {
   position: relative;
-  left: 30px; }
+  left: 30px;
+  border-radius: 8px;
+  border: 1px solid grey; }
+
+.checkedText {
+  text-decoration: line-through; }
+
+.checkedRow {
+  background-color: lightgray; }

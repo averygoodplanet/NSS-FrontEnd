@@ -73,7 +73,22 @@ function arrows() {
   }
 }
 
-
+function checkbox() {
+  var $checkbox = $(this);
+  var checked = $checkbox.prop('checked');
+  var $thisRow = $checkbox.parent().parent();
+  var $dueDate = $checkbox.parent().prev().prev().prev();
+  var $task = $checkbox.parent().prev().prev();
+  if(checked){
+    $dueDate.addClass('checkedText');
+    $task.addClass('checkedText');
+    $thisRow.addClass('checkedRow');
+  } else {
+    $dueDate.removeClass('checkedText');
+    $task.removeClass('checkedText');
+    $thisRow.removeClass('checkedRow');
+  }
+}
 
 
 
@@ -82,4 +97,5 @@ function initialize () {
   $('#addTask').click(addTask);
   $('table').on('click', '.delete', remove);
   $('table').on('click', '.up, .down', arrows);
+  $('table').on('click', '.checkbox', checkbox);
 }
