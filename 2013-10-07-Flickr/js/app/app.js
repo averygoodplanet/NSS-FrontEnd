@@ -5,6 +5,12 @@ $(document).ready(initialize);
 function initialize(){
   $(document).foundation();
   $('#search').click(searchFlickr);
+  $('#photos').on('dblclick', '.photo', remove);
+}
+
+function remove() {
+  var $item = $(this);
+  $item.remove();
 }
 
 function searchFlickr() {
