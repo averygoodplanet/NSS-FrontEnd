@@ -20,9 +20,14 @@
       %input#search.button.radius.small{type: 'button', value: 'Search Flickr!'}
       %input#clearPhotos.button.radius.small.alert{type: 'button', value: 'Clear Photos!'}
       %input#deleteSelected.button.radius.small.alert{type: 'button', value: 'Delete Selected'}
+      %input#save.button.radius.small.success{type: 'button', value: 'Save Photos'}
   .row
-    .small-12.columns
+    .small-8.columns
+      %h4.subheader Searched Photos
       #photos
+    .small-4.columns
+      %h4.subheader Saved Photos
+      #savedPhotos
 
 
   %script{src: 'js/vendor/jquery-1.10.2.js'}

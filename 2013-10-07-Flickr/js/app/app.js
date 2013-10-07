@@ -8,6 +8,9 @@ function initialize(){
   $('#photos').on('dblclick', '.photo', remove);
   // $('#photos').on('click', '.photo, .photo_enlarge', enlarge);
   $('#photos').on('click', '.photo', selectPhoto);
+  $('#save').click(savePhotos);
+  $('#clearPhotos').click(clearPhotos);
+  $('#deleteSelected').click(deleteSelected);
 }
 
 function selectPhoto() {
@@ -51,6 +54,12 @@ function deleteSelected() {
   $('.selectedPhoto').remove();
 }
 
+function savePhotos() {
+  var $selectedPhotos = $('.selectedPhoto');
+  $selectedPhotos.removeClass('selectedPhoto');
+  $('#savedPhotos').prepend($selectedPhotos);
+}
+
 function createImage(photo) {
   var url = 'url(http://farm' + photo.farm + '.static.flickr.com/'+ photo.server +'/'+ photo.id +'_'+ photo.secret +'_m.jpg)';
   var $div = $('<div>');
@@ -58,6 +67,4 @@ function createImage(photo) {
   $div.css('background-image', url);
   $div.css('background-size', 'cover');
   $('#photos').prepend($div);
-  $('#clearPhotos').click(clearPhotos);
-  $('#deleteSelected').click(deleteSelected);
 }
