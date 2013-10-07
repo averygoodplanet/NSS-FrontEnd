@@ -37,6 +37,10 @@ function results(data) {
   }
 }
 
+function clearPhotos() {
+  $('#photos').empty();
+}
+
 function createImage(photo) {
   var url = 'url(http://farm' + photo.farm + '.static.flickr.com/'+ photo.server +'/'+ photo.id +'_'+ photo.secret +'_m.jpg)';
   var $div = $('<div>');
@@ -44,4 +48,5 @@ function createImage(photo) {
   $div.css('background-image', url);
   $div.css('background-size', 'cover');
   $('#photos').prepend($div);
+  $('#clearPhotos').click(clearPhotos);
 }
