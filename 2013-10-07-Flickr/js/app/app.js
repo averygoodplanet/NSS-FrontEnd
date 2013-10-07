@@ -6,6 +6,12 @@ function initialize(){
   $(document).foundation();
   $('#search').click(searchFlickr);
   $('#photos').on('dblclick', '.photo', remove);
+  $('#photos').on('click', '.photo, .photo_enlarge', enlarge);
+}
+
+function enlarge() {
+  var $photo = $(this);
+  $photo.toggleClass('photo_enlarge');
 }
 
 function remove() {

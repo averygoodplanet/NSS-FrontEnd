@@ -6,3 +6,9 @@
   border: 1px dashed #cccccc;
   margin: 10px;
 }
+
+.photo_enlarge
+{
+  -moz-transform: scale(2);
+  -webkit-transform: scale(2);
+}
