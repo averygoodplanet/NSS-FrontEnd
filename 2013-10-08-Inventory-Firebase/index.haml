@@ -9,10 +9,17 @@
   %link{rel: "stylesheet", href: "css/foundation.css"}
   %link{rel: "stylesheet", href: "css/app.css"}
   %script{src: "js/vendor/custom.modernizr.js"}
+  <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
 %body
   .row
     .small-12.columns
       %h1 Inventory System
+  .row
+    .small-4.colums
+      %input#person{type: 'text', placeholder: 'Full Name'}
+      %input#address{type: 'text', placeholder: 'Address'}
+    .small-8.columns
+      %input#save.button.small.success.radius{type: 'button', value: 'Save'}
   .row
     .small-2.columns
       %input#name{type: 'text', autofocus: true, placeholder: 'Item Name'}

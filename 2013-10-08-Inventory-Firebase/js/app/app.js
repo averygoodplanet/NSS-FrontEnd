@@ -1,11 +1,26 @@
 'use strict';
 
+var db;
+
 $(document).ready(initialize);
 
 function initialize(){
   $(document).foundation();
   $('#add').click(add);
+  $('#save').click(save);
+  db = new Firebase('https://inventory-ph.firebaseio.com/');
 }
+
+function save() {
+  var fullName = $('#person').val();
+  var address = $('#address').val();
+  var inventory = {};
+  inventory.fullName = fullName;
+  inventory.address = address;
+  db.set(inventory);
+  console.log(inventory);
+}
+
 
 function add() {
   var name = $('#name').val();
