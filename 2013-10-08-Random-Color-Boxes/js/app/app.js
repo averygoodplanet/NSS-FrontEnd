@@ -7,11 +7,17 @@ $(document).ready(initialize);
 function initialize(){
   $(document).foundation();
   $('#start').click(start);
+  $('#stop').click(stop);
 }
 
 function start() {
   var delay =  parseInt($('#delay').val(), 10) * 1000;
   timer = setInterval(makeBoxes, delay);
+}
+
+function stop() {
+  clearInterval(timer);
+  timer = 0;
 }
 
 function makeBoxes() {
