@@ -12,7 +12,7 @@ function initialize(){
 }
 
 function start() {
-  var delay =  parseInt($('#delay').val(), 10) * 1000;
+  var delay =  parseFloat($('#delay').val(), 10) * 1000;
   timer = setInterval(makeBoxes, delay);
 }
 
@@ -33,7 +33,6 @@ function randomColor(){
 }
 
 function makeBoxes() {
-  console.log('timer: '+timer);
   var dimensionsString = $('#dimensions').val();
   var dimensions = dimensionsString.split(', ');
   var length = parseFloat(dimensions[0]);
