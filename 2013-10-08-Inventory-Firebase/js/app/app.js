@@ -1,6 +1,7 @@
 'use strict';
 
 var db;
+var items;
 
 $(document).ready(initialize);
 
@@ -8,7 +9,10 @@ function initialize(){
   $(document).foundation();
   $('#add').click(add);
   $('#save').click(save);
+
+  //db is the root of the database structure
   db = new Firebase('https://inventory-ph.firebaseio.com/');
+  items = db.child('items');
 
   //db.on constantly listens.
   db.on('value', firebaseCallback);
@@ -38,7 +42,7 @@ function save() {
 
 function add() {
   var name = $('#name').val();
-  var amount = $('#amount').val();
+  var count = $('#amount').val();
   var value = $('#value').val();
   var room = $('#room').val();
   var condition = $('#condition').val();
@@ -48,11 +52,19 @@ function add() {
   var $row = $(row);
 
   $row.children('.name').text(name);
-  $row.children('.count').text(amount);
+  $row.children('.count').text(count);
   $row.children('.cost').text(value);
   $row.children('.room').text(room);
   $row.children('.condition').text(condition);
   $row.children('.date').text(date);
+
+  var item = {};
+  item.name = name;
+  item.count = count;
+  item.value = value;
+  item.room = room;
+
+  items.push(item);
 
   $('#items').append($row);
 }
