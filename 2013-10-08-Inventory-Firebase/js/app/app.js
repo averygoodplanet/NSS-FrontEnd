@@ -9,6 +9,20 @@ function initialize(){
   $('#add').click(add);
   $('#save').click(save);
   db = new Firebase('https://inventory-ph.firebaseio.com/');
+
+  //db.on constantly listens.
+  db.on('value', firebaseCallback);
+
+  // written as anonymous function
+  // db.on('value', function(snapshot) {
+  // console.log(snapshot.val());
+  // });
+}
+
+function firebaseCallback (snapshot) {
+  var inventory = snapshot.val();
+  $('#person').val(inventory.fullName);
+  $('#address').val(inventory.address);
 }
 
 function save() {
