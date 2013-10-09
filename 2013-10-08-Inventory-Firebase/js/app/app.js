@@ -3,6 +3,8 @@
 var  Δdb;
 var Δitems; //database copy of items
 var items; //local copy of items
+var sum = 0;
+
 
 $(document).ready(initialize);
 
@@ -38,7 +40,10 @@ function childAdded(snapshot) {
   $row.children('.date').text(date);
 
   $('#items').append($row);
+
+  updateTotal(snapshot.val());
 }
+
 
 function receivedDbData(snapshot) {
   var inventory = snapshot.val();
@@ -52,6 +57,16 @@ function receivedDbData(snapshot) {
     items.push(item);
   }
 }
+
+function updateTotal(snapshot) {
+  var count = parseInt(snapshot.count, 10);
+  var value = parseFloat(snapshot.value);
+  var lineItemTotal = count * value;
+  sum += lineItemTotal;
+  var sumString = "$" + sum;
+  $('#totalCost').val(sumString);
+}
+
 
 function save() {
   var fullName = $('#person').val();
