@@ -62,30 +62,6 @@ function save() {
   Δdb.update(inventory);
 }
 
-function loadRows() {
-  for(var i = 0; i < items.length; i++) {
-    // console.log(items[i]);
-    var name = items[i].name;
-    var count = items[i].count;
-    var value = items[i].value;
-    var room = items[i].room;
-    var condition = items[i].condition;
-    var date = items[i].date;
-
-    var row = '<tr><td class="name"></td><td class="count"></td><td class="cost"></td><td class="room"></td><td class="condition"></td><td class="date"></td></tr>';
-    var $row = $(row);
-
-    $row.children('.name').text(name);
-    $row.children('.count').text(count);
-    $row.children('.cost').text(value);
-    $row.children('.room').text(room);
-    $row.children('.condition').text(condition);
-    $row.children('.date').text(date);
-
-    $('#items').append($row);
-  }
-}
-
 function add() {
   var name = $('#name').val();
   var count = $('#amount').val();
