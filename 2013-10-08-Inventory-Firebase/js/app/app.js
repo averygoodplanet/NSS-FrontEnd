@@ -16,12 +16,34 @@ function initialize(){
   Δitems = Δdb.child('items');
 
   //db.on first time gives you value, then listens and sends whenever changes to data
-  Δdb.on('value', receivedDbData);
-
+  debugger;
+  Δdb.once('value', receivedDbData);
+  Δitems.on('child_added', childAdded);
   // written as anonymous function
   // db.on('value', function(snapshot) {
   // console.log(snapshot.val());
   // });
+}
+
+function childAdded(snapshot) {
+  var name = snapshot.val().name;
+  var count = snapshot.val().count;
+  var value = snapshot.val().value;
+  var room = snapshot.val().room;
+  var condition = snapshot.val().condition;
+  var date = snapshot.val().date;
+
+  var row = '<tr><td class="name"></td><td class="count"></td><td class="cost"></td><td class="room"></td><td class="condition"></td><td class="date"></td></tr>';
+  var $row = $(row);
+
+  $row.children('.name').text(name);
+  $row.children('.count').text(count);
+  $row.children('.cost').text(value);
+  $row.children('.room').text(room);
+  $row.children('.condition').text(condition);
+  $row.children('.date').text(date);
+
+  $('#items').append($row);
 }
 
 // function firebaseCallback (snapshot) {
@@ -31,23 +53,38 @@ function initialize(){
 // }
 
 function receivedDbData(snapshot) {
-  console.log('receivedDbData is being called');
+  // console.log('receivedDbData is being called');
   var inventory = snapshot.val();
   $('#person').val(inventory.fullName);
   $('#address').val(inventory.address);
 
-  if(inventory.items){
-    console.log('Yes, there are items');
-    items = inventory.items;
-    // Only load rows if no rows are loaded; without this condition,
-    // new rows will add twice (once on add(), and once on receivedDbData).
-    if($('tbody tr').length < 2){
-      loadRows();
-    }
-  } else {
-    console.log('No, there are no items');
-    items = [];
+  items = [];
+
+  // for(var property in inventory.items){
+  //   var item = inventory.items[property];
+  //   items.push(item);
+  //   for(var deepProperty in item){
+  //     console.log('"'+deepProperty+'"'+item[deepProperty]);
+  //     // console.log(item[deepProperty]);
+  //   }
+  // }
+
+  for(var property in inventory.items){
+    var item = inventory.items[property];
+    items.push(item);
   }
+  // if(inventory.items){
+  //   console.log('Yes, there are items');
+  //   items = inventory.items;
+  //   // Only load rows if no rows are loaded; without this condition,
+  //   // new rows will add twice (once on add(), and once on receivedDbData).
+  //   if($('tbody tr').length < 2){
+  //     loadRows();
+  //   }
+  // } else {
+  //   console.log('No, there are no items');
+  //   items = [];
+  // }
 }
 
 function save() {
@@ -57,12 +94,13 @@ function save() {
   inventory.fullName = fullName;
   inventory.address = address;
   Δdb.update(inventory);
-  console.log(inventory);
+  // console.log(inventory);
 }
 
 function loadRows() {
+  alert("loadRows");
   for(var i = 0; i < items.length; i++) {
-    console.log(items[i]);
+    // console.log(items[i]);
     var name = items[i].name;
     var count = items[i].count;
     var value = items[i].value;
@@ -92,15 +130,15 @@ function add() {
   var condition = $('#condition').val();
   var date = $('#date').val();
 
-  var row = '<tr><td class="name"></td><td class="count"></td><td class="cost"></td><td class="room"></td><td class="condition"></td><td class="date"></td></tr>';
-  var $row = $(row);
+  // var row = '<tr><td class="name"></td><td class="count"></td><td class="cost"></td><td class="room"></td><td class="condition"></td><td class="date"></td></tr>';
+  // var $row = $(row);
 
-  $row.children('.name').text(name);
-  $row.children('.count').text(count);
-  $row.children('.cost').text(value);
-  $row.children('.room').text(room);
-  $row.children('.condition').text(condition);
-  $row.children('.date').text(date);
+  // $row.children('.name').text(name);
+  // $row.children('.count').text(count);
+  // $row.children('.cost').text(value);
+  // $row.children('.room').text(room);
+  // $row.children('.condition').text(condition);
+  // $row.children('.date').text(date);
 
   var item = {};
   item.name = name;
@@ -110,8 +148,10 @@ function add() {
   item.condition = condition;
   item.date = date;
 
-  $('#items').append($row);
+  // $('#items').append($row);
 
-  items.push(item);
-  Δitems.set(items);
+  Δitems.push(item);
+
+  // items.push(item);
+  // Δitems.set(items);
 }
