@@ -11,21 +11,15 @@ function initialize(){
   $('#add').click(add);
   $('#save').click(save);
 
-  //db is the root of the database structure
   Δdb = new Firebase('https://inventory-ph.firebaseio.com/');
   Δitems = Δdb.child('items');
 
-  //db.on first time gives you value, then listens and sends whenever changes to data
-  debugger;
   Δdb.once('value', receivedDbData);
   Δitems.on('child_added', childAdded);
-  // written as anonymous function
-  // db.on('value', function(snapshot) {
-  // console.log(snapshot.val());
-  // });
 }
 
 function childAdded(snapshot) {
+  //this snapshot is from 'child_added' and is only the added object.
   var name = snapshot.val().name;
   var count = snapshot.val().count;
   var value = snapshot.val().value;
@@ -46,45 +40,17 @@ function childAdded(snapshot) {
   $('#items').append($row);
 }
 
-// function firebaseCallback (snapshot) {
-//   var inventory = snapshot.val();
-//   $('#person').val(inventory.fullName);
-//   $('#address').val(inventory.address);
-// }
-
 function receivedDbData(snapshot) {
-  // console.log('receivedDbData is being called');
   var inventory = snapshot.val();
   $('#person').val(inventory.fullName);
   $('#address').val(inventory.address);
 
   items = [];
 
-  // for(var property in inventory.items){
-  //   var item = inventory.items[property];
-  //   items.push(item);
-  //   for(var deepProperty in item){
-  //     console.log('"'+deepProperty+'"'+item[deepProperty]);
-  //     // console.log(item[deepProperty]);
-  //   }
-  // }
-
   for(var property in inventory.items){
     var item = inventory.items[property];
     items.push(item);
   }
-  // if(inventory.items){
-  //   console.log('Yes, there are items');
-  //   items = inventory.items;
-  //   // Only load rows if no rows are loaded; without this condition,
-  //   // new rows will add twice (once on add(), and once on receivedDbData).
-  //   if($('tbody tr').length < 2){
-  //     loadRows();
-  //   }
-  // } else {
-  //   console.log('No, there are no items');
-  //   items = [];
-  // }
 }
 
 function save() {
@@ -94,11 +60,9 @@ function save() {
   inventory.fullName = fullName;
   inventory.address = address;
   Δdb.update(inventory);
-  // console.log(inventory);
 }
 
 function loadRows() {
-  alert("loadRows");
   for(var i = 0; i < items.length; i++) {
     // console.log(items[i]);
     var name = items[i].name;
@@ -130,16 +94,6 @@ function add() {
   var condition = $('#condition').val();
   var date = $('#date').val();
 
-  // var row = '<tr><td class="name"></td><td class="count"></td><td class="cost"></td><td class="room"></td><td class="condition"></td><td class="date"></td></tr>';
-  // var $row = $(row);
-
-  // $row.children('.name').text(name);
-  // $row.children('.count').text(count);
-  // $row.children('.cost').text(value);
-  // $row.children('.room').text(room);
-  // $row.children('.condition').text(condition);
-  // $row.children('.date').text(date);
-
   var item = {};
   item.name = name;
   item.count = count;
@@ -148,10 +102,5 @@ function add() {
   item.condition = condition;
   item.date = date;
 
-  // $('#items').append($row);
-
   Δitems.push(item);
-
-  // items.push(item);
-  // Δitems.set(items);
 }
