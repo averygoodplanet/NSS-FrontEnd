@@ -24,11 +24,11 @@ function initialize(){
   // });
 }
 
-function firebaseCallback (snapshot) {
-  var inventory = snapshot.val();
-  $('#person').val(inventory.fullName);
-  $('#address').val(inventory.address);
-}
+// function firebaseCallback (snapshot) {
+//   var inventory = snapshot.val();
+//   $('#person').val(inventory.fullName);
+//   $('#address').val(inventory.address);
+// }
 
 function receivedDbData(snapshot) {
   console.log('receivedDbData is being called');
@@ -39,7 +39,11 @@ function receivedDbData(snapshot) {
   if(inventory.items){
     console.log('Yes, there are items');
     items = inventory.items;
-    loadRows();
+    // Only load rows if no rows are loaded; without this condition,
+    // new rows will add twice (once on add(), and once on receivedDbData).
+    if($('tbody tr').length < 2){
+      loadRows();
+    }
   } else {
     console.log('No, there are no items');
     items = [];
