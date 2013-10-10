@@ -2,21 +2,29 @@
 
 //Firebase Schema
 var Δdb;
+var Δbalance;
 
 //Local Schema
 var db = {};
-
+db.balance = 0;
 
 $(document).ready(initialize);
 
 function initialize(){
   $(document).foundation();
   Δdb = new Firebase('https://stocks-ph.firebaseio.com/');
+  Δbalance = Δdb.child('balance');
+  $('#setBalance').click(setAndDisplayBalance);
 
-
-  getStockQuote();
+  // getStockQuote();
 }
 
+function setAndDisplayBalance() {
+  var balance = parseFloat($('#inputBalance').val());
+  db.balance = balance;
+  Δbalance.set(balance);
+  $('#displayedBalance').val(balance);
+}
 
 function getStockQuote() {
   var data = {};
