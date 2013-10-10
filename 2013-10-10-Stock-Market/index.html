@@ -4,13 +4,82 @@
 <head>
   <meta charset='utf-8'>
   <meta content='width=device-width' name='viewport'>
-  <title>Foundation 4</title>
+  <title>Stock Market</title>
   <link href='css/normalize.css' rel='stylesheet'>
   <link href='css/foundation.css' rel='stylesheet'>
   <link href='css/app.css' rel='stylesheet'>
   <script src='js/vendor/custom.modernizr.js'></script>
 </head>
 <body>
+  <div class='row'>
+    <div class='small-12 columns'>
+      <h1>Stock Market App</h1>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='small-2 columns'>
+      <label for='enterSymbol'>Stock Symbol</label>
+      <input id='enterSymbol' placeholder='e.g. AAPL' type='text'>
+    </div>
+    <div class='small-2 columns'>
+      <label for='enterCount' id='enterCountLabel'># of Shares</label>
+      <input id='enterCount' placeholder='e.g. 1' type='text'>
+    </div>
+    <div class='small-8 columns'>
+      <input class='button small' id='buy' type='button' value='Buy!'>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='small-2 columns'>
+      <label for='setBalance'>Enter Balance</label>
+      <input id='inputBalance' placeholder='e.g. 100' type='text'>
+    </div>
+    <div class='small-10 columns'>
+      <input class='button small' id='setBalance' type='button' value='Set Balance!'>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='small-2 columns'>
+      <h6>Cash Balance:</h6>
+    </div>
+    <div class='small-2 columns'>
+      <input id='displayedBalance' readonly='true' type='text'>
+    </div>
+    <div class='small-5 columns'>
+      <div id='timerDiv'>
+        <label for='timerInput' id='timerInputLabel'>Update stocks every X seconds:</label>
+        <input id='timerInput' placeholder='e.g. 1' type='text'>
+        <input class='button small' id='setTimer' type='button' value='Set frequency!'>
+      </div>
+    </div>
+    <div class='small-3 columns'></div>
+  </div>
+  <div class='row'>
+    <div class='small-12 columns'>
+      <h2>My Stocks</h2>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='small-12 columns'>
+      <table>
+        <tr id='headerRow'>
+          <td>Symbol</td>
+          <td>Name</td>
+          <td>Quote</td>
+          <td>Count</td>
+          <td>Subtotal</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='small-3 columns'>
+      <h4>Total Stocks Value:</h4>
+    </div>
+    <div class='small-9 columns'>
+      <input id='totalStocks' readonly='true' type='text'>
+    </div>
+  </div>
   <script src='js/vendor/jquery-1.10.2.js'></script>
   <script src='js/vendor/foundation.min.js'></script>
   <script src='js/vendor/underscore.js'></script>

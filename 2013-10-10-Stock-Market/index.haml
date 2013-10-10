@@ -4,12 +4,66 @@
 %head
   %meta{charset: "utf-8"}
   %meta{name: "viewport", content: "width=device-width"}
-  %title Foundation 4
+  %title Stock Market
   %link{rel: "stylesheet", href: "css/normalize.css"}
   %link{rel: "stylesheet", href: "css/foundation.css"}
   %link{rel: "stylesheet", href: "css/app.css"}
   %script{src: "js/vendor/custom.modernizr.js"}
 %body
+  .row
+    .small-12.columns
+      %h1 Stock Market App
+  .row
+    .small-2.columns
+      %label{for: 'enterSymbol'} Stock Symbol
+      %input#enterSymbol{type: 'text', placeholder: 'e.g. AAPL'}
+    .small-2.columns
+      %label#enterCountLabel{for: 'enterCount'} # of Shares
+      %input#enterCount{type: 'text', placeholder: 'e.g. 1'}
+    .small-8.columns
+      %input#buy.button.small{type: 'button', value: 'Buy!'}
+  .row
+    .small-2.columns
+      %label{for: 'setBalance'} Enter Balance
+      %input#inputBalance{type: 'text', placeholder: 'e.g. 100'}
+    .small-10.columns
+      %input#setBalance.button.small{type: 'button', value: 'Set Balance!'}
+  .row
+    .small-2.columns
+      %h6 Cash Balance:
+    .small-2.columns
+      %input#displayedBalance{type: 'text', readonly: 'true'}
+    .small-5.columns
+      #timerDiv
+        %label#timerInputLabel{for: 'timerInput'} Update stocks every X seconds:
+        %input#timerInput{type: 'text', placeholder: 'e.g. 1'}
+        %input#setTimer.button.small{type: 'button', value: 'Set frequency!'}
+    .small-3.columns
+  .row
+    .small-12.columns
+      %h2 My Stocks
+  .row
+    .small-12.columns
+      %table
+        %tr#headerRow
+          %td Symbol
+          %td Name
+          %td Quote
+          %td Count
+          %td Subtotal
+  .row
+    .small-3.columns
+      %h4 Total Stocks Value:
+    .small-9.columns
+      %input#totalStocks{type: 'text', readonly: 'true'}
+
+
+
+
+
+
+
+
   %script{src: 'js/vendor/jquery-1.10.2.js'}
   %script{src: 'js/vendor/foundation.min.js'}
   %script{src: 'js/vendor/underscore.js'}
