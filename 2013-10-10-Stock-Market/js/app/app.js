@@ -14,18 +14,17 @@ function initialize(){
   $(document).foundation();
   Δdb = new Firebase('https://stocks-ph.firebaseio.com/');
   Δbalance = Δdb.child('balance');
-  downloadBalance();
+
+  //once get the balance from database.
+  Δbalance.once('value', loadBalance);
   $('#setBalance').click(setAndDisplayBalance);
 
   // getStockQuote();
 }
 
-function downloadBalance() {
-  console.log(Δbalance);
-  console.log(Δbalance.val());
-  if(Δbalance){
-    $('#displayedBalance').val(Δbalance.val());
-  }
+function loadBalance(snapshot) {
+  var balanceFromDatabase = snapshot.val();
+  $('#displayedBalance').val(balanceFromDatabase);
 }
 
 function setAndDisplayBalance() {
