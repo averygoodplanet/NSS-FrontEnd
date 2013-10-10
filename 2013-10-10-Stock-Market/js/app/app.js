@@ -32,6 +32,7 @@ function setAndDisplayBalance() {
   db.balance = balance;
   Δbalance.set(balance);
   $('#displayedBalance').val(balance);
+  $('#inputBalance').val('');
 }
 
 function getStockQuote() {
