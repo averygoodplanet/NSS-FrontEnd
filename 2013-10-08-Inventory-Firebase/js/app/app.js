@@ -1,10 +1,16 @@
 'use strict';
 
+//Database Schema
 var  Δdb;
 var Δitems; //database copy of items
-var items; //local copy of items
-var sum = 0;
+var Δperson;
 
+//Local Schema
+var db = {}; //local copy of database
+db.person = {};
+db.items = []; //*an array in our program variable; in the cloud it is a an object
+db.statistics = {};
+db.statistics.grandTotal = 0;
 
 $(document).ready(initialize);
 
@@ -15,12 +21,12 @@ function initialize(){
 
   Δdb = new Firebase('https://inventory-ph.firebaseio.com/');
   Δitems = Δdb.child('items');
-
-  Δdb.once('value', receivedDbData);
-  Δitems.on('child_added', childAdded);
+  Δperson = Δdb.child('person');
+  Δperson.on('value', personChanged);
+  Δitems.on('child_added', itemAdded);
 }
 
-function childAdded(snapshot) {
+function itemAdded(snapshot) {
   //this snapshot is from 'child_added' and is only the added object.
   var name = snapshot.val().name;
   var count = snapshot.val().count;
@@ -40,21 +46,26 @@ function childAdded(snapshot) {
   $row.children('.date').text(date);
 
   $('#items').append($row);
+  var item = {};
+  item.name = name;
+  item.count = count;
+  item.value = value;
+  item.room = room;
+  item.condition = condition;
+  item.date = date;
 
+  db.items.push(item);
   updateTotal(snapshot.val());
 }
 
 
-function receivedDbData(snapshot) {
-  var inventory = snapshot.val();
-  $('#person').val(inventory.fullName);
-  $('#address').val(inventory.address);
-
-  items = [];
-
-  for(var property in inventory.items){
-    var item = inventory.items[property];
-    items.push(item);
+function personChanged(snapshot) {
+  db.person = snapshot.val();
+  try{
+    $('#person').val(db.person.fullName);
+    $('#address').val(db.person.address);
+  } catch (error) {
+    console.log('Error: '+error);
   }
 }
 
@@ -62,19 +73,16 @@ function updateTotal(snapshot) {
   var count = parseInt(snapshot.count, 10);
   var value = parseFloat(snapshot.value);
   var lineItemTotal = count * value;
-  sum += lineItemTotal;
-  var sumString = "$" + sum;
+  db.statistics.grandTotal += lineItemTotal;
+  var sumString = '$' + db.statistics.grandTotal;
   $('#totalCost').val(sumString);
 }
 
 
 function save() {
-  var fullName = $('#person').val();
-  var address = $('#address').val();
-  var inventory = {};
-  inventory.fullName = fullName;
-  inventory.address = address;
-  Δdb.update(inventory);
+  db.person.fullName = $('#person').val();
+  db.person.address = $('#address').val();
+  Δperson.set(db.person);
 }
 
 function add() {
