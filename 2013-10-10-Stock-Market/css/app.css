@@ -41,3 +41,9 @@
   position: relative;
   top: 5px;
   right: 29px; }
+
+.count {
+  text-align: center; }
+
+#headerRow td {
+  font-weight: bold; }

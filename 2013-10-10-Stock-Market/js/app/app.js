@@ -35,15 +35,36 @@ function initialize(){
 function childAdded(snapshot) {
   var stockSymbol = snapshot.val().symbol;
 
-  //load stock objects into global var
+  //load each stock object from database into global var
   db.stocks[stockSymbol] = snapshot.val();
-  console.log(db.stocks);
+
   //add table rows for the stocks
   makeTableRow(stockSymbol);
 }
 
 function makeTableRow(symbol) {
-  alert('makeTableRow for symbol: '+symbol);
+  //make emptyrow (with classes) that is a jQuery object
+  var row = '<tr><td class="symbol"></td><td class="name"></td><td class="quote"></td><td class="count"></td><td class="subtotal"></td></tr>';
+  var $row = $(row);
+  //make local stock variable using symbol to pull stock
+  // from global db
+  var stock = db.stocks[symbol];
+
+  //fill in each td by traversing the DOM
+  $row.children('.symbol').text(stock.symbol);
+  $row.children('.name').text(stock.name);
+  $row.children('.quote').text(stock.quote);
+  $row.children('.count').text(stock.count);
+  $row.children('.subtotal').text(stock.subtotal);
+
+  //append row to table
+  $('#stocksTable').append($row);
+
+  //test this function and commit
+
+  //should probably add function/s to childAdded
+  //to update #totalStocks (see paper)
+
 }
 
 function loadBalance(snapshot) {
