@@ -23,8 +23,27 @@ function initialize(){
 
   //creates a database Stocks OBJECT-not an array
   Δstocks = Δdb.child('stocks');
+
+  //on page-load is triggered for all stocks already in the remote database
+  //also triggered when a newStock is added to the database via addNewStock()
+  Δstocks.on('child_added', childAdded);
+
   // when they click "Buy button", add a stock
   $('#buy').click(buy);
+}
+
+function childAdded(snapshot) {
+  var stockSymbol = snapshot.val().symbol;
+
+  //load stock objects into global var
+  db.stocks[stockSymbol] = snapshot.val();
+  console.log(db.stocks);
+  //add table rows for the stocks
+  makeTableRow(stockSymbol);
+}
+
+function makeTableRow(symbol) {
+  alert('makeTableRow for symbol: '+symbol);
 }
 
 function loadBalance(snapshot) {
