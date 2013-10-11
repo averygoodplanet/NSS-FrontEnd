@@ -40,6 +40,29 @@ function childAdded(snapshot) {
 
   //add table rows for the stocks
   makeTableRow(stockSymbol);
+  updateTotalStocks();
+}
+
+function updateTotalStocks() {
+  //make local sum variable
+  var sum = 0;
+  //loop through each property in db.stocks
+  //(each property is a stock)
+  //get that stock's subtotal
+  //add that stock's subtotal to sum
+  for(var property in db.stocks){
+    var singleStockSubtotal = db.stocks[property].subtotal;
+    sum += singleStockSubtotal;
+  }
+
+  //format sum to two number to right of decimal point
+  //and preceded with a '$'
+  sum = '$' + sum.toFixed(2);
+  //diplay the sum in #totalStocks
+  $('#totalStocks').val(sum);
+  //DESIGN CHOICE: Choosing to only keep the
+  // grand total in the html element #totalStocks
+  // at this time, since it is recalculated so often.
 }
 
 function makeTableRow(symbol) {
@@ -59,12 +82,6 @@ function makeTableRow(symbol) {
 
   //append row to table
   $('#stocksTable').append($row);
-
-  //test this function and commit
-
-  //should probably add function/s to childAdded
-  //to update #totalStocks (see paper)
-
 }
 
 function loadBalance(snapshot) {
