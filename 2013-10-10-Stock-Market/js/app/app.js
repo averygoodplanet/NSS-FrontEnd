@@ -46,6 +46,17 @@ function setAndDisplayBalance() {
 }
 
 function buy() {
+  //ASSUMPTION: Only buying a particular stock once.
+  var symbol = storeSymbolAndCount();
+
+  /* fire $getJSON request by calling getStockQuote--pass in addNewStock as callback function.
+  Later, when we're updating stocks we already bought we will pass a different callback
+  function to getStockQuote().
+  */
+  getStockQuote(symbol, addNewStock);
+}
+
+function storeSymbolAndCount() {
   //--get symbol and #-of-shares from user input
   var symbol = $('#enterSymbol').val();
   var count = $('#enterCount').val();
@@ -59,24 +70,16 @@ function buy() {
   e.g. db.stocks.APPL = {symbol: APPL, count: 2};
   */
   db.stocks[symbol] = {symbol: symbol, count: count};
-
-  // fire JSON request to getStockQuote--pass in addNewStock as callback function.
-
-
-  // var stock = {symbol: 'AAPL', name: 'Apple', date: '1/1/2012', count: 1, subtotal: 100};
-  // Δstocks.set(stock);
-  // Δstocks.child(stock.symbol).set(stock);
+  Δstocks.child(symbol).set({symbol: symbol, count: count});
+  return symbol;
 }
 
-function getStockQuote() {
-  var data = {};
-  data.symbol = 'AAPL';
-  $.getJSON('http://dev.markitondemand.com/Api/Quote/jsonp?callback=?&&symbol=' + data.symbol, receivedQuote);
+function addNewStock(symbol) {
+  console.log("symbol passed to addNewStock: "+symbol);
+  //
+
 }
 
-function receivedQuote(data, textStatus, jqXHR) {
-  console.log(data);
-  console.log(textStatus);
-  console.log('jqXHR follows: ');
-  console.log(jqXHR);
+function getStockQuote(symbol, fn) {
+  $.getJSON('http://dev.markitondemand.com/Api/Quote/jsonp?callback=?&&symbol=' + symbol, fn(symbol));
 }
