@@ -74,12 +74,22 @@ function storeSymbolAndCount() {
   return symbol;
 }
 
-function addNewStock(symbol) {
-  console.log("symbol passed to addNewStock: "+symbol);
-  //
-
+function addNewStock(data) {
+  var stockSymbol = data.Data.Symbol;
+  var stockCount = db.stocks[stockSymbol].count;
+  var subtotal = data.Data.LastPrice * stockCount;
+  var change = (data.Data.Change > 0);
+  var stock = { symbol: stockSymbol,
+                name: data.Data.Name,
+                quote: data.Data.LastPrice,
+                count: stockCount,
+                subtotal: subtotal,
+                changePositive: change };
+  debugger;
+  // var symbol = data.symbol;
+  // console.log(symbol);
 }
 
 function getStockQuote(symbol, fn) {
-  $.getJSON('http://dev.markitondemand.com/Api/Quote/jsonp?callback=?&&symbol=' + symbol, fn(symbol));
+  $.getJSON('http://dev.markitondemand.com/Api/Quote/jsonp?callback=?&&symbol=' + symbol, fn);
 }
