@@ -87,6 +87,7 @@ function makeTableRow(symbol) {
 function loadBalance(snapshot) {
   var balanceFromDatabase = snapshot.val();
   $('#displayedBalance').val(balanceFromDatabase);
+  db.balance = balanceFromDatabase;
 }
 
 function setAndDisplayBalance() {
@@ -146,6 +147,18 @@ function addNewStock(data) {
   */
   db.stocks[stockSymbol] = stock;
   Δstocks.child(stockSymbol).set(stock);
+  updateAndDisplayBalance(stock);
+}
+
+function updateAndDisplayBalance(stock) {
+  //subtract stock's subtotal--which is the cost of the shares purchased--from
+  //balance stored in global variable and in database
+  var subtotal = db.stocks[stock.symbol].subtotal;
+  console.log(subtotal);
+  db.balance -= subtotal;
+  Δbalance.set(db.balance);
+  //update balance displayed on the screen
+  $('#displayedBalance').val('$'+db.balance.toFixed(2));
 }
 
 function getStockQuote(symbol, fn) {
