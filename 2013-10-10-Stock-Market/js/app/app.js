@@ -10,6 +10,8 @@ var db = {};
 db.balance = 0;
 db.stocks = {};
 
+var timer;
+
 $(document).ready(initialize);
 
 function initialize(){
@@ -30,7 +32,22 @@ function initialize(){
 
   // when they click "Buy button", add a stock
   $('#buy').click(buy);
+  $('#setTimer').click(setTimer);
 }
+
+function setTimer() {
+  //stop timer, then set and start timer with new delay.
+  clearInterval(timer);
+  var delay = parseFloat($('#timerInput').val())   * 1000;
+
+  //on interval, calls updateStockPrices
+  timer = setInterval(updateStockPrices, delay);
+}
+
+function updateStockPrices() {
+  console.log('updateStockPrices() function called');
+}
+
 
 function childAdded(snapshot) {
   var stockSymbol = snapshot.val().symbol;
@@ -86,7 +103,7 @@ function makeTableRow(symbol) {
 
 function loadBalance(snapshot) {
   var balanceFromDatabase = snapshot.val();
-  $('#displayedBalance').val(balanceFromDatabase);
+  $('#displayedBalance').val('$'+balanceFromDatabase.toFixed(2));
   db.balance = balanceFromDatabase;
 }
 
