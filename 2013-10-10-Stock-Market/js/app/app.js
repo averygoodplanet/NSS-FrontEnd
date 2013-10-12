@@ -10,7 +10,7 @@ var db = {};
 db.balance = 0;
 db.stocks = {};
 
-var timer;
+var timer, promiseCheckTimer, incompleteAPICalls;
 
 $(document).ready(initialize);
 
@@ -41,11 +41,80 @@ function setTimer() {
   var delay = parseFloat($('#timerInput').val())   * 1000;
 
   //on interval, calls updateStockPrices
-  timer = setInterval(updateStockPrices, delay);
+  timer = setInterval(startUpdateStockPrices, delay);
 }
 
-function updateStockPrices() {
-  console.log('updateStockPrices() function called');
+function startUpdateStockPrices() {
+  console.log('in startUpdateStockPrices');
+  console.log('***this time stopping timer (first timer) for testing');
+  clearInterval(timer);
+  //this function will make API calls to get updated stock quotes for all stocks
+  // as each API call returns, will store updated quote and updated subtotal in
+  // global (but not database).
+  // ONCE ALL API calls returned(use promise-keeping with a separate timer
+  // and count-down variable) then will update stocks in database.
+  //*make sure that updating stocks in database triggers updating of
+  //stocks on page, grandtotal, and red/green bar.
+
+  //get number of stocks--this global variable will count down for promise-keeping
+  //as callbacks are complete. (set to zero, then set to number of stocks)
+  incompleteAPICalls = _.size(db.stocks);
+
+  //set a new timer that checks frequently to see if promises have reached zero
+  clearInterval(promiseCheckTimer);
+  promiseCheckTimer = setInterval(promiseCheck, 500);
+
+  //make API calls for each stock and update global only for quote, subtotal, and positiveChange
+  //in each API callback function is complete decrement the global promise count.
+  for(var property in db.stocks){
+    var symbol = db.stocks[property].symbol;
+    getStockQuote(symbol, updateReturned);
+  }
+
+  //when new timer finds that promises have reached zero,
+  // then clearInterval,  and call function to update stocks in database,
+  //and verify (or make so, using e.g. child_changed) that updating stock
+  //quote and subtotal in database triggers updating on stock display, grandtotal,
+  //and red/green bar.
+}
+
+function updateReturned(data) {
+  console.log('in update returned');
+  // extract updated quote, subtotal, changePositive from API data
+  // and store in global variable only (not yet into database)
+  var symbol = data.Data.Symbol;
+
+  db.stocks[symbol].quote = data.Data.LastPrice;
+  db.stocks[symbol].subtotal = data.Data.LastPrice * db.stocks[symbol].count;
+  db.stocks[symbol].changePositive = (data.Data.Change > 0);
+
+  //decrement promises
+  incompleteAPICalls -= 1;
+}
+
+
+function promiseCheck() {
+  console.log('in promiseCheck()');
+  if(incompleteAPICalls <= 0){
+    console.log('in IF bracket');
+    clearInterval(promiseCheckTimer);
+    finishUpdateStockPrices();
+  } else {
+    console.log(incompleteAPICalls);
+    console.log('else');
+  }
+}
+
+function finishUpdateStockPrices() {
+  //this function is supposed to be called when all the updates
+  // to stock quotes, subtotal, and positiveChange have been made to global
+  //this function should:
+  //--update the database
+  //--make sure that updating in database (e.g. child_changed?)
+  //causes (cascades) update to page for quote, subtotal, red/green, and grandtotal.
+  console.log('in empty finishUpdateStockPrices function');
+  console.log(db.stocks);
+  debugger;
 }
 
 
