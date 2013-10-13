@@ -47,3 +47,14 @@
 
 #headerRow td {
   font-weight: bold; }
+
+.change {
+  height: 12px;
+  width: 10px;
+  float: left; }
+
+.red {
+  background-color: red; }
+
+.green {
+  background-color: green; }

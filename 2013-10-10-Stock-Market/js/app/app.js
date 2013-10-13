@@ -172,6 +172,19 @@ function makeTableRow(symbol) {
   $row.children('.count').text(stock.count);
   $row.children('.subtotal').text(stock.subtotal);
 
+  //make div with green/red depending on whether price is rising or falling
+  var div = '<div class="change"></div>';
+  var $div = $(div);
+  $row.children('.quote').append($div);
+
+  if(stock.changePositive === true){
+    $row.children('.quote').children('.change').removeClass('red');
+    $row.children('.quote').children('.change').addClass('green');
+  } else {
+    $row.children('.quote').children('.change').removeClass('green');
+    $row.children('.quote').children('.change').addClass('red');
+  }
+
   //append row to table
   $('#stocksTable').append($row);
 }
