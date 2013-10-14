@@ -18,9 +18,28 @@
       <div id='map-canvas'></div>
     </div>
     <div id='right'>
-      <h1>temp</h1>
+      <div class='row'>
+        <div class='small-12 columns'>
+          <h1>Vacation Map</h1>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='small-6 columns'>
+          <input id='zoom' placeholder='10' type='text'>
+        </div>
+        <div class='small-6 columns'>
+          <input class='button radius small' id='set-zoom' type='button' value='Set Zoom'>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='small-6 columns'>
+          <input id='location' placeholder='Paris' type='text'>
+        </div>
+        <div class='small-6 columns'>
+          <input class='button radius small success' id='add-location' type='button' value='Add Location!'>
+        </div>
+      </div>
     </div>
-    <div class='clear'></div>
   </div>
   <script src='/js/vendor/jquery-1.10.2.js'></script>
   <script src='/js/vendor/foundation.min.js'></script>
