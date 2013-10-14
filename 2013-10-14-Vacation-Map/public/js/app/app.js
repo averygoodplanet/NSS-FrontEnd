@@ -30,8 +30,9 @@ function initMap(lat, lng, zoom){
   db.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 }
 
-function dbLocationAdded() {
-
+function dbLocationAdded(snapshot) {
+  var location = snapshot.val();
+  db.locations.push(location);
 }
 
 
