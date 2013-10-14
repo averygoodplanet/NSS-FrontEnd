@@ -18,6 +18,7 @@ function initialize(){
   initMap(36, -86, 5);
   $('#set-zoom').click(clickSetZoom);
   $('#add-location').click(clickAddLocation);
+  $('#go-location').click(clickGoLocation);
 }
 
 
@@ -72,6 +73,13 @@ function clickAddLocation() {
     location.coordinates = results[0].geometry.location;
     Δlocations.push(location);
   });
+}
+
+function clickGoLocation() {
+  var name = $('#location-select').val();
+  var location = _.find(db.locations, function(l){return l.name === name});
+  var latLng = new google.maps.LatLng(location.coordinates.lb, location.coordinates.mb);
+  db.map.setCenter(latLng);
 }
 
 //-----------------------------------------------------------------------------------------------
