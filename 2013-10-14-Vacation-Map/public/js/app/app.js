@@ -33,8 +33,26 @@ function initMap(lat, lng, zoom){
 function dbLocationAdded(snapshot) {
   var location = snapshot.val();
   db.locations.push(location);
+  htmlAddLocation(location);
 }
 
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+
+
+function htmlAddLocation(location) {
+  var option = '<option value=""></option>';
+  var $option = $(option);
+  $option.attr('value', location.name);
+  $option.text(location.name);
+  $('select').append($option);
+  htmlAddMarker(location);
+}
+
+function htmlAddMarker(location) {
+  var latLng = new google.maps.LatLng(location.coordinates.lb, location.coordinates.mb);
+  var marker = new google.maps.Marker({map: db.map, position: latLng, title: location.name});
+}
 
 //-----------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------
