@@ -1,3 +1,19 @@
+/* Possible Errors:
+1. Program may sometimes give appearance that red/green boxes are being assigned
+incorrectly--it may appear that the stock has increased from the last quote displayed
+on the screen but that the stock is appearing as red. At this point, as best I can tentatively
+determine, this is not an actual error. Rather, there is only an appearance of an error--
+the red/green is determined by whether the stock is immediately going down or increasing in
+price on the stock market--these changes go faster than the frequency of our API updates.
+For example, if the stock on screen is at 80, then is updated on screen to 81 and red,
+81 > 80, but if in the meantime (between screen updates) the stock on stock market went
+from 80-->82-->81, then it is still correct that 81 displays as red.
+I performed the following checks to investigate whether there was an error:
+--confirmed that changePositive correctly translates to red or green
+--confirmed that changePositive is correctly assigned true or false by (data.DataChange > 0)
+*/
+
+
 'use strict';
 
 //Firebase Schema
