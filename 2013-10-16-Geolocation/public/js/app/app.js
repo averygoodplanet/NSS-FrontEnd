@@ -41,8 +41,8 @@ function dbPositionAdded(snapshot) {
 // -------------------------------------------------------------------- //
 function htmlAddStartIcon(position){
   var latLng = new google.maps.LatLng(position.latitude, position.longitude);
-  var marker = new google.maps.Marker({map: db.map, position: latLng});
-  debugger;
+  var myImage = '/img/monkey.jpg';
+  var marker = new google.maps.Marker({map: db.map, position: latLng, icon: myImage});
 }
 
 function htmlCenterAndZoom(position){
