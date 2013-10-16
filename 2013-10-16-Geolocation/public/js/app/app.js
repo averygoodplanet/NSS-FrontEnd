@@ -38,7 +38,7 @@ function dbPositionAdded(snapshot) {
   }
 
   db.path.push(latLng);
-  $('#debug').text(position.time);
+  db.marker.setPosition(latLng);
   htmlCenterAndZoom(latLng);
 }
 
@@ -47,7 +47,7 @@ function dbPositionAdded(snapshot) {
 // -------------------------------------------------------------------- //
 function htmlAddStartIcon(latLng){
   var myImage = '/img/monkey.jpg';
-  var marker = new google.maps.Marker({map: db.map, position: latLng, icon: myImage});
+  db.marker = new google.maps.Marker({map: db.map, position: latLng, icon: myImage});
 }
 
 function htmlCenterAndZoom(latLng){
