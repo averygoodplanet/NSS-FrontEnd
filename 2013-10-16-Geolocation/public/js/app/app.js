@@ -3,7 +3,7 @@
 // Firebase Schema
 var Δdb, Δpositions;
 
-// Local Schema (defined in keys.js)
+// Local Schema (db defined in keys.js)
 
 $(document).ready(initialize);
 
@@ -14,21 +14,47 @@ function initialize(){
   Δpositions.on('child_added', dbPositionAdded);
   initMap(36, -86, 5);
   $('#start').click(clickStart);
+  Δpositions.remove();
+  db.positions = [];
 }
 
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 function dbPositionAdded(snapshot) {
-  console.log('snapshot in dbPositionAdded: ');
-  console.log(snapshot.val());
+  var position = snapshot.val();
+
+  //0 is falsy in javascript
+  if(db.positions.length) {
+    // start-point already exists
+  } else {
+    // just starting
+    htmlAddStartIcon(position);
+  }
+
+  db.positions.push(position);
+
 }
+
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
+function htmlAddStartIcon(position){
+  var latLng = new google.maps.LatLng(position.latitude, position.longitude);
+  var marker = new google.maps.Marker({map: db.map, position: latLng});
+  debugger;
+}
+
+
 
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 function clickStart(){
   //determine our location
+
+  //before I start, remove all old positions.
+
   var geoOptions = { enableHighAccuracy: true, maximumAge: 1000, timeout: 60000};
 
   db.watchId = navigator.geolocation.watchPosition(geoSuccess, geoError, geoOptions);
@@ -44,6 +70,7 @@ function initMap(lat, lng, zoom){
 }
 
 function geoSuccess(location) {
+  // alert('position returned');
   var position = {};
   position.latitude = location.coords.latitude;
   position.longitude = location.coords.longitude;
@@ -53,7 +80,8 @@ function geoSuccess(location) {
 }
 
 function geoError() {
-  console.log('Sorry, no position available.');
+  // alert('Sorry, position request failed.');
+  // console.log('Sorry, no position available.');
 }
 
 
