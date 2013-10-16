@@ -15,9 +15,10 @@ function initialize(){
   Δpositions = Δdb.child('positions');
   Δpositions.on('child_added', dbPositionAdded);
   initMap(36, -86, 5);
+  Δpositions.remove();
   $('#start').click(clickStart);
   $('#erase').click(clickErase);
-  Δpositions.remove();
+  $('#stop').click(clickStop);
 }
 
 // -------------------------------------------------------------------- //
@@ -84,6 +85,10 @@ function clickErase() {
   Δpositions.remove();
   db.positions = [];
   db.path=[];
+}
+
+function clickStop() {
+  navigator.geolocation.clearWatch(db.watchId);
 }
 
 // -------------------------------------------------------------------- //
