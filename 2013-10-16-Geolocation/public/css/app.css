@@ -25,3 +25,16 @@ html, body {
 #erase {
   position: relative;
   top: 10px; }
+
+#debug {
+  color: white; }
+
+@media only screen and (max-device-width: 720px) {
+  #left {
+    width: 80%;
+    height: 100%; }
+
+  #right {
+    width: 20%;
+    height: 100%;
+    background-color: black; } }

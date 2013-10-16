@@ -17,6 +17,7 @@ function initialize(){
   initMap(36, -86, 5);
   $('#start').click(clickStart);
   $('#erase').click(clickErase);
+  Δpositions.remove();
 }
 
 // -------------------------------------------------------------------- //
@@ -24,17 +25,20 @@ function initialize(){
 // -------------------------------------------------------------------- //
 function dbPositionAdded(snapshot) {
   var position = snapshot.val();
+
+
   var latLng = new google.maps.LatLng(position.latitude, position.longitude);
 
   db.positions.push(position);
   db.path.push(latLng);
 
-  //0 is falsy in javascript
   if(db.positions.length === 1) {
     htmlAddStartIcon(latLng);
-    htmlAddPolyline();
+    htmlInitializePolyline();
   }
 
+  db.path.push(latLng);
+  $('#debug').text(position.time);
   htmlCenterAndZoom(latLng);
 }
 
@@ -51,15 +55,17 @@ function htmlCenterAndZoom(latLng){
   db.map.setCenter(latLng);
 }
 
-function htmlAddPolyline() {
-  new google.maps.Polyline({
-    path: db.path,
+function htmlInitializePolyline() {
+  var polyLine = new google.maps.Polyline({
     map: db.map,
     geodesic: true,
     strokeColor: '#FF0000',
     strokeOpacity: 1.0,
     strokeWeight: 2
   });
+
+  //this is an MVC array (automatically updates to display);
+  db.path = polyLine.getPath();
 }
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
