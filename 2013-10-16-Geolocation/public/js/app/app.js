@@ -14,8 +14,7 @@ function initialize(){
   Δpositions.on('child_added', dbPositionAdded);
   initMap(36, -86, 5);
   $('#start').click(clickStart);
-  Δpositions.remove();
-  db.positions = [];
+  $('#erase').click(clickErase);
 }
 
 // -------------------------------------------------------------------- //
@@ -63,6 +62,11 @@ function clickStart(){
   var geoOptions = { enableHighAccuracy: true, maximumAge: 1000, timeout: 60000};
 
   db.watchId = navigator.geolocation.watchPosition(geoSuccess, geoError, geoOptions);
+}
+
+function clickErase() {
+  Δpositions.remove();
+  db.positions = [];
 }
 
 // -------------------------------------------------------------------- //

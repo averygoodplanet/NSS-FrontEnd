@@ -30,13 +30,14 @@ html, body
   background-color: black;
 }
 
-#start, #stop
+#start, #stop, #erase
 {
   position: relative;
   right: 21px;
 }
 
-#start
+#erase
 {
+  position: relative;
   top: 10px;
 }
