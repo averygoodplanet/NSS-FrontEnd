@@ -33,7 +33,7 @@ function dbPositionAdded(snapshot) {
   }
 
   db.positions.push(position);
-
+  htmlCenterAndZoom(position);
 }
 
 // -------------------------------------------------------------------- //
@@ -45,6 +45,11 @@ function htmlAddStartIcon(position){
   debugger;
 }
 
+function htmlCenterAndZoom(position){
+  db.map.setZoom(19);
+  var latLng = new google.maps.LatLng(position.latitude, position.longitude);
+  db.map.setCenter(latLng);
+}
 
 
 // -------------------------------------------------------------------- //
@@ -65,7 +70,7 @@ function clickStart(){
 // -------------------------------------------------------------------- //
 
 function initMap(lat, lng, zoom){
-  var mapOptions = {center: new google.maps.LatLng(lat, lng), zoom: zoom, mapTypeId: google.maps.MapTypeId.ROADMAP};
+  var mapOptions = {center: new google.maps.LatLng(lat, lng), zoom: zoom, mapTypeId: google.maps.MapTypeId.SATELLITE};
   db.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 }
 
