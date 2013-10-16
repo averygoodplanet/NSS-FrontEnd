@@ -4,19 +4,26 @@
 <head>
   <meta charset='utf-8'>
   <meta content='width=device-width' name='viewport'>
-  <title>Visual Stock Market</title>
+  <title>Master Template</title>
   <link href='/css/normalize.css' rel='stylesheet'>
   <link href='/css/foundation.css' rel='stylesheet'>
   <link href='/css/app.css' rel='stylesheet'>
   <script src='/js/vendor/custom.modernizr.js'></script>
-  <link href='/css/qunit-theme-gabe.css' rel='stylesheet'>
+  <script src='/js/app/keys.js'></script>
 </head>
 <body>
-  <div id='qunit'></div>
-  <div id='qunit-fixture'>
+  <div id='left'>
+    <div id='map-canvas'></div>
+  </div>
+  <div id='right'>
     <div class='row'>
-      <div class='small-5 small-centered columns'>
-        <h1>Visual Stocks</h1>
+      <div class='small-11 small-offset-1 columns'>
+        <input class='button large success' id='start' type='button' value='Start'>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='small-11 small-offset-1 columns'>
+        <input class='button large alert' id='stop' type='button' value='Stop'>
       </div>
     </div>
   </div>
@@ -25,8 +32,6 @@
   <script src='/js/vendor/underscore.js'></script>
   <script src='/js/vendor/moment.min.js'></script>
   <script src='https://cdn.firebase.com/v0/firebase.js'></script>
-  <!-- %script{src: 'https://maps.googleapis.com/maps/api/js?key=__________&sensor=true'} -->
+  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyApp2QFXnAA-Zc7fOuf0iALePYb4Zptxwk&amp;sensor=true'></script>
   <script src='/js/app/app.js'></script>
-  <script src='/js/vendor/qunit-1.12.0.js'></script>
-  <script src='/js/tests/master.js'></script>
 </body>

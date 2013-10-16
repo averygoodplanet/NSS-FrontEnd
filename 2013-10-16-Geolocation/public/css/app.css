@@ -1,0 +1,26 @@
+html, body {
+  height: 100%; }
+
+#map-canvas {
+  height: 100%;
+  width: 100%;
+  border: 1px solid black; }
+
+#left, #right {
+  float: left; }
+
+#left {
+  width: 90%;
+  height: 100%; }
+
+#right {
+  width: 10%;
+  height: 100%;
+  background-color: black; }
+
+#start, #stop {
+  position: relative;
+  right: 21px; }
+
+#start {
+  top: 10px; }
