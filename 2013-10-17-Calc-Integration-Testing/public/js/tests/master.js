@@ -15,6 +15,7 @@ function teardownTest(){
 test('Calculate 2 numbers', function(){
   //number of assertions
   //NOTE: Disable your Chrome plugins before running the test, or will get Source: 0 error.
+  // see issue at https://github.com/jquery/qunit/issues/278
   expect(4);
 
   $('#op1').val('3');
