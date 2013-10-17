@@ -116,6 +116,9 @@ function htmlAddLine(position) {
 
 function htmlCenterAndZoom(position) {
   console.log('htmlCenterAndZoom');
+  var latLng = new google.maps.LatLng(position.latitude, position.longitude);
+  db.map.setZoom(19);
+  db.map.setCenter(latLng);
 }
 
 function initMap(lat, lng, zoom){
