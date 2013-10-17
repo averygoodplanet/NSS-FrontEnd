@@ -35,6 +35,22 @@ function clickCalculate() {
 
   $('#result').text(result);
   clearFields();
+  addPaperTrailLi(number1, operatorString, number2, result);
+}
+
+function addPaperTrailLi(number1, operatorString, number2, result){
+  //construct the empty jQuery li object
+  var li = '<li><span class="op1"></span><span class="operator"></span><span class="op2"></span><span>=</span><span class="result"></span></li>';
+  var $li = $(li);
+
+  //add text into the $li from passed params
+  $li.children('.op1').text(number1);
+  $li.children('.operator').text(operatorString);
+  $li.children('.op2').text(number2);
+  $li.children('.result').text(result);
+
+  //add $li to page
+  $('#history > ul').prepend($li);
 }
 
 function clearFields() {
@@ -43,3 +59,4 @@ function clearFields() {
   $('#operator').val('');
   $('#result').val('');
 }
+

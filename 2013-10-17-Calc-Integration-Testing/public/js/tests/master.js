@@ -32,3 +32,28 @@ asyncTest('Calculate 2 numbers', function(){
   //execute clicks last
   $('#calculate').trigger('click');
 });
+
+asyncTest('Paper Trail', function() {
+  expect(1);
+
+  $('#op1').val('3');
+  $('#op2').val('2');
+  $('#operator').val('+');
+  $('#calculate').trigger('click');
+  //first loads before setting up listener
+
+  $('#op1').val('7');
+  $('#op2').val('8');
+  $('#operator').val('*');
+
+  //starts listening here after initial DOMChanged event.
+  $('#history').on('DOMChanged', function() {
+    deepEqual($('#history > li').length, 2, 'should be two <li>');
+    deepEqual($('#history > li:first-child > span').length, 4, 'should be four spans in first li');
+    deepEqual($('#history > li:nth-child(2) > span').length, 4, 'should be four spans in second li');
+    //other tests
+    start();
+  });
+
+  $('#calculate').trigger('click');
+});

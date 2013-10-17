@@ -24,3 +24,19 @@
   position: relative;
   margin-left: 10px;
   border: 1px solid black; }
+
+#history {
+  border: 1px solid black;
+  min-height: 200px; }
+
+#history ul {
+  list-style-type: none; }
+
+.op1, .op2 {
+  color: green; }
+
+.operator {
+  color: red; }
+
+.result {
+  color: blue; }
