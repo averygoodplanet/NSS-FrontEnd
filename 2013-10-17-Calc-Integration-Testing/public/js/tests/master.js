@@ -97,3 +97,57 @@ test('Remove Button feature', function() {
   deepEqual($('#history > ul > li:nth-child(1)').css('background-color'), 'rgba(0, 0, 0, 0)', 'first row should be white background-color');
   deepEqual($('#history > ul > li:nth-child(2)').css('background-color'), 'rgb(128, 128, 128)', 'second row should be blue background-color');
 });
+
+test('Sum, product, remove negatives', function() {
+  expect(4);
+
+    //create three (3) rows.
+  $('#op1').val('3');
+  $('#op2').val('2');
+  $('#operator').val('+');
+  $('#calculate').trigger('click');
+
+  $('#op1').val('7');
+  $('#op2').val('-8');
+  $('#operator').val('*');
+  $('#calculate').trigger('click');
+
+  $('#op1').val('9');
+  $('#op2').val('2');
+  $('#operator').val('*');
+  $('#calculate').trigger('click');
+
+  $('#sum').trigger('click');
+  $('#product').trigger('click');
+  $('#removeNeg').trigger('click');
+
+  deepEqual($('#sumResult').text(), '-33', 'sum should be -33');
+  deepEqual($('#productResult').text(), '-5040', 'product should be -5040');
+  deepEqual($('#history > ul > li').length, 2, 'only two rows should remain');
+  deepEqual($('#history > ul > li:nth-child(2) > span:first-child').text(), 3, 'First span in second line should be 3');
+});
+
+test('remove positive', function() {
+  expect(1);
+
+  //create three (3) rows.
+  $('#op1').val('3');
+  $('#op2').val('2');
+  $('#operator').val('+');
+  $('#calculate').trigger('click');
+
+  $('#op1').val('7');
+  $('#op2').val('-8');
+  $('#operator').val('*');
+  $('#calculate').trigger('click');
+
+  $('#op1').val('9');
+  $('#op2').val('2');
+  $('#operator').val('*');
+  $('#calculate').trigger('click');
+
+  $('#removePos').trigger('click');
+
+  deepEqual($('#history > ul > li').length, 1, 'only one row should remain');
+  deepEqual($('#history > ul > li:first-child > span:first-child').text(), 7, 'remaining row"s first span should be 7');
+});
