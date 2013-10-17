@@ -5,6 +5,7 @@ var Δdb, Δpositions;
 
 // Local Schema (db = {} is defined in keys.js)
 db.positions = [];
+db.path = [];
 
 $(document).ready(initialize);
 
@@ -13,6 +14,7 @@ function initialize(){
   Δdb = new Firebase(db.keys.firebase);
   Δpositions = Δdb.child('positions');
   initMap(36, -86, 5);
+  initializePolyline();
   Δpositions.on('child_added', dbPositionAdded);
   $('#start').click(clickStart);
 }
@@ -74,11 +76,10 @@ function dbPositionAdded(snapshot) {
   }
 
   // if a position has a marker property, make marker (... then htmlMakeLine from that function)
-  console.log(position);
   if(position.marker) {
     htmlMakeMarker(position);
   } else {
-    htmlMakeLine(position);
+    htmlAddLine(position);
   }
 }
 
@@ -87,7 +88,6 @@ function dbPositionAdded(snapshot) {
 // -------------------------------------------------------------------- //
 //        Display   //
 function htmlMakeMarker(position) {
-  console.log('htmlMakeMarker');
   var LatLng = new google.maps.LatLng(position.latitude, position.longitude);
 
   if(position.marker === 'start'){
@@ -104,11 +104,13 @@ function htmlMakeMarker(position) {
     icon: image
   });
 
-  htmlMakeLine(position);
+  htmlAddLine(position);
 }
 
-function htmlMakeLine(position) {
-  console.log('htmlMakeLine');
+function htmlAddLine(position) {
+  console.log('htmlAddLine');
+  var LatLng = new google.maps.LatLng(position.latitude, position.longitude);
+  db.path.push(LatLng);
   htmlCenterAndZoom(position);
 }
 
@@ -119,4 +121,16 @@ function htmlCenterAndZoom(position) {
 function initMap(lat, lng, zoom){
   var mapOptions = {center: new google.maps.LatLng(lat, lng), zoom: zoom, mapTypeId: google.maps.MapTypeId.ROADMAP};
   db.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+}
+
+function initializePolyline() {
+  var polyline = new google.maps.Polyline({
+    map: db.map,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+
+  db.path = polyline.getPath();
 }
