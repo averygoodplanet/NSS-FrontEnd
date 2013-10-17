@@ -1,0 +1,47 @@
+// #map-canvas
+// {
+//   height: 250px;
+//   width: 250px;
+//   border: 1px solid black;
+// }
+
+#firstRow
+{
+  margin-top: 45px;
+}
+
+#op1, #operator, #op2
+{
+  float: left;
+}
+
+#op1, #op2
+{
+  width: 80px;
+}
+
+#operator
+{
+  width: 25px;
+  margin-left: 20px;
+}
+
+#op2
+{
+  margin-left: 25px;
+}
+
+#calculate
+{
+  margin-left:18px;
+}
+
+#result
+{
+  height: 32px;
+  float: left;
+  width: 85px;
+  position: relative;
+  margin-left: 10px;
+  border: 1px solid black;
+}
