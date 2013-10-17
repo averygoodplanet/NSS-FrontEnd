@@ -17,6 +17,8 @@ function initialize(){
   initializePolyline();
   Δpositions.on('child_added', dbPositionAdded);
   $('#start').click(clickStart);
+  $('#stop').click(clickStop);
+  $('#add').click(clickAdd);
 }
 
 // -------------------------------------------------------------------- //
@@ -27,7 +29,16 @@ function clickStart() {
   /* getCurrentPosition() makes an asynchronous call, so it's necessary to chain
   program flow through the success callback from getCurrentPosition() rather
   than have additional steps in this function. */
-  getCurrentPosition();
+  watchCurrentPosition();
+}
+
+function clickAdd() {
+  getAddPosition();
+}
+
+function clickStop() {
+  navigator.geolocation.clearWatch(db.watchId);
+  getStopPosition();
 }
 
 // -------------------------------------------------------------------- //
@@ -35,15 +46,55 @@ function clickStart() {
 // -------------------------------------------------------------------- //
 //            Geolocation (thru device)  //
 
-function getCurrentPosition() {
+function watchCurrentPosition() {
   var geoOptions = {
     enableHighAccuracy: true,
     maximumAge        : 5000,
     timeout           : 30000
   };
 
-  navigator.geolocation.watchPosition(geoSuccess, geoError, geoOptions);
+  db.watchId = navigator.geolocation.watchPosition(geoSuccess, geoError, geoOptions);
   //calls geoSucess(), an asynchronous function.
+}
+
+function getAddPosition() {
+  var geoOptions = {
+    enableHighAccuracy: true,
+    maximumAge        : 5000,
+    timeout           : 30000
+  };
+
+  db.stopId = navigator.geolocation.getCurrentPosition(geoSuccessAdd, geoError, geoOptions);
+}
+
+function getStopPosition() {
+  var geoOptions = {
+    enableHighAccuracy: true,
+    maximumAge        : 5000,
+    timeout           : 30000
+  };
+
+  db.stopId = navigator.geolocation.getCurrentPosition(geoSuccessStop, geoError, geoOptions);
+}
+
+function geoSuccessAdd(location){
+  var position = {};
+  position.latitude = location.coords.latitude;
+  position.longitude = location.coords.longitude;
+  position.marker = 'site';
+  position.text = $('#text').val();
+  $('#text').val('');
+  Δpositions.push(position);
+}
+
+function geoSuccessStop(location) {
+
+  console.log('in geoSuccess() function');
+  var position = {};
+  position.latitude = location.coords.latitude;
+  position.longitude = location.coords.longitude;
+  position.marker = 'stop';
+  Δpositions.push(position);
 }
 
 function geoSuccess(location) {
@@ -103,6 +154,10 @@ function htmlMakeMarker(position) {
     map: db.map,
     icon: image
   });
+
+  if(position.text){
+    marker.setTitle(position.text);
+  }
 
   htmlAddLine(position);
 }
