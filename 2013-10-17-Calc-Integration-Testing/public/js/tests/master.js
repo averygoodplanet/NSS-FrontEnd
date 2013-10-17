@@ -92,8 +92,8 @@ test('Remove Button feature', function() {
   //clicking remove button which should remove the second row (i.e. 9*2=18).
   $('#history > ul > li:nth-child(2) > .remove').trigger('click');
 
-  deepEqual($('#history > ul > li').length, '2', 'only 2 rows should remain after clicking remove');
+  deepEqual($('#history > ul > li').length, 2, 'only 2 rows should remain after clicking remove');
   deepEqual($('#history > ul > li:nth-child(2) > span:nth-child(1)').text(), '3', 'first span in second row should now be 3');
   deepEqual($('#history > ul > li:nth-child(1)').css('background-color'), 'rgba(0, 0, 0, 0)', 'first row should be white background-color');
-  deepEqual($('#history > ul > li:nth-child(2)').css('background-color'), 'blue', 'second row should be blue background-color');
+  deepEqual($('#history > ul > li:nth-child(2)').css('background-color'), 'rgb(128, 128, 128)', 'second row should be blue background-color');
 });

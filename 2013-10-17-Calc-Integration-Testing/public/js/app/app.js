@@ -7,6 +7,7 @@ function initialize(fn, flag){
 
   $(document).foundation();
   $('#calculate').click(clickCalculate);
+  $('#history > ul').on('click', '.remove', clickRemove);
 }
 
 function clickCalculate() {
@@ -35,14 +36,22 @@ function clickCalculate() {
     alert('operator not recognized');
   }
 
+
+
   $('#result').text(result);
   clearFields();
   addPaperTrailLi(number1, operatorString, number2, result);
 }
 
+function clickRemove() {
+  var $row = $(this);
+  //remove this row (i.e. this <li>)
+  $row.parent().remove();
+}
+
 function addPaperTrailLi(number1, operatorString, number2, result){
   //construct the empty jQuery li object
-  var li = '<li><span class="op1"></span><span class="operator"></span><span class="op2"></span><span>=</span><span class="result"></span></li>';
+  var li = '<li><span class="op1"></span><span class="operator"></span><span class="op2"></span><span>=</span><span class="result"></span><input type="button" class="remove button small" value="Remove!"></input></li>';
   var $li = $(li);
 
   //add text into the $li from passed params

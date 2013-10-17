@@ -64,5 +64,15 @@ h1 span
 
 .result
 {
-  color: blue;
+  color: orange;
+}
+
+.remove
+{
+  margin-left: 10px;
+}
+
+#history > ul > li:nth-child(2n)
+{
+  background-color: rgb(128, 128, 128);
 }
