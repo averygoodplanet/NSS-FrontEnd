@@ -69,3 +69,31 @@ test('Paper Trail', function() {
   ok($('#history > ul > li:nth-child(2) > span:nth-child(3)').hasClass('op2'), 'should be op2 class in 3rd span 1st row');
   ok($('#history > ul > li:nth-child(2) > span:nth-child(5)').hasClass('result'), 'should be result class in 5th span 1st row');
 });
+
+test('Remove Button feature', function() {
+  expect(4);
+
+  //create three (3) rows.
+  $('#op1').val('3');
+  $('#op2').val('2');
+  $('#operator').val('+');
+  $('#calculate').trigger('click');
+
+  $('#op1').val('7');
+  $('#op2').val('8');
+  $('#operator').val('*');
+  $('#calculate').trigger('click');
+
+  $('#op1').val('9');
+  $('#op2').val('2');
+  $('#operator').val('*');
+  $('#calculate').trigger('click');
+
+  //clicking remove button which should remove the second row (i.e. 9*2=18).
+  $('#history > ul > li:nth-child(2) > .remove').trigger('click');
+
+  deepEqual($('#history > ul > li').length, '2', 'only 2 rows should remain after clicking remove');
+  deepEqual($('#history > ul > li:nth-child(2) > span:nth-child(1)').text(), '3', 'first span in second row should now be 3');
+  deepEqual($('#history > ul > li:nth-child(1)').css('background-color'), 'rgba(0, 0, 0, 0)', 'first row should be white background-color');
+  deepEqual($('#history > ul > li:nth-child(2)').css('background-color'), 'blue', 'second row should be blue background-color');
+});
