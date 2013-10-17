@@ -88,6 +88,22 @@ function dbPositionAdded(snapshot) {
 //        Display   //
 function htmlMakeMarker(position) {
   console.log('htmlMakeMarker');
+  var LatLng = new google.maps.LatLng(position.latitude, position.longitude);
+
+  if(position.marker === 'start'){
+    var image = '../../img/start.jpg';
+  } else if(position.marker === 'site'){
+    var image = '../../img/site.jpg';
+  } else {
+    var image = '../../img/end.jpg';
+  }
+
+  var marker = new google.maps.Marker({
+    position: LatLng,
+    map: db.map,
+    icon: image
+  });
+
   htmlMakeLine(position);
 }
 
