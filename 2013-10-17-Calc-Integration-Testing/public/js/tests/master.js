@@ -29,7 +29,7 @@ test('Calculate 2 numbers', function(){
 });
 
 test('Paper Trail', function() {
-  expect(3);
+  expect(8);
 
   $('#op1').val('3');
   $('#op2').val('2');
@@ -44,4 +44,11 @@ test('Paper Trail', function() {
   deepEqual($('#history > ul > li').length, 2, 'should be two <li>');
   deepEqual($('#history > uL > li:first-child > span').length, 5, 'should be four spans in first li');
   deepEqual($('#history > ul > li:nth-child(2) > span').length, 5, 'should be four spans in second li');
+  deepEqual($('#history > ul > li:first-child > span:first-child').text(), '7', 'should be 7 in first span top');
+  deepEqual($('#history > ul > li:first-child > span:nth-child(2)').text(), '*', 'should be * in 2nd span top');
+  deepEqual($('#history > ul > li:first-child > span:nth-child(3)').text(), '8', 'should be 8 in 3rd span top');
+  deepEqual($('#history > ul > li:first-child > span:nth-child(4)').text(), '=', 'should be = in 4th span top');
+  deepEqual($('#history > ul > li:first-child > span:nth-child(5)').text(), '56', 'should be 56 in 5th span top');
+
+
 });
