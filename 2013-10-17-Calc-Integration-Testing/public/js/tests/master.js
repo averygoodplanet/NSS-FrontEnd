@@ -29,7 +29,7 @@ test('Calculate 2 numbers', function(){
 });
 
 test('Paper Trail', function() {
-  expect(13);
+  expect(21);
 
   $('#op1').val('3');
   $('#op2').val('2');
@@ -42,18 +42,29 @@ test('Paper Trail', function() {
   $('#calculate').trigger('click');
 
   deepEqual($('#history > ul > li').length, 2, 'should be two <li>');
-  deepEqual($('#history > uL > li:first-child > span').length, 5, 'should be four spans in first li');
-  deepEqual($('#history > ul > li:nth-child(2) > span').length, 5, 'should be four spans in second li');
+
+  deepEqual($('#history > uL > li:first-child > span').length, 5, 'should be five spans in first li');
+  deepEqual($('#history > ul > li:nth-child(2) > span').length, 5, 'should be five spans in second li');
+
   deepEqual($('#history > ul > li:first-child > span:first-child').text(), '7', 'should be 7 in first span top');
   deepEqual($('#history > ul > li:first-child > span:nth-child(2)').text(), '*', 'should be * in 2nd span top');
   deepEqual($('#history > ul > li:first-child > span:nth-child(3)').text(), '8', 'should be 8 in 3rd span top');
   deepEqual($('#history > ul > li:first-child > span:nth-child(4)').text(), '=', 'should be = in 4th span top');
   deepEqual($('#history > ul > li:first-child > span:nth-child(5)').text(), '56', 'should be 56 in 5th span top');
+
   deepEqual($('#history > ul > li:nth-child(2) > span:first-child').text(), '3', 'should be 3 in first span 2nd row');
   deepEqual($('#history > ul > li:nth-child(2) > span:nth-child(2)').text(), '+', 'should be + in 2nd span 2nd row');
   deepEqual($('#history > ul > li:nth-child(2) > span:nth-child(3)').text(), '2', 'should be 2 in 3rd span 2nd row');
   deepEqual($('#history > ul > li:nth-child(2) > span:nth-child(4)').text(), '=', 'should be = in 4th span 2nd row');
   deepEqual($('#history > ul > li:nth-child(2) > span:nth-child(5)').text(), '5', 'should be 5 in 5th span 2nd row');
 
+  ok($('#history > ul > li:first-child > span:nth-child(1)').hasClass('op1'), 'should be op1 class in 1st span 1st row');
+  ok($('#history > ul > li:first-child > span:nth-child(2)').hasClass('operator'), 'should be operator class in 2nd span 1st row');
+  ok($('#history > ul > li:first-child > span:nth-child(3)').hasClass('op2'), 'should be op2 class in 3rd span 1st row');
+  ok($('#history > ul > li:first-child > span:nth-child(5)').hasClass('result'), 'should be result class in 5th span 1st row');
 
+  ok($('#history > ul > li:nth-child(2) > span:nth-child(1)').hasClass('op1'), 'should be op1 class in 1st span 1st row');
+  ok($('#history > ul > li:nth-child(2) > span:nth-child(2)').hasClass('operator'), 'should be operator class in 2nd span 1st row');
+  ok($('#history > ul > li:nth-child(2) > span:nth-child(3)').hasClass('op2'), 'should be op2 class in 3rd span 1st row');
+  ok($('#history > ul > li:nth-child(2) > span:nth-child(5)').hasClass('result'), 'should be result class in 5th span 1st row');
 });
