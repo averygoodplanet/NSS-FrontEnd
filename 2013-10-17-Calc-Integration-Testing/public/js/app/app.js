@@ -2,7 +2,9 @@
 
 $(document).ready(initialize);
 
-function initialize(){
+function initialize(fn, flag){
+  if(!canRun(flag)) {return;}
+
   $(document).foundation();
   $('#calculate').click(clickCalculate);
 }
@@ -60,3 +62,9 @@ function clearFields() {
   $('#result').val('');
 }
 
+function canRun(flag) {
+  var isQunit = $('#qunit').length > 0;
+  var isFlag = flag !== undefined;
+  var value = isQunit && isFlag || !isQunit;
+  return value;
+}
