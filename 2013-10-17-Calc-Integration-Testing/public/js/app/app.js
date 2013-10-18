@@ -93,7 +93,13 @@ function clickRemoveNeg() {
 }
 
 function clickRemovePos() {
-
+  //for each .result, if .result's content is positive, remove that li
+  $('#history li .result').each(function () {
+    var number = parseFloat($(this).text());
+    if(number > 0){
+      $(this).parent().remove();
+    }
+  });
 }
 
 function addPaperTrailLi(number1, operatorString, number2, result){

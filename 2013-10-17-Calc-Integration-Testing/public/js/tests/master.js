@@ -149,5 +149,5 @@ test('remove positive', function() {
   $('#removePos').trigger('click');
 
   deepEqual($('#history > ul > li').length, 1, 'only one row should remain');
-  deepEqual($('#history > ul > li:first-child > span:first-child').text(), 7, 'remaining row"s first span should be 7');
+  deepEqual($('#history > ul > li:first-child > span:first-child').text(), '7', 'remaining row"s first span should be 7');
 });
