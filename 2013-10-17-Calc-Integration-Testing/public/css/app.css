@@ -48,3 +48,9 @@ h1 span {
 
 #history > ul > li:nth-child(2n) {
   background-color: gray; }
+
+#sumResult, #productResult {
+  width: 100px; }
+
+label {
+  font-size: 18px; }

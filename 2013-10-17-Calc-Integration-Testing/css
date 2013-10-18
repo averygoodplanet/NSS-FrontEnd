@@ -7,15 +7,14 @@ Backtrace:
 /home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
 /home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:201:in `each'
 /home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
-/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:235:in `watch'
-/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/plugin.rb:107:in `method_missing'
-/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/exec.rb:455:in `watch_or_update'
-/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/exec.rb:318:in `process_result'
-/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/exec.rb:41:in `parse'
-/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/exec.rb:21:in `parse!'
-/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/bin/sass:9:in `<top (required)>'
-/home/peter/.rvm/gems/ruby-2.0.0-p247/bin/sass:23:in `load'
-/home/peter/.rvm/gems/ruby-2.0.0-p247/bin/sass:23:in `<main>'
+/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:283:in `block in watch'
+/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/vendor/listen/lib/listen/multi_listener.rb:108:in `call'
+/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/vendor/listen/lib/listen/multi_listener.rb:108:in `on_change'
+/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/vendor/listen/lib/listen/multi_listener.rb:117:in `block in initialize_adapter'
+/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/vendor/listen/lib/listen/adapter.rb:198:in `call'
+/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/vendor/listen/lib/listen/adapter.rb:198:in `report_changes'
+/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/vendor/listen/lib/listen/adapter.rb:210:in `poll_changed_dirs'
+/home/peter/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.10/vendor/listen/lib/listen/adapters/linux.rb:48:in `block in start'
 */
 body:before {
   white-space: pre;

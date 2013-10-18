@@ -7,10 +7,22 @@
 .row#firstRow
   .small-12.columns
     %input#op1{type: 'text', placeholder: 'number'}
-    %input#operator{type: 'text', placeholder: 'operator'}
+    %input#operator{type: 'text', placeholder: '*'}
     %input#op2{type: 'text', placeholder: 'number'}
     %input#calculate.button.small{type: 'button', value: 'calculate'}
     #result
+.row
+  .small-12.columns
+    %input#sum.button.small{type: 'button', value: 'Sum!'}
+    %input#product.button.small{type: 'button', value: 'Product!'}
+    %input#removeNeg.button.small{type: 'button', value: 'Remove Negative Results'}
+    %input#removePos.button.small{type: 'button', value: 'Remove Positive Results'}
+.row
+  .small-12.columns
+    %label{for: 'sumResult'} Sum:
+    %input#sumResult{type: 'text', readonly: true}
+    %label{for: 'productResult'} Product:
+    %input#productResult{type: 'text', readonly: true}
 .row
   .small-3.columns
     #history
