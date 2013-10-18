@@ -121,14 +121,14 @@ test('Sum, product, remove negatives', function() {
   $('#product').trigger('click');
   $('#removeNeg').trigger('click');
 
-  deepEqual($('#sumResult').text(), '-33', 'sum should be -33');
-  deepEqual($('#productResult').text(), '-5040', 'product should be -5040');
+  deepEqual($('#sumResult').val(), '-33', 'sum should be -33');
+  deepEqual($('#productResult').val(), '-5040', 'product should be -5040');
   deepEqual($('#history > ul > li').length, 2, 'only two rows should remain');
   deepEqual($('#history > ul > li:nth-child(2) > span:first-child').text(), 3, 'First span in second line should be 3');
 });
 
 test('remove positive', function() {
-  expect(1);
+  expect(2);
 
   //create three (3) rows.
   $('#op1').val('3');

@@ -70,7 +70,16 @@ function clickSum() {
 }
 
 function clickProduct() {
+  //create empty product variable
+  var product = 1;
 
+  //for each result, multiple product by result
+  $('#history li .result').each(function () {
+    product *= parseFloat($(this).text());
+  });
+
+   //display product
+  $('#productResult').val(product);
 }
 
 function clickRemoveNeg() {
