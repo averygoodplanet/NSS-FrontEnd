@@ -8,7 +8,12 @@ function initialize(fn, flag){
   $(document).foundation();
   $('#calculate').click(clickCalculate);
   $('#history > ul').on('click', '.remove', clickRemove);
+  $('#sum').click(clickSum);
+  $('#product').click(clickProduct);
+  $('#removeNeg').click(clickRemoveNeg);
+  $('#removePos').click(clickRemovePos);
 }
+
 
 function clickCalculate() {
   var number1 = parseFloat($('#op1').val());
@@ -47,6 +52,33 @@ function clickRemove() {
   var $row = $(this);
   //remove this row (i.e. this <li>)
   $row.parent().remove();
+}
+
+function clickSum() {
+  //create empty sum variable
+  var sum = 0;
+
+  // for each result within the <li>s within #history, add them to the sum variable
+  var resultSpans = $('#history li .result');
+
+  $('#history li .result').each(function () {
+    sum += parseFloat($(this).text());
+  });
+
+  //display sum variable to #sumResult (a read-only input field)
+  $('#sumResult').val(sum);
+}
+
+function clickProduct() {
+
+}
+
+function clickRemoveNeg() {
+
+}
+
+function clickRemovePos() {
+
 }
 
 function addPaperTrailLi(number1, operatorString, number2, result){
