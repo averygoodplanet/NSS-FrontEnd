@@ -124,7 +124,7 @@ test('Sum, product, remove negatives', function() {
   deepEqual($('#sumResult').val(), '-33', 'sum should be -33');
   deepEqual($('#productResult').val(), '-5040', 'product should be -5040');
   deepEqual($('#history > ul > li').length, 2, 'only two rows should remain');
-  deepEqual($('#history > ul > li:nth-child(2) > span:first-child').text(), 3, 'First span in second line should be 3');
+  deepEqual($('#history > ul > li:nth-child(2) > span:first-child').text(), "3", 'First span in second line should be 3');
 });
 
 test('remove positive', function() {

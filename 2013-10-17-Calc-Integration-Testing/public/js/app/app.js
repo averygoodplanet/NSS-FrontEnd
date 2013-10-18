@@ -83,7 +83,13 @@ function clickProduct() {
 }
 
 function clickRemoveNeg() {
-
+  //for each .result, if .result's content is negative, remove that li
+  $('#history li .result').each(function () {
+    var number = parseFloat($(this).text());
+    if(number < 0){
+      $(this).parent().remove();
+    }
+  });
 }
 
 function clickRemovePos() {
