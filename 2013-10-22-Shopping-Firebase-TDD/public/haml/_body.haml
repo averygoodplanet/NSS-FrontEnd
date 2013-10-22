@@ -1,0 +1,24 @@
+.row
+  .small-6.columns
+    %input#product-image{type: 'text', placeholder: 'image URL here'}
+  .small-6.columns
+    %input#product-price{type: 'text', placeholder: 'price'}
+.row
+  .small-6.columns
+    %input#product-name{type: 'text', placeholder: 'product name'}
+  .small-6.columns
+    %input#product-off{type: 'text', placeholder: 'product off'}
+.row
+  .small-6.columns
+    %input#product-weight{type: 'text', placeholder: 'product weight'}
+  .small-6.columns
+    %input#add-product.button.small.radius{type: 'button', value: 'Add Product'}
+.row
+  %table#products
+    %tr
+      %th Name
+      %th Image
+      %th Weight
+      %th Price
+      %th % Off
+      %th Sale Price
