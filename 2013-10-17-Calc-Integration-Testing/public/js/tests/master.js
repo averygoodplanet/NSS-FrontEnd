@@ -127,27 +127,27 @@ test('Sum, product, remove negatives', function() {
   deepEqual($('#history > ul > li:nth-child(2) > span:first-child').text(), "3", 'First span in second line should be 3');
 });
 
-test('remove positive', function() {
-  expect(2);
+// test('remove positive', function() {
+//   expect(2);
 
-  //create three (3) rows.
-  $('#op1').val('3');
-  $('#op2').val('2');
-  $('#operator').val('+');
-  $('#calculate').trigger('click');
+//   //create three (3) rows.
+//   $('#op1').val('3');
+//   $('#op2').val('2');
+//   $('#operator').val('+');
+//   $('#calculate').trigger('click');
 
-  $('#op1').val('7');
-  $('#op2').val('-8');
-  $('#operator').val('*');
-  $('#calculate').trigger('click');
+//   $('#op1').val('7');
+//   $('#op2').val('-8');
+//   $('#operator').val('*');
+//   $('#calculate').trigger('click');
 
-  $('#op1').val('9');
-  $('#op2').val('2');
-  $('#operator').val('*');
-  $('#calculate').trigger('click');
+//   $('#op1').val('9');
+//   $('#op2').val('2');
+//   $('#operator').val('*');
+//   $('#calculate').trigger('click');
 
-  $('#removePos').trigger('click');
+//   $('#removePos').trigger('click');
 
-  deepEqual($('#history > ul > li').length, 1, 'only one row should remain');
-  deepEqual($('#history > ul > li:first-child > span:first-child').text(), '7', 'remaining row"s first span should be 7');
-});
+//   deepEqual($('#history > ul > li').length, 1, 'only one row should remain');
+//   deepEqual($('#history > ul > li:first-child > span:first-child').text(), '7', 'remaining row"s first span should be 7');
+// });

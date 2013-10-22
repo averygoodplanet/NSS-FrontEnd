@@ -14,12 +14,6 @@ function initialize(fn, flag){
   $('#add-subject').click(clickAddSubject);
 }
 
-function clickAddSubject() {
-  var subjectName = getValue('#subject');
-  var studentName = $('#pick-student').val();
-
-  debugger;
-}
 
 function clickAddSchool() {
   var name = getValue('#school');
@@ -30,10 +24,16 @@ function clickAddSchool() {
   htmlAddSchoolToSelect(school);
 }
 
+function clickAddSubject() {
+  var subjectName = getValue('#subject');
+  var studentName = $('#pick-student').val();
+}
+
 function clickAddStudent() {
   var name = getValue('#student');
-  var schoolName = $('#pick-school').val();
   var gpa = getValue('#gpa', parseFloat);
+  var schoolName = $('#pick-school').val();
+
 
   //return the school object for name e.g. 'MIT'
   var school = _.find(schools, function(s){
@@ -79,16 +79,12 @@ function htmlAddSchoolToSelect(school){
   $('#pick-school').append($option);
 }
 
-function htmlAddStudentToSelect(school){
+function htmlAddStudentToSelect(student){
   var $option = $('<option>');
   $option.text(student.name);
   $option.val(student.name);
-  $('#pick-student').append($option);
+  $('#pick-student').prepend($option);
 }
-
-
-
-//-----------------------------------------------------------------//
 
 function getValue(selector, fn){
   var value = $(selector).val();
