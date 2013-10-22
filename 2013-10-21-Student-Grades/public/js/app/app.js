@@ -24,9 +24,19 @@ function clickAddSchool() {
   htmlAddSchoolToSelect(school);
 }
 
-function clickAddSubject() {
+function clickAddSubject(){
   var subjectName = getValue('#subject');
   var studentName = $('#pick-student').val();
+
+  var school = _.find(schools, function(sch){
+    return _.find(sch.students, function(stu){
+      return stu.name === studentName;
+    });
+  });
+
+  var student = _.find(school.students, function(stu){return stu.name === studentName;});
+  var subject = new Subject(subjectName);
+  student.subjects.push(subject);
 }
 
 function clickAddStudent() {
@@ -69,6 +79,10 @@ function Student(name, gpa){
   this.name = name;
   this.gpa = gpa;
   this.subjects = [];
+}
+
+function Subject(name){
+  this.name = name;
 }
 // -----------------------------------------------------------------//
 
