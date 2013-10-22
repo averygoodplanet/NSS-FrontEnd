@@ -15,7 +15,7 @@ function teardownTest(){
 }
 
 test('Add Product', function(){
-  expect(4);
+  expect(12);
 
   //setup
   $('#product-image').val('ipad-air.png');
@@ -28,16 +28,17 @@ test('Add Product', function(){
   //assertions
   equal(db.products.length, 1, 'products array should have 1 element');
   ok(db.products[0].id, 'id should be populated');
-  ok(db.products[0].id instanceof Product, 'product should be an instanceof Product');
+  ok(db.products[0] instanceof Product, 'product should be an instanceof Product');
   equal(db.products[0].image, 'ipad-air.png', 'product should have an image');
   equal(db.products[0].name, 'Ipad Air', 'product should have a name');
   equal(db.products[0].weight, 1.0, 'product should have a weight');
-  equal(db.products[0].salePrice(), 449.1, 'product should have a sale price');
+  equal(db.products[0].salePrice, 449.1, 'product should have a sale price');
 
   equal($('#products > tr').length, 2, '#products table should have two (2) rows');
   equal($('#products > tr:nth-child(2) > td').length, 6, 'should be 6 columns in row');
   equal($('#products .product-name').text(), 'Ipad Air', 'name column should be populated');
   equal($('#products .product-sale').text(), '$449.10', 'sale column should be populated');
+  //QUnit.close(db.products[0].salePrice(), 449.10, 1, 'lkjlkj');
   equal($('#products .product-image img').attr('src'), '/img/ipad-air.png', 'image column should be populated');
 });
 
