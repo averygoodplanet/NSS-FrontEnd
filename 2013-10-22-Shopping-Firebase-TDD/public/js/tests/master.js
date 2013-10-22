@@ -39,7 +39,7 @@ test('Add Product', function(){
   equal($('#products .product-name').text(), 'Ipad Air', 'name column should be populated');
   equal($('#products .product-sale').text(), '$449.10', 'sale column should be populated');
   //QUnit.close(db.products[0].salePrice(), 449.10, 1, 'lkjlkj');
-  equal($('#products .product-image img').attr('src'), '/img/ipad-air.png', 'image column should be populated');
+  equal($('#products .product-image img').attr('src'), '../img/ipad-air.png', 'image column should be populated');
 });
 
 // Firebase is synchronous because you have a persistent connection through websockets.

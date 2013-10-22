@@ -55,10 +55,10 @@ function dbLoadProduct(snapshot) {
 }
 
 function htmlLoadProduct(product) {
-  var row = '<tr><td class="product-name"></td><td class="product-image"></td><td class="product-weight"></td><td class="product-price"></td><td class="product-off"></td><td class="product-sale"></td></tr>';
+  var row = '<tr><td class="product-name"></td><td class="product-image"><img></td><td class="product-weight"></td><td class="product-price"></td><td class="product-off"></td><td class="product-sale"></td></tr>';
   var $row = $(row);
   $row.children('.product-name').text(product.name);
-  $row.children('.product-image').text(product.image);
+  $row.children('.product-image').children('img').attr('src', '../img/'+product.image);
   $row.children('.product-weight').text(product.weight);
   $row.children('.product-price').text(product.price);
   $row.children('.product-off').text(product.off);
