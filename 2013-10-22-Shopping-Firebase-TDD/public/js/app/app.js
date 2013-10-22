@@ -70,7 +70,6 @@ function htmlLoadProduct(product) {
 // -------------------------------------------------------------------- //
 
 function clickAddProduct() {
-  alert('Click add Product');
   var name = getValue('#product-name');
   var image = getValue('#product-image');
   var weight = getValue('#product-weight', parseInt);

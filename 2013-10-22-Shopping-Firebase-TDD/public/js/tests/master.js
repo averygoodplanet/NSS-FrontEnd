@@ -34,8 +34,8 @@ test('Add Product', function(){
   equal(db.products[0].weight, 1.0, 'product should have a weight');
   equal(db.products[0].salePrice, 449.1, 'product should have a sale price');
 
-  equal($('#products > tr').length, 2, '#products table should have two (2) rows');
-  equal($('#products > tr:nth-child(2) > td').length, 6, 'should be 6 columns in row');
+  equal($('#products tr').length, 2, '#products table should have two (2) rows');
+  equal($('#products tr:nth-child(2) > td').length, 6, 'should be 6 columns in row');
   equal($('#products .product-name').text(), 'Ipad Air', 'name column should be populated');
   equal($('#products .product-sale').text(), '$449.10', 'sale column should be populated');
   //QUnit.close(db.products[0].salePrice(), 449.10, 1, 'lkjlkj');
