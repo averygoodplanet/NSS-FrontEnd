@@ -47,9 +47,9 @@ function turnHandlersOff(){
 function dbLoadProduct(snapshot) {
   console.log('in dbLoadProduct');
   var obj = snapshot.val();
+  //product.salePrice function is reconstructed here.
   var product = new Product(obj.name, obj.image, obj.weight, obj.price, obj.off);
   product.id = snapshot.name();
-  product.salePrice = product.price * (1 - (product.off * 0.01));
   db.products.push(product);
   htmlLoadProduct(product);
 }
@@ -57,7 +57,7 @@ function dbLoadProduct(snapshot) {
 function htmlLoadProduct(product) {
   var row = '<tr><td class="product-name"></td><td class="product-image"><img></td><td class="product-weight"></td><td class="product-price"></td><td class="product-off"></td><td class="product-sale"></td></tr>';
   var $row = $(row);
-  var displaySalePrice = '$' + (product.salePrice).toFixed(2);
+  var displaySalePrice = '$' + (product.salePrice()).toFixed(2);
   $row.children('.product-name').text(product.name);
   $row.children('.product-image').children('img').attr('src', '../img/'+product.image);
   $row.children('.product-weight').text(product.weight);
@@ -80,6 +80,7 @@ function clickAddProduct() {
   var product = new Product(name, image, weight, price, off);
   //cannot push a function to firebase
   delete product.salePrice;
+  debugger;
   Δproducts.push(product);
 }
 
