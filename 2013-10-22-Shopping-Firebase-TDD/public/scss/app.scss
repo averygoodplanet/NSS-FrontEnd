@@ -1,3 +1,16 @@
 .hidden{
   display: none;
 }
+
+#previous, #next{
+  position: absolute;
+}
+
+#previous{
+  left: 0px;
+}
+
+#next
+{
+  left: 328px;
+}
