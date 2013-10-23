@@ -121,15 +121,20 @@ function clickNext() {
 }
 
 function hideShowButtons() {
+  /*this function will properly hide or unhide Next and Previous buttons
+  based on whether the current page is first, last, or middle page */
   var firstPageNumber = 1;
   var lastPageNumber = Math.ceil(db.products.length / db.pagination.perPage);
   var currentPageNumber = db.pagination.currentPage;
   if(currentPageNumber === firstPageNumber){
     console.log('on page 1');
+    $('#previous').addClass('hidden');
   } else if(currentPageNumber < lastPageNumber){
     console.log('on a middle page');
+    $('#previous, #next').removeClass('hidden');
   } else if(currentPageNumber === lastPageNumber){
     console.log('on the last page');
+    $('#next').addClass('hidden');
   } else {
     alert('see hideShowButtons if-else statement.');
   }

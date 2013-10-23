@@ -86,7 +86,7 @@ test('Product Pagination', function() {
   equal(db.pagination.currentPage, 1, 'should be on first page');
   equal($('#products tbody > tr').length, 6, 'should have 5 products in table');
   ok($('#previous').hasClass('hidden'), 'previous button (on first page) should have .hidden');
-  ok(!$('#previous').hasClass('hidden'), 'next button (on first page) should exist and not have .hidden');
+  ok(!$('#next').hasClass('hidden'), 'next button (on first page) should not have .hidden');
 });
 
 
