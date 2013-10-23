@@ -47,7 +47,7 @@ test('Add Product', function(){
 });
 
 test('Product Pagination', function() {
-  expect(1);
+  expect(18);
 
   for(var i = 0; i < 12; i++){
     var name = Math.random().toString(36).substring(2);
@@ -70,7 +70,7 @@ test('Product Pagination', function() {
   //should now be on page 2
   equal(db.pagination.currentPage, 2, 'should be on second page');
   equal($('#products tbody > tr').length, 6, 'should have 5 products in table');
-  equal($('#previous.hidden').length, 1, 'previous button (on second page) should have .hidden');
+  equal($('#previous:not(.hidden)').length, 1, 'previous button (on second page) should exist and not hidden');
   equal($('#next:not(.hidden)').length, 1, 'next button (on second page) should exist and not have .hidden');
 
   $('#next').trigger('click');

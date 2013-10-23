@@ -106,16 +106,15 @@ function clickPrevious() {
   //decrement current pagenumber
   db.pagination.currentPage -= 1;
   //display this page's products
-
+  displayThisPageProducts();
   //call function to hide or show Next and Previous as appropriate;
 }
 
 function clickNext() {
   //increment current page
   db.pagination.currentPage += 1;
-  debugger;
   //display this page's products
-
+  displayThisPageProducts();
   //call function to hide or show Next and Previous as appropriate;
 }
 
