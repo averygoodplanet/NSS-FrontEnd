@@ -108,6 +108,7 @@ function clickPrevious() {
   //display this page's products
   displayThisPageProducts();
   //call function to hide or show Next and Previous as appropriate;
+  hideShowButtons();
 }
 
 function clickNext() {
@@ -116,6 +117,22 @@ function clickNext() {
   //display this page's products
   displayThisPageProducts();
   //call function to hide or show Next and Previous as appropriate;
+  hideShowButtons();
+}
+
+function hideShowButtons() {
+  var firstPageNumber = 1;
+  var lastPageNumber = Math.ceil(db.products.length / db.pagination.perPage);
+  var currentPageNumber = db.pagination.currentPage;
+  if(currentPageNumber === firstPageNumber){
+    console.log('on page 1');
+  } else if(currentPageNumber < lastPageNumber){
+    console.log('on a middle page');
+  } else if(currentPageNumber === lastPageNumber){
+    console.log('on the last page');
+  } else {
+    alert('see hideShowButtons if-else statement.');
+  }
 }
 
 // -------------------------------------------------------------------- //
