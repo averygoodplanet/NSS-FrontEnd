@@ -53,7 +53,17 @@ function dbLoadProduct(snapshot) {
   var product = new Product(obj.name, obj.image, obj.weight, obj.price, obj.off);
   product.id = snapshot.name();
   db.products.push(product);
-  htmlLoadProduct(product);
+  //for products on this page only, display product
+  var pageNumber = db.pagination.currentPage;
+  var perPage = db.pagination.perPage;
+  //make starting index
+  var startIndex = ((pageNumber -1) * perPage);
+  var endIndex = (pageNumber * perPage);
+  debugger;
+  //make ending index
+  //make loop through index to display each product
+  //check that the item is their before trying to display it
+    htmlLoadProduct(product);
 }
 
 function htmlLoadProduct(product) {
