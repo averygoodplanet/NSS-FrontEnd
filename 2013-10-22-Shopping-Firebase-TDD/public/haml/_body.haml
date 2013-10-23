@@ -15,10 +15,14 @@
     %input#add-product.button.small.radius{type: 'button', value: 'Add Product'}
 .row
   %table#products
-    %tr
+    %tr.headerRow
       %th Name
       %th Image
       %th Weight
       %th Price
       %th % Off
       %th Sale Price
+.row
+  .small-12.columns
+    %input#previous{type: 'button', value: 'Previous'}
+    %input#next{type: 'button', value: 'Next'}

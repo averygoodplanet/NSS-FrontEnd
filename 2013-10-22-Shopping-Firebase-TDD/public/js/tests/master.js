@@ -62,21 +62,21 @@ test('Product Pagination', function() {
   equal(db.products.length, 12, 'db.products should have 12 products');
   equal(db.pagination.perPage, 5, 'should be 5 products per page');
   equal(db.pagination.currentPage, 1, 'should be on first page');
-  equal($('#products tr').length, 6, 'should have 5 products in table');
+  equal($('#products tbody > tr').length, 6, 'should have 5 products in table');
   equal($('#previous.hidden').length, 1, 'previous button (on first page) should have .hidden');
   equal($('#next:not(.hidden)').length, 1, 'next button (on first page) should exist and not have .hidden');
 
   $('#next').trigger('click');
   //should now be on page 2
   equal(db.pagination.currentPage, 2, 'should be on second page');
-  equal($('#products tr').length, 6, 'should have 5 products in table');
+  equal($('#products tbody > tr').length, 6, 'should have 5 products in table');
   equal($('#previous.hidden').length, 1, 'previous button (on second page) should have .hidden');
   equal($('#next:not(.hidden)').length, 1, 'next button (on second page) should exist and not have .hidden');
 
   $('#next').trigger('click');
   //now on page 3
   equal(db.pagination.currentPage, 3, 'should be on first page');
-  equal($('#products tr').length, 3, 'should have 2 products in table');
+  equal($('#products tbody > tr').length, 3, 'should have 2 products in table');
   equal($('#previous:not(.hidden)').length, 1, 'previous button (on third page) should not be hidden');
   equal($('#next.hidden').length, 1, 'next button (on third page) should exist and should be hidden');
 
@@ -84,7 +84,7 @@ test('Product Pagination', function() {
   $('#previous').trigger('click');
   //back on first page
   equal(db.pagination.currentPage, 1, 'should be on first page');
-  equal($('#products tr').length, 6, 'should have 5 products in table');
+  equal($('#products tbody > tr').length, 6, 'should have 5 products in table');
   ok($('#previous').hasClass('hidden'), 'previous button (on first page) should have .hidden');
   ok(!$('#previous').hasClass('hidden'), 'next button (on first page) should exist and not have .hidden');
 });

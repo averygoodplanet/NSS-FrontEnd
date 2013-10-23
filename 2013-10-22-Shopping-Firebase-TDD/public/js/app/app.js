@@ -56,14 +56,14 @@ function dbLoadProduct(snapshot) {
   //for products on this page only, display product
   var pageNumber = db.pagination.currentPage;
   var perPage = db.pagination.perPage;
-  //make starting index
   var startIndex = ((pageNumber -1) * perPage);
-  var endIndex = (pageNumber * perPage);
+  var endIndex = (pageNumber * perPage) - 1;
   debugger;
-  //make ending index
-  //make loop through index to display each product
-  //check that the item is their before trying to display it
-    htmlLoadProduct(product);
+  $('#products tr').not('.headerRow').remove();
+  //make loop through index to display each product; also checks that i < db.products.length
+  for(var i = startIndex; (i <= endIndex) && (i < db.products.length); i++){
+    htmlLoadProduct(db.products[i]);
+  }
 }
 
 function htmlLoadProduct(product) {
