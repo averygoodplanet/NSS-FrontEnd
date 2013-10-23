@@ -38,10 +38,14 @@ function initializeDatabase() {
 
 function turnHandlersOn(){
   $('#add-product').on('click', clickAddProduct);
+  $('#previous').on('click', clickPrevious);
+  $('#next').on('click', clickNext);
 }
 
 function turnHandlersOff(){
   $('#add-product').off('click', clickAddProduct);
+  $('#previous').off('click', clickPrevious);
+  $('#next').off('click', clickNext);
 }
 
 // -------------------------------------------------------------------- //
@@ -53,6 +57,10 @@ function dbLoadProduct(snapshot) {
   var product = new Product(obj.name, obj.image, obj.weight, obj.price, obj.off);
   product.id = snapshot.name();
   db.products.push(product);
+  displayThisPageProducts();
+}
+
+function displayThisPageProducts(){
   //for products on this page only, display product
   var pageNumber = db.pagination.currentPage;
   var perPage = db.pagination.perPage;
@@ -94,6 +102,15 @@ function clickAddProduct() {
   Δproducts.push(product);
 }
 
+function clickPrevious() {
+  //decrement current page
+}
+
+function clickNext() {
+  //increment current page
+  //
+
+}
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
