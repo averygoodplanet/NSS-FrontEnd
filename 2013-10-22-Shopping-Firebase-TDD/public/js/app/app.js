@@ -30,7 +30,9 @@ function initializeDatabase() {
   db.customers = [];
   db.orders = [];
   db.revenue = 0;
-
+  db.pagination = {};
+  db.pagination.currentPage = 1;
+  db.pagination.perPage = 5;
   Δproducts.on('child_added', dbLoadProduct);
 }
 

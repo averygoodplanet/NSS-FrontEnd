@@ -49,7 +49,7 @@ test('Add Product', function(){
 test('Product Pagination', function() {
   expect(1);
 
-  for(var i = 0; i < 15; i++){
+  for(var i = 0; i < 12; i++){
     var name = Math.random().toString(36).substring(2);
     var image = Math.random().toString(36).substring(2) + '.png';
     var weight = Math.random() * 100;
