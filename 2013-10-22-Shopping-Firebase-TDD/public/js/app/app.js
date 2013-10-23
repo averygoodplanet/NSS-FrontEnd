@@ -58,7 +58,6 @@ function dbLoadProduct(snapshot) {
   var perPage = db.pagination.perPage;
   var startIndex = ((pageNumber -1) * perPage);
   var endIndex = (pageNumber * perPage) - 1;
-  debugger;
   $('#products tr').not('.headerRow').remove();
   //make loop through index to display each product; also checks that i < db.products.length
   for(var i = startIndex; (i <= endIndex) && (i < db.products.length); i++){
@@ -92,7 +91,6 @@ function clickAddProduct() {
   var product = new Product(name, image, weight, price, off);
   //cannot push a function to firebase
   delete product.salePrice;
-  debugger;
   Δproducts.push(product);
 }
 
