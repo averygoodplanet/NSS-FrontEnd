@@ -3,7 +3,7 @@
 // -------------------------------------------------------------------- //
 
 // Firebase Schema
-var Δdb, Δproducts, Δcustomers, Δorders, Δcart;
+var Δdb, Δproducts, Δcustomers, Δorders;
 
 // Local Schema (defined in keys.js)
 
@@ -26,8 +26,6 @@ function initializeDatabase() {
   Δproducts = Δdb.child('products');
   Δcustomers = Δdb.child('customers');
   Δorders = Δdb.child('orders');
-  Δcart = Δdb.child('cart');
-  Δcart.customer = Δcart.child('customer');
   db.cart = db.pagination = {};
   db.products = [];
   db.customers = [];
@@ -46,6 +44,7 @@ function turnHandlersOn(){
   $('#next').on('click', clickNext);
   $('#add-customer').on('click', clickAddCustomer);
   $('select#select-customer').on('change', changeCustomer);
+  $('tbody').on('click', '.product-image', clickProductImage);
 }
 
 function turnHandlersOff(){
@@ -54,12 +53,12 @@ function turnHandlersOff(){
   $('#next').off('click', clickNext);
   $('#add-customer').off('click', clickAddCustomer);
   $('select#select-customer').off('change', changeCustomer);
+  $('tbody').off('click', '.product-image', clickProductImage);
 }
 
 // -------------------------------------------------------------------- //
 
 function dbLoadProduct(snapshot) {
-  console.log('in dbLoadProduct');
   var obj = snapshot.val();
   //product.salePrice function is reconstructed here.
   var product = new Product(obj.name, obj.image, obj.weight, obj.price, obj.off);
@@ -92,7 +91,6 @@ function changeCustomer() {
   var customerObject = _.find(db.customers, function(customer){return (customer.name === customerNameText);});
   //assign customer object to db.cart.customer
   db.cart.customer = customerObject;
-  Δcart.customer.set(customerObject);
 }
 
 function displayThisPageProducts(){
@@ -129,6 +127,10 @@ function htmlResetRadioButtons(){
   });
 }
 
+function htmlDisplayCart() {
+  alert('in htmlDisplayCart');
+}
+
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 
@@ -152,6 +154,16 @@ function clickAddCustomer(){
   var customer = new Customer(customerImage, customerName, isDomestic);
   htmlResetRadioButtons();
   Δcustomers.push(customer);
+}
+
+function clickProductImage() {
+  //get product name from image clicked by DOM traversal
+  var productName = $(this).parent().children('.product-name').text();
+  //get product object
+  var productObject = _.find(db.products, function(product){return (product.name === productName);});
+  //push product object to local schema
+  db.cart.products.push(productObject);
+  htmlDisplayCart();
 }
 
 function clickPrevious() {
