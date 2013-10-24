@@ -47,7 +47,7 @@ test('Add Product', function(){
 });
 
 test('Customer DropDown and Shopping Cart', function(){
-  expect(1);
+  expect(7);
 
   //setup
   for(var i = 0; i < 5; i++){
@@ -57,8 +57,19 @@ test('Customer DropDown and Shopping Cart', function(){
     createTestCustomer(name, image, isDomestic);
   }
 
+  createTestCustomer('Bob', 'bob.png', true);
+
+  //table headers
+  //name, count, subtotal, weight, shippingcost, total(subtotal + shipping cost)
+
   //assertions
-  equal(db.customers.length, 5, 'should have 5 customers');
+  equal(db.customers.length, 6, 'should have 6 customers');
+  equal($('select#select-customer option').length, 6, 'should have 6 option tags');
+  equal($('select#select-customer option:nth-child(1)').val(), 'Bob', 'first customer value should be Bob');
+  equal($('select#select-customer option:nth-child(1)').text(), 'Bob', 'first customer text should be Bob');
+  ok($('table#cart').length, 'shopping cart should be visible');
+  equal($('table#cart th').length, 6, 'shopping cart should have 6 columns headers');
+  ok($('#purchase').length, 'purchase button should be visible');
 });
 
 test('Add Customer', function(){
