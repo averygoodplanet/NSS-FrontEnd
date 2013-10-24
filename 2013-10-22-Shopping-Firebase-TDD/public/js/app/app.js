@@ -66,6 +66,15 @@ function dbLoadCustomer(snapshot) {
   var customer = new Customer(obj.image, obj.name, obj.isDomestic);
   customer.id = snapshot.name();
   db.customers.push(customer);
+  AddCustomerToSelect(customer);
+}
+
+function AddCustomerToSelect (customer) {
+  var option = '<option></option>';
+  var $option = $(option);
+  $option.text(customer.name);
+  $option.attr('value', customer.name);
+  $('#select-customer').prepend($option);
 }
 
 function displayThisPageProducts(){
