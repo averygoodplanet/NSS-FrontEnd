@@ -48,6 +48,7 @@ function turnHandlersOff(){
   $('#add-product').off('click', clickAddProduct);
   $('#previous').off('click', clickPrevious);
   $('#next').off('click', clickNext);
+  $('#add-customer').off('click', clickAddCustomer);
 }
 
 // -------------------------------------------------------------------- //
