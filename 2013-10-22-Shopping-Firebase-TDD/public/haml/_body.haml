@@ -2,6 +2,17 @@
   %h1 Shopping
 .row
   .small-6.columns
+    %input#customer-image{type: 'text', placeholder: 'customer image'}
+  .small-6.columns
+    %input#customer-name{type: 'text', placeholder: 'customer name'}
+.row
+  .small-6.columns
+    %input#domestic{type: 'radio', name: 'address', value: 'domestic'} Domestic
+    %input#international{type: 'radio', name: 'address', value: 'international'} International
+  .small-6.columns
+    %input#add-customer.button.small.radius{type: 'button', value: 'Add Customer'}
+.row
+  .small-6.columns
     %input#product-image{type: 'text', placeholder: 'image URL here'}
   .small-6.columns
     %input#product-price{type: 'text', placeholder: 'price'}

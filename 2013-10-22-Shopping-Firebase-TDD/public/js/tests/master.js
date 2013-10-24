@@ -46,6 +46,28 @@ test('Add Product', function(){
   equal($('#products .product-image img').attr('src'), '../img/ipad-air.png', 'image column should be populated');
 });
 
+
+test('Add Customer', function(){
+  expect(7);
+
+  //setup
+  $('#customer-image').val('bob.png');
+  $('#customer-name').val('Bob Jenkins');
+  $('#domestic')[0].checked = true;
+  $('#add-customer').trigger('click');
+
+  //assertions
+  equal(db.customers.length, 1, 'db.customers should have 1 object');
+  ok(db.customers[0] instanceof Customer, 'db.customers[0] should be a Customer object');
+  equal(db.customers[0].name, 'Bob Jenkins', 'db.customers[0].name should be Bob Jenkins');
+  equal(db.customers[0].image, 'bob.png', 'db.customers[0].image should be bob.png');
+  ok(db.customers[0].id, 'id should be present');
+  ok(db.customers[0].isDomestic, 'should be domestic');
+
+  ok(!$('#domestic')[0].checked, 'domestic radio button should be unchecked');
+});
+
+
 test('Product Pagination', function() {
   expect(18);
 
