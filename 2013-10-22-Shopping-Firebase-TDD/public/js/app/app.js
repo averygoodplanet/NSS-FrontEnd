@@ -3,7 +3,7 @@
 // -------------------------------------------------------------------- //
 
 // Firebase Schema
-var Δdb, Δproducts, Δcustomers, Δorders;
+var Δdb, Δproducts, Δcustomers, Δorders, Δcart;
 
 // Local Schema (defined in keys.js)
 
@@ -26,9 +26,14 @@ function initializeDatabase() {
   Δproducts = Δdb.child('products');
   Δcustomers = Δdb.child('customers');
   Δorders = Δdb.child('orders');
-  db.products = db.customers = db.orders = [];
+  Δcart = Δdb.child('cart');
+  Δcart.customer = Δcart.child('customer');
+  db.cart = db.pagination = {};
+  db.products = [];
+  db.customers = [];
+  db.orders = [];
+  db.cart.products = [];
   db.revenue = 0;
-  db.pagination = {};
   db.pagination.currentPage = 1;
   db.pagination.perPage = 5;
   Δproducts.on('child_added', dbLoadProduct);
@@ -40,6 +45,7 @@ function turnHandlersOn(){
   $('#previous').on('click', clickPrevious);
   $('#next').on('click', clickNext);
   $('#add-customer').on('click', clickAddCustomer);
+  $('select#select-customer').on('change', changeCustomer);
 }
 
 function turnHandlersOff(){
@@ -47,6 +53,7 @@ function turnHandlersOff(){
   $('#previous').off('click', clickPrevious);
   $('#next').off('click', clickNext);
   $('#add-customer').off('click', clickAddCustomer);
+  $('select#select-customer').off('change', changeCustomer);
 }
 
 // -------------------------------------------------------------------- //
@@ -75,6 +82,17 @@ function AddCustomerToSelect (customer) {
   $option.text(customer.name);
   $option.attr('value', customer.name);
   $('#select-customer').prepend($option);
+}
+
+function changeCustomer() {
+  //get customer name or value from option
+  var customerNameText = $('select#select-customer option:selected')[0].value;
+
+  //find customer object in db.customers
+  var customerObject = _.find(db.customers, function(customer){return (customer.name === customerNameText);});
+  //assign customer object to db.cart.customer
+  db.cart.customer = customerObject;
+  Δcart.customer.set(customerObject);
 }
 
 function displayThisPageProducts(){

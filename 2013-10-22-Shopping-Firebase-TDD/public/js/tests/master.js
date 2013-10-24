@@ -68,7 +68,7 @@ test('Customer DropDown and Shopping Cart', function(){
   equal($('select#select-customer option:nth-child(1)').val(), 'Bob', 'first customer value should be Bob');
   equal($('select#select-customer option:nth-child(1)').text(), 'Bob', 'first customer text should be Bob');
   ok($('table#cart').length, 'shopping cart should be visible');
-  equal($('table#cart tbody tr:nth-child(1) th').length, 6, 'shopping cart should have 6 columns headers');
+  equal($('table#cart thead tr:nth-child(1) th').length, 6, 'shopping cart should have 6 columns headers');
   ok($('#purchase').length, 'purchase button should be visible');
 });
 
