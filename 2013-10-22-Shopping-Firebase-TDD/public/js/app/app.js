@@ -63,9 +63,10 @@ function dbLoadProduct(snapshot) {
 }
 
 function dbLoadCustomer(snapshot) {
-  var customer = snapshot.val();
+  var obj = snapshot.val();
+  var customer = new Customer(obj.image, obj.name, obj.isDomestic);
+  customer.id = snapshot.name();
   db.customers.push(customer);
-  db.customers.id = snapshot.name();
 }
 
 function displayThisPageProducts(){
