@@ -34,6 +34,7 @@ function initializeDatabase() {
   db.pagination.currentPage = 1;
   db.pagination.perPage = 5;
   Δproducts.on('child_added', dbLoadProduct);
+  Δcustomers.on('child_added', dbLoadCustomer);
 }
 
 function turnHandlersOn(){
@@ -59,6 +60,12 @@ function dbLoadProduct(snapshot) {
   product.id = snapshot.name();
   db.products.push(product);
   displayThisPageProducts();
+}
+
+function dbLoadCustomer(snapshot) {
+  var customer = snapshot.val();
+  db.customers.push(customer);
+  db.customers.id = snapshot.name();
 }
 
 function displayThisPageProducts(){
@@ -108,6 +115,8 @@ function clickAddCustomer(){
   var customerName = getValue('#customer-name');
   var isDomestic = $('#domestic')[0].checked;
   var customer = new Customer(customerImage, customerName, isDomestic);
+  $('#domestic')[0].checked = false;
+  $('#international')[0].checked = false;
   Δcustomers.push(customer);
 }
 
