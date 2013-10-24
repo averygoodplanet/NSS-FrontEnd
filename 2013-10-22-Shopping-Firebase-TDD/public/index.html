@@ -69,9 +69,29 @@
     </table>
   </div>
   <div class='row'>
-    <div class='small-12 columns'>
+    <div class='small-12 columns' id='pageRow'>
       <input class='hidden button small radius' id='previous' type='button' value='Previous'>
       <input class='button small radius' id='next' type='button' value='Next'>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='small-3 columns'>
+      <select id='select-customer'></select>
+    </div>
+    <div class='small-9 columns'></div>
+  </div>
+  <div class='row'>
+    <div class='small-12 columns'>
+      <table id='cart'>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+          <th>Weight</th>
+          <th>Shipping Cost</th>
+          <th>Cost with Shipping</th>
+        </tr>
+      </table>
     </div>
   </div>
   <script src='/js/vendor/jquery-1.10.2.js'></script>

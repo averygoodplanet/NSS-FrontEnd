@@ -36,6 +36,20 @@
       %th % Off
       %th Sale Price
 .row
-  .small-12.columns
+  .small-12.columns#pageRow
     %input#previous.hidden.button.small.radius{type: 'button', value: 'Previous'}
     %input#next.button.small.radius{type: 'button', value: 'Next'}
+.row
+  .small-3.columns
+    %select#select-customer
+  .small-9.columns
+.row
+  .small-12.columns
+    %table#cart
+      %tr
+        %th Name
+        %th Quantity
+        %th Subtotal
+        %th Weight
+        %th Shipping Cost
+        %th Cost with Shipping
