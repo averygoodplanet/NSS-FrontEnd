@@ -72,6 +72,60 @@ test('Customer DropDown and Shopping Cart', function(){
   ok($('#purchase').length, 'purchase button should be visible');
 });
 
+test('Add Items to Shopping Cart', function(){
+  expect(19);
+
+  //setup
+  //create some customers
+  createTestCustomer('Bob', 'bob.png', true);
+  createTestCustomer('Sally', 'sally.png', false);
+
+  //select customer from drop-down
+  $('#select-customer').val('Sally');
+
+  //create some products
+  createTestProduct('iPad Air', 'ipad-air.png', 1, 500, 10); // sale price = 450
+  createTestProduct('iPhone 5s', 'iphone-5s.png', 0.5, 200, 0); // sale price = 200
+  createTestProduct('Apple TV', 'apple-tv.png', 1.5, 100, 5); // sale price = 95
+  //  2 x iphone 5s
+  $('#products tr:nth-child(3) .product-image img').trigger('click');
+  $('#products tr:nth-child(3) .product-image img').trigger('click');
+
+  //1 ipad air
+  $('#products tr:nth-child(2) .product-image img').trigger('click');
+
+  //1 Apple TV
+  $('#products tr:nth-child(4) .product-image img').trigger('click');
+
+  //assertions
+  equal(db.cart.customer.name, 'Sally', 'shopping cart should belong to Sally');
+  ok(db.cart.customer instanceof Customer, 'Sally should be a customer');
+  equal(db.cart.products.length, 4, 'should be 4 items in shopping cart');
+  ok(db.cart.products[0] instanceof Product, 'first item in products should be a Product');
+  equal(db.cart.totals.count, 4, 'should have chosen four items');
+  equal(db.cart.totals.amount, 945, 'total before shipping 945');
+  equal(db.cart.totals.weight, 3.5, 'weight total should be 3.5');
+
+  //  domestic $0.50 lb; international $1.50 lb
+  equal(db.cart.totals.shipping, 5.25, 'shipping total 5.25');
+  equal(db.cart.totals.grand, 950.25, 'total amoutn should be 950.25');
+
+  //lump same items into 1 row (1 header row, 3 object-kind row, 1 footer row)
+  equal($('#cart thead tr').length, 1, 'cart should have 1 header row');
+  equal($('#cart tbody tr').length, 3, 'cart should have 3 body rows');
+  equal($('#cart tfoot tr').length, 1, 'should be a footer');
+
+  equal($('#cart tbody tr:nth-child(1) .product-name').text(), 'iPhone-5s', 'name should be iPhone 5s');
+  equal($('#cart tbody tr:nth-child(1) .product-count').text(), '2', 'count should be 2');
+
+  equal($('#cart tfoot tr #cart-count').text(), '4', '#cart-count should be four');
+  equal($('#cart tfoot tr #cart-amount').text(), '$945.00', '#cart-amount should be $945.00');
+  equal($('#cart tfoot tr #cart-weight').text(), '3.5 lbs', '#cart-weight should be 3.5 lbs');
+  equal($('#cart tfoot tr #cart-shipping').text(), '$5.25', '#cart-shipping should be $5.25');
+  equal($('#cart tfoot tr #cart-grand').text(), '$950.25', '#cart-grand should be $950.25');
+});
+
+
 test('Add Customer', function(){
   expect(7);
 

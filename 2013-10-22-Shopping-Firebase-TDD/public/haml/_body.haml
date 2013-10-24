@@ -46,12 +46,15 @@
 .row
   .small-12.columns
     %table#cart
-      %tr
-        %th Name
-        %th Quantity
-        %th Subtotal
-        %th Weight
-        %th Shipping Cost
-        %th Cost with Shipping
+      %thead
+        %tr
+          %th Name
+          %th Quantity
+          %th Subtotal
+          %th Weight
+          %th Shipping Cost
+          %th Cost with Shipping
+      %tbody
+      %tfoot
 .row
   %input#purchase{type: 'button', value: 'Purchase'}
