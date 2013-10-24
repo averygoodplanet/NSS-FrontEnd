@@ -40,6 +40,7 @@ function turnHandlersOn(){
   $('#add-product').on('click', clickAddProduct);
   $('#previous').on('click', clickPrevious);
   $('#next').on('click', clickNext);
+  $('#add-customer').on('click', clickAddCustomer);
 }
 
 function turnHandlersOff(){
@@ -102,6 +103,14 @@ function clickAddProduct() {
   Δproducts.push(product);
 }
 
+function clickAddCustomer(){
+  var customerImage = getValue('#customer-image');
+  var customerName = getValue('#customer-name');
+  var isDomestic = $('#domestic')[0].checked;
+  var customer = new Customer(customerImage, customerName, isDomestic);
+  Δcustomers.push(customer);
+}
+
 function clickPrevious() {
   //decrement current pagenumber
   db.pagination.currentPage -= 1;
@@ -154,6 +163,11 @@ function Product(name, image, weight, price, off) {
   };
 }
 
+function Customer(customerImage, customerName, isDomestic) {
+  this.image = customerImage;
+  this.name = customerName;
+  this.isDomestic = isDomestic;
+}
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
