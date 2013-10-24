@@ -46,6 +46,20 @@ test('Add Product', function(){
   equal($('#products .product-image img').attr('src'), '../img/ipad-air.png', 'image column should be populated');
 });
 
+test('Customer DropDown and Shopping Cart', function(){
+  expect(1);
+
+  //setup
+  for(var i = 0; i < 5; i++){
+    var name = Math.random().toString(36).substring(2);
+    var image = Math.random().toString(36).substring(2) + '.png';
+    var isDomestic = _.shuffle([true, false])[0];
+    createTestCustomer(name, image, isDomestic);
+  }
+
+  //assertions
+  equal(db.customers.length, 5, 'should have 5 customers');
+});
 
 test('Add Customer', function(){
   expect(7);
@@ -119,6 +133,19 @@ function createTestProduct(name, image, weight, price, off){
   $('#product-price').val(price);
   $('#product-off').val(off);
   $('#add-product').trigger('click');
+}
+
+function createTestCustomer(name, image, isDomestic){
+  $('#customer-name').val(name);
+  $('#customer-image').val(image);
+
+  if(isDomestic){
+    $('#domestic')[0].checked = true;
+  } else {
+    $('#international')[0].checked = true;
+  }
+
+  $('#add-customer').trigger('click');
 }
 
 // Firebase is synchronous because you have a persistent connection through websockets.

@@ -97,7 +97,7 @@ function htmlLoadProduct(product) {
 function htmlResetRadioButtons(){
   //index = 0, 1 ...
   //dom is dom object i.e. <input></input>
-  $('input[name="address"').each(function(index, dom){
+  $('input[name="address"]').each(function(index, dom){
     dom.checked = false;
   });
 }
