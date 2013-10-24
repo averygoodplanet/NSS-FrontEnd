@@ -26,9 +26,7 @@ function initializeDatabase() {
   Δproducts = Δdb.child('products');
   Δcustomers = Δdb.child('customers');
   Δorders = Δdb.child('orders');
-  db.products = [];
-  db.customers = [];
-  db.orders = [];
+  db.products = db.customers = db.orders = [];
   db.revenue = 0;
   db.pagination = {};
   db.pagination.currentPage = 1;
@@ -96,6 +94,14 @@ function htmlLoadProduct(product) {
   $('#products').append($row);
 }
 
+function htmlResetRadioButtons(){
+  //index = 0, 1 ...
+  //dom is dom object i.e. <input></input>
+  $('input[name="address"').each(function(index, dom){
+    dom.checked = false;
+  });
+}
+
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 
@@ -117,8 +123,7 @@ function clickAddCustomer(){
   var customerName = getValue('#customer-name');
   var isDomestic = $('#domestic')[0].checked;
   var customer = new Customer(customerImage, customerName, isDomestic);
-  $('#domestic')[0].checked = false;
-  $('#international')[0].checked = false;
+  htmlResetRadioButtons();
   Δcustomers.push(customer);
 }
 
