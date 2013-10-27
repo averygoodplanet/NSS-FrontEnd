@@ -31,6 +31,8 @@ function initializeDatabase() {
   db.customers = [];
   db.orders = [];
   db.cart.products = [];
+  db.cart.totals = {};
+  db.cart.totals.count = db.cart.totals.amount = db.cart.totals.weight = db.cart.totals.shipping = db.cart.totals.grand = 0;
   db.revenue = 0;
   db.pagination.currentPage = 1;
   db.pagination.perPage = 5;
@@ -76,6 +78,7 @@ function dbLoadCustomer(snapshot) {
   db.cart.customer = customer;
 }
 
+//------------------------------------------------------------------------//
 function AddCustomerToSelect (customer) {
   var option = '<option></option>';
   var $option = $(option);
@@ -94,6 +97,13 @@ function changeCustomer() {
   db.cart.customer = customerObject;
 }
 
+function updateCartTotals() {
+  // reinitialize
+
+
+}
+
+//------------------------------------------------------------------------//
 function displayThisPageProducts(){
   //for products on this page only, display product
   var pageNumber = db.pagination.currentPage;
@@ -165,6 +175,7 @@ function clickProductImage() {
   var productObject = _.find(db.products, function(product){return (product.name === productName);});
   //push product object to local schema
   db.cart.products.push(productObject);
+  updateCartTotals();
   htmlDisplayCart();
 }
 

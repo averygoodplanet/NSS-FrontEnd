@@ -105,9 +105,9 @@ test('Add Items to Shopping Cart', function(){
   equal(db.cart.totals.amount, 945, 'total before shipping 945');
   equal(db.cart.totals.weight, 3.5, 'weight total should be 3.5');
 
-  //  domestic $0.50 lb; international $1.50 lb
+  //  domestic $0.50 per lb; international $1.50 per lb
   equal(db.cart.totals.shipping, 5.25, 'shipping total 5.25');
-  equal(db.cart.totals.grand, 950.25, 'total amoutn should be 950.25');
+  equal(db.cart.totals.grand, 950.25, 'total amount should be 950.25');
 
   //lump same items into 1 row (1 header row, 3 object-kind row, 1 footer row)
   equal($('#cart thead tr').length, 1, 'cart should have 1 header row');
