@@ -82,7 +82,6 @@ test('Add Items to Shopping Cart', function(){
 
   //select customer from drop-down
   $('#select-customer').val('Sally');
-
   //create some products
   createTestProduct('iPad Air', 'ipad-air.png', 1, 500, 10); // sale price = 450
   createTestProduct('iPhone 5s', 'iphone-5s.png', 0.5, 200, 0); // sale price = 200

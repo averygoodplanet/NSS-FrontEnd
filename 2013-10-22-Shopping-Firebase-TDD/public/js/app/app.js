@@ -73,6 +73,7 @@ function dbLoadCustomer(snapshot) {
   customer.id = snapshot.name();
   db.customers.push(customer);
   AddCustomerToSelect(customer);
+  db.cart.customer = customer;
 }
 
 function AddCustomerToSelect (customer) {
@@ -87,7 +88,7 @@ function changeCustomer() {
   //get customer name or value from option
   var customerNameText = $('select#select-customer option:selected')[0].value;
 
-  //find customer object in db.customers
+  //find customer object in db.customers from the customer name.
   var customerObject = _.find(db.customers, function(customer){return (customer.name === customerNameText);});
   //assign customer object to db.cart.customer
   db.cart.customer = customerObject;
@@ -128,7 +129,8 @@ function htmlResetRadioButtons(){
 }
 
 function htmlDisplayCart() {
-  alert('in htmlDisplayCart');
+  console.log('htmlDisplayCart function called');
+  // db.cart.products
 }
 
 // -------------------------------------------------------------------- //
