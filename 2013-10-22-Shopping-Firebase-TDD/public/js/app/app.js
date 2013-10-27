@@ -98,9 +98,13 @@ function changeCustomer() {
 }
 
 function updateCartTotals() {
-  // reinitialize
+  //db.cart.totals.* was initialized in initializeDatabase function.
+  //in this function, will want to before += lastproduct.x
 
-
+  //get last product from ordered array db.cart.products
+  var arrayLength = db.cart.products.length;
+  var lastProduct = db.cart.products[arrayLength - 1];
+  console.log(lastProduct);
 }
 
 //------------------------------------------------------------------------//
