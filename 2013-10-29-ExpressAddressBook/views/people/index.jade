@@ -3,7 +3,8 @@ extends ../template/layout
 block content
   h1= title
   h2 People Page
-  a(href='/') Home
+  p: a(href='/') Home
+  p: a(href='/people/new') New Person
   - var person = people[0]
 
   if person
@@ -13,6 +14,6 @@ block content
           th= property
       tbody
         each person, index in people
-          tr(style='background-color: #{person.color}')
+          tr(id=person.name, style='background-color: #{person.color}')
             each value, property in person
-              td(class='#{property}')= value
+              td(class=property)= value
