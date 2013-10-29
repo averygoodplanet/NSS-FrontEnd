@@ -18,3 +18,18 @@ exports.index = function(req, res){
 exports.new = function(req, res){
   res.render('people/new', { title: 'New: Address Book' });
 };
+
+exports.create = function(req, res){
+  //req stands for request from browser
+  //req.body.x  x comes from name attribute in form
+  var name = req.body.name;
+  var gender = req.body.gender;
+  var age = parseInt(req.body.age);
+  var color = req.body.color;
+
+  var people = database.read(__dirname + '/../db/people.json');
+  var person = {name: name, gender: gender, age: age, color:color};
+  people.push(person);
+  database.write(__dirname + '/../db/people.json', people)
+  res.redirect('/people');
+};

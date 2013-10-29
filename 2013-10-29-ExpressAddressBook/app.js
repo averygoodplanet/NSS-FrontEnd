@@ -32,6 +32,7 @@ app.get('/', home.index);
 //if you do a GET to URL '/people', run the people.index method
 app.get('/people', people.index);
 app.get('/people/new', people.new);
+app.post('/people', people.create);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
