@@ -105,6 +105,21 @@ function updateCartTotals() {
   var arrayLength = db.cart.products.length;
   var lastProduct = db.cart.products[arrayLength - 1];
   console.log(lastProduct);
+  // will need a Quantity variable on products in db.cart.products
+  /*
+  .off: 10
+  .price: 100
+  .salePrice: function salePrice(){
+  .weight: 2
+  */
+
+  /*
+  db.cart.totals.count
+  db.cart.totals.amount
+  db.cart.totals.weight
+  db.cart.totals.shipping
+  db.cart.totals.grand
+  */
 }
 
 //------------------------------------------------------------------------//
@@ -175,10 +190,20 @@ function clickAddCustomer(){
 function clickProductImage() {
   //get product name from image clicked by DOM traversal
   var productName = $(this).parent().children('.product-name').text();
-  //get product object
-  var productObject = _.find(db.products, function(product){return (product.name === productName);});
-  //push product object to local schema
-  db.cart.products.push(productObject);
+
+  //see if product is already in db.cart.products[i]
+  var productFoundInCart = _.find(db.cart.products, function (cartProduct){return (cartProduct.name === productName);});
+  if(productFoundInCart){
+    //if product is already in db.cart.products[i], then increment that object's quantity
+    var productIndexInCart = db.cart.products.indexOf(productFoundInCart);
+    db.cart.products[productIndexInCart].quantity += 1;
+  } else {
+    //if product is not in db.cart.products[i], then find product object in db.products,
+    //set its quantity to 1, and push object to db.cart.products
+    var productObject = _.find(db.products, function(product){return (product.name === productName);});
+    productObject.quantity = 1;
+    db.cart.products.push(productObject);
+  }
   updateCartTotals();
   htmlDisplayCart();
 }
