@@ -4,4 +4,15 @@ block content
   h1= title
   h2 People Page
   a(href='/') Home
-  h3= people.length
+  - var person = people[0]
+
+  if person
+    table#People
+      thead: tr
+        each value, property in person
+          th= property
+      tbody
+        each person, index in people
+          tr(style='background-color: #{person.color}')
+            each value, property in person
+              td= value
