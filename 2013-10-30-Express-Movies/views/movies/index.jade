@@ -24,9 +24,13 @@ block content
               tr
                 each value, property in movie
                   unless value instanceof Function || property === 'gross'
-                    if(property === 'image')
-                      td: img(src=movie.image)
-                    else
-                      td= value
+                    case property
+                      when 'image': td: img(src=movie.image)
+                      when 'color': td: div.colorBox(style='background-color: #{movie.color}; height: 133px')
+                      default: td= value
                 td= movie.grossPerTheatreUSD()
                 td= movie.grossUSD()
+                td
+                  form(action='/url', method='post')
+                    input(type='hidden', name='_method', value='delete')
+                    button.tiny(type='submit') Delete
