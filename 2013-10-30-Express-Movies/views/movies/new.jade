@@ -1,0 +1,18 @@
+extends ../template/layout
+include ../mixins/form-helper
+
+block content
+  .row
+    .small-12.columns
+      h1.subheader New Movies
+  .row
+    .small-3.columns
+      form(action='/movies', method='post')
+        mixin field("title", 'Title', 'Jaws', true)
+        mixin field("image", 'Image', 'http://abc...', false)
+        mixin field("color", 'Color', 'red', false)
+        mixin field("rated", 'Rated', 'R', false)
+        mixin field("studio", 'Studio', 'Paramount Pictures', false)
+        mixin field("gross", 'Gross', '$1,000,000.00', false)
+        mixin field("numTheatres", 'Number of Theatres', '35', false)
+        button(type='submit') Save
