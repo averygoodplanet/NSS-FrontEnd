@@ -1,0 +1,31 @@
+[
+
+{
+  "title":"Jaws",
+  "image": "http://www.thisishorror.co.uk/wp-content/uploads/2012/06/jaws.jpg",
+  "color": "red",
+  "rated": "R",
+  "studio": "Sony Pictures Classic",
+  "gross": 260000000,
+  "numTheatres": 23
+},
+{
+  "title":"Karate Kid II",
+  "image": "http://ia.media-imdb.com/images/M/MV5BMTg3ODc2Nzc3M15BMl5BanBnXkFtZTYwMDMzNzc5._V1_SY317_CR1,0,214,317_.jpg",
+  "color": "green",
+  "rated": "PG-13",
+  "studio": "Paramount Pictures",
+  "gross": 8000000000,
+  "numTheatres": 40
+},
+{
+  "title":"Tom Green: Something Smells Funny",
+  "image": "http://ia.media-imdb.com/images/M/MV5BMTQ2MjUwNDU0MV5BMl5BanBnXkFtZTcwMzc5MDYyMQ@@._V1_SY317_CR3,0,214,317_.jpg",
+  "color": "orange",
+  "rated": "NC-17",
+  "studio": "Canadian Classics",
+  "gross": 600000000000,
+  "numTheatres": 52
+}
+
+]
