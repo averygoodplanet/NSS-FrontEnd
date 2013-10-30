@@ -24,6 +24,9 @@ block content
               tr
                 each value, property in movie
                   unless value instanceof Function || property === 'gross'
-                    td= value
+                    if(property === 'image')
+                      td: img(src=movie.image)
+                    else
+                      td= value
                 td= movie.grossPerTheatreUSD()
                 td= movie.grossUSD()
