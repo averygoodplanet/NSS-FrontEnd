@@ -5,3 +5,11 @@ block content
     .small-12.columns
       h1 Color Page
       a(href='/').button.small Home
+  .row
+    table#colors
+      thead: tr
+        each color in colors
+          th= color
+      tbody: tr
+        each color in colors
+          td.color(style='background-color: #{color}; width: #{100/colors.length}%;')
