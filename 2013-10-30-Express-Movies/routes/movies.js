@@ -14,3 +14,17 @@ exports.index = function(req, res){
 
   res.render('movies/index', {title: 'Movies', movies: movies});
 };
+
+
+/*
+ * DELETE /movies/Jaws aka movies/:title
+ */
+
+exports.delete = function(req, res){
+  //from routes 'movies/:title';  params mean out of url.
+  var title = req.params.title;
+  var movies = db.read(file);
+  movies = _.reject(movies, function(movie){return movie.title === title});
+  db.write(file, movies);
+  res.redirect('/movies');
+};

@@ -31,6 +31,6 @@ block content
                 td= movie.grossPerTheatreUSD()
                 td= movie.grossUSD()
                 td
-                  form(action='/url', method='post')
+                  form(action='/movies/#{movie.title}', method='post')
                     input(type='hidden', name='_method', value='delete')
-                    button.tiny(type='submit') Delete
+                    button.tiny.alert(type='submit') Delete
