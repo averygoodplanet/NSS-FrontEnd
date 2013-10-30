@@ -14,11 +14,11 @@ var  Movie = function (genericMovie){
   };
 
   this.grossUSD = function(){
-    return mm.format('USD', mm.floatToAmount(this.gross));
+    return '$' + mm.format('USD', mm.floatToAmount(this.gross));
   };
 
   this.grossPerTheatreUSD = function(){
-    return mm.format('USD', mm.floatToAmount(this.grossPerTheatre));
+    return '$' + mm.format('USD', mm.floatToAmount(this.grossPerTheatre()));
   };
 };
 

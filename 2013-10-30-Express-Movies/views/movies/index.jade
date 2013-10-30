@@ -7,4 +7,23 @@ block content
       a(href='/').button.radius Home
   .row
     .small-12.columns
-      h3= movies.length
+      - var movie = movies[0]
+      if movie
+        table#movies
+          thead: tr
+            each value, property in movie
+              unless value instanceof Function || property === 'gross'
+                if property === 'numTheatres'
+                  th= 'number of theatres'
+                else
+                  th= property
+            th gross per theatre
+            th gross
+          tbody
+            each movie in movies
+              tr
+                each value, property in movie
+                  unless value instanceof Function || property === 'gross'
+                    td= value
+                td= movie.grossPerTheatreUSD()
+                td= movie.grossUSD()
