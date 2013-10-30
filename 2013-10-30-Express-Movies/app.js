@@ -29,9 +29,11 @@ if ('development' == app.get('env')) {
 // route definitions
 app.get('/', home.index);
 app.get('/movies', movies.index);
+app.get('/movies/new', movies.new);
 // 'movies/:title' means, any path that is movies/anythinghere" but only 1 slash deep.
 //can later retrieve title with req.params.title
 app.delete('/movies/:title', movies.delete);
+app.post('/movies', movies.create);
 
 // start server
 http.createServer(app).listen(app.get('port'), function(){
