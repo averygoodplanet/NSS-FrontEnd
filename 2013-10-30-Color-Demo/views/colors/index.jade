@@ -6,10 +6,11 @@ block content
       h1 Color Page
       a(href='/').button.small Home
   .row
+    - var width = (100/colors.length);
     table#colors
       thead: tr
         each color in colors
           th= color
       tbody: tr
         each color in colors
-          td.color(style='background-color: #{color}; width: #{100/colors.length}%;')
+          td.color(style='background-color: #{color}; width: #{width}%;')
