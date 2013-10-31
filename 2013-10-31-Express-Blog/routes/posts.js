@@ -63,5 +63,7 @@ exports.show = function(req, res){
  */
 
 exports.delete = function(req, res){
-  res.redirect('/posts');
+  Post.findByIdAndRemove(req.params.id, function(){
+    res.redirect('/posts');
+  });
 };
