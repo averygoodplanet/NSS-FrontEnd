@@ -23,5 +23,12 @@ block content
             mixin field(4, 'author', 'Author')
             mixin field(4, 'date', 'Date', date)
           .row
+            mixin field(6, 'tags', 'Tag')
+            mixin field(6, 'image', 'Image')
+          .row
+            .small-12.columns
+              label(for='content') Content:
+              textarea(name='content')#content
+          .row
             .small-2.columns.small-offset-8: a.button.radius.alert.small.expand(href='/posts') Cancel
             .small-2.columns: button.radius.success.small.expand(type='submit') Save Posts

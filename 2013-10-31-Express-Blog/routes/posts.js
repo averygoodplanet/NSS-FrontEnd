@@ -1,4 +1,6 @@
 var moment = require('moment');
+var mongoose = require('mongoose');
+var Post = mongoose.model('Post');
 
 /*
  * GET /posts
@@ -17,12 +19,18 @@ exports.new = function(req, res){
   res.render('posts/new', {title: 'Express', date: date});
 };
 
-/*
+/*lorem
  * POST /posts
  */
 
 exports.create = function(req, res){
-  res.redirect('/posts');
+  console.log('before save');
+  console.log(req.body);
+  new Post(req.body).save(function(err, post, count){
+    console.log('after save');
+    console.log(post);
+    res.redirect('/posts');
+  });
 };
 
 /*
