@@ -1,3 +1,5 @@
+var moment = require('moment');
+
 /*
  * GET /posts
  */
@@ -11,7 +13,8 @@ exports.index = function(req, res){
  */
 
 exports.new = function(req, res){
-  res.render('posts/new');
+  var date = moment().format("MMM Do YYYY h:mm a");
+  res.render('posts/new', {title: 'Express', date: date});
 };
 
 /*
