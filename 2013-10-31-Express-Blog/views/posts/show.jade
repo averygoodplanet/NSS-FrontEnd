@@ -22,3 +22,6 @@ block content
             p: span.button.secondary.disabled.small.clear= post.tags
             img(src=post.image)
             p.blogText= post.content
+            form(action='/posts/#{post.id}', method='post')
+              input(type='hidden', name='_method', value='delete')
+              button.tiny.radius.alert(type='submit') Delete
