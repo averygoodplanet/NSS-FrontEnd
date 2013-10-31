@@ -1,0 +1,24 @@
+extends ../template/layout
+
+block content
+  .row
+    .small-12.columns
+      h1.subheader Show
+  .row
+    .small-1.columns
+      a(href='/').button.small.radius Home
+    .small-1.columns
+      a(href='/posts').button.small.radius Posts
+    .small-1.columns
+      a(href='/posts/new').button.small.radius.success New
+    .small-9.columns
+  .row
+    .small-12.columns
+      #posts
+          .post
+            h1.subheader: a(href='/post/#{post.id}')= post.title
+            h5= post.author
+            h5= post.date
+            p: span.button.secondary.disabled.small.clear= post.tags
+            img(src=post.image)
+            p.blogText= post.content

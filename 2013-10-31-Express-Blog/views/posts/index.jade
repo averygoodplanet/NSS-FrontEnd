@@ -12,3 +12,14 @@ block content
     .small-1.columns
       a(href='/posts/new').button.small.radius.success New
     .small-9.columns
+  .row
+    .small-12.columns
+      #posts
+        each post in posts
+          .post
+            h1.subheader: a(href='/posts/#{post.id}')= post.title
+            h5= post.author
+            h5= post.date
+            p: span.button.secondary.disabled.small.clear= post.tags
+            img(src=post.image)
+            p.blogText= post.content

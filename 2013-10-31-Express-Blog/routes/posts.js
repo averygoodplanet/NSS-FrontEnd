@@ -7,7 +7,10 @@ var Post = mongoose.model('Post');
  */
 
 exports.index = function(req, res){
-  res.render('posts/index');
+  //get the information from the database
+ Post.find(function(err, posts) {
+  res.render('posts/index', {title: 'Express', posts:posts});
+ });  //asynchronous; callback function when data is returned
 };
 
 /*
@@ -19,16 +22,12 @@ exports.new = function(req, res){
   res.render('posts/new', {title: 'Express', date: date});
 };
 
-/*lorem
+/*
  * POST /posts
  */
 
 exports.create = function(req, res){
-  console.log('before save');
-  console.log(req.body);
   new Post(req.body).save(function(err, post, count){
-    console.log('after save');
-    console.log(post);
     res.redirect('/posts');
   });
 };
@@ -54,7 +53,9 @@ exports.update = function(req, res){
  */
 
 exports.show = function(req, res){
-  res.render('posts/show');
+  Post.findById(req.params.id, function(err, post){
+    res.render('posts/show', {title: 'Express', post: post});
+  });
 };
 
 /*
