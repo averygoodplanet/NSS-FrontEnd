@@ -17,10 +17,14 @@ exports.index = function(req, res){
  * GET /artists/:id
  */
 exports.show = function(req, res){
-  Artist.findById(req.params.id, function(err, artist){
+  Artist.findById(req.params.id).populate('songs').exec(function (err, artist){
     console.log(artist.songs);
     res.render('artists/show', {title: artist.name, artist: artist});
   });
+  // Artist.findById(req.params.id, function(err, artist){
+  //   console.log(artist.songs);
+  //   res.render('artists/show', {title: artist.name, artist: artist});
+  // });
 };
 
 /*
