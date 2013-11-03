@@ -14,6 +14,9 @@ block content
       p#bio= artist.bio
   .row
     .small-12.columns
-      h4 Songlist:
+      h4 Songs:
       for song in artist.songs
-        p= song
+        .song
+          a(href='/songs/#{song.id}')
+            img(src=song.art)
+          h6.subheader= song.title
