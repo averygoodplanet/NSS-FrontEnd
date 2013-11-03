@@ -14,6 +14,16 @@ exports.index = function(req, res){
 };
 
 /*
+ * GET /artists/:id
+ */
+exports.show = function(req, res){
+  Artist.findById(req.params.id, function(err, artist){
+    console.log(artist.songs);
+    res.render('artists/show', {title: artist.name, artist: artist});
+  });
+};
+
+/*
  * GET /artists/new
  */
 
