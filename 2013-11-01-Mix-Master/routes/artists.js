@@ -51,3 +51,13 @@ exports.create = function(req, res){
     res.redirect('/artists');
   });
 };
+
+/*
+ * DELETE /artists/:id
+ */
+
+exports.delete = function(req, res){
+  Artist.findByIdAndRemove(req.params.id, function(err, artist){
+    res.redirect('/artists');
+  });
+};

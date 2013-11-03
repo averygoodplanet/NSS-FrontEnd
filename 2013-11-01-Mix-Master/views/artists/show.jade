@@ -14,6 +14,12 @@ block content
       p#bio= artist.bio
   .row
     .small-12.columns
+      .delete
+        form(action='/artists/#{artist.id}', method='post')
+          input(type='hidden', name='_method', value='delete')
+          button.tiny.radius.alert(type='submit') Delete Artist
+  .row
+    .small-12.columns
       h4 Songs:
       for song in artist.songs
         .song

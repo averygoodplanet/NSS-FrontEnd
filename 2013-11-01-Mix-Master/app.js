@@ -46,6 +46,7 @@ app.get('/artists', artists.index);
 app.get('/artists/new', artists.new);
 app.post('/artists', artists.create);
 app.get('/artists/:id', artists.show);
+app.delete('/artists/:id', artists.delete);
 
 // start server
 http.createServer(app).listen(app.get('port'), function(){
