@@ -7,7 +7,10 @@ var Artist = mongoose.model('Artist');
  */
 
 exports.index = function(req, res){
-  res.render('artists/index', {title: 'Express'});
+  //use .find to return Artists documents on callback
+  Artist.find(function(err, artists){
+    res.render('artists/index', {title: 'Mix Master', artists: artists});
+  });
 };
 
 /*
@@ -16,7 +19,7 @@ exports.index = function(req, res){
 
 exports.new = function(req, res){
   Song.find(function(err, songs){
-    res.render('artists/new', {title: 'Express', songs: songs});
+    res.render('artists/new', {title: 'Mix Master', songs: songs});
   });
 };
 

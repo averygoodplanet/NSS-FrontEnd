@@ -7,7 +7,7 @@ var Song = mongoose.model('Song');
 
 exports.index = function(req, res){
   Song.find(function(err, songs){
-    res.render('songs/index', {title: 'Express', songs: songs});
+    res.render('songs/index', {title: 'Mix Master', songs: songs});
   });
 };
 
@@ -16,7 +16,7 @@ exports.index = function(req, res){
  */
 
 exports.new = function(req, res){
-  res.render('songs/new', {title: 'Express'});
+  res.render('songs/new', {title: 'Mix Master'});
 };
 
 /*
