@@ -28,14 +28,27 @@ exports.new = function(req, res){
  */
 
 exports.create = function(req, res){
+  //object properly passed on new song to here (checked it in repl)
   new Song(req.body).save(function(err, genre, count){
     if (err){
-      res.render('songs/new', {title: 'Mix Master', errors: err.errors, song: new Song()});
+      Genre.find(function(genreErr, genres){
+        res.render('songs/new', {title: 'Mix Master', errors: err.errors, song: new Song(), genres: genres});
+      });
     } else{
       res.redirect('/songs');
     }
   });
 };
+
+// exports.create = function(req, res){
+//   new Genre(req.body).save(function(err, genre, count){
+//     if (err){
+//       res.render('genres/new', {title: 'Mix Master', errors: err.errors, genre: new Genre()});
+//     } else{
+//       res.redirect('/genres');
+//     }
+//   });
+// };
 
 /*
  * GET /songs/:id
