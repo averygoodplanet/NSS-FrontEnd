@@ -16,8 +16,7 @@ exports.index = function(req, res){
  */
 
 exports.new = function(req, res){
-  var genre = new Genre(); //only in memory, blank genre object
-  res.render('genres/new', {title: 'New Genre', genre: genre});
+  res.render('genres/new', {title: 'New Genre', genre: new Genre()});
 };
 
 /*
@@ -27,7 +26,7 @@ exports.new = function(req, res){
 exports.create = function(req, res){
   new Genre(req.body).save(function(err, genre, count){
     if (err){
-      res.render('genres/new', {title: 'Mix Master', errors: err.errors});
+      res.render('genres/new', {title: 'Mix Master', errors: err.errors, genre: new Genre()});
     } else{
       res.redirect('/genres');
     }
