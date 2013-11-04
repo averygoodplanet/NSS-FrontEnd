@@ -28,9 +28,12 @@ exports.new = function(req, res){
  */
 
 exports.create = function(req, res){
-  req.body.genres = req.body.genres.split(', ');
-  new Song(req.body).save(function(err, song, count){
-    res.redirect('/songs');
+  new Song(req.body).save(function(err, genre, count){
+    if (err){
+      res.render('songs/new', {title: 'Mix Master', errors: err.errors, song: new Song()});
+    } else{
+      res.redirect('/songs');
+    }
   });
 };
 
