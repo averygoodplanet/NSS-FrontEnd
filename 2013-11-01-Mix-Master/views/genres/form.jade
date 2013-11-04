@@ -1,0 +1,9 @@
+form(action='/genres', method='post')
+  fieldset
+    legend New Genre
+    .row
+      mixin field(4, 'name', 'Name', null, null, true)
+      .small-8.columns
+    .row
+      .small-2.columns.small-offset-8: a.button.radius.alert.small.expand(href='/genres') Cancel
+      .small-2.columns: button.radius.success.small.expand(type='submit') Save Genre

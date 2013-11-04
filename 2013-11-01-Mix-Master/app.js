@@ -1,11 +1,13 @@
 // initializing models
 require('./models/song');
 require('./models/artist');
+require('./models/genre');
 
 // express application
 var home = require('./routes/home');
 var songs = require('./routes/songs');
 var artists = require('./routes/artists');
+var genres = require('./routes/genres');
 
 // modules
 var express = require('express');
@@ -48,7 +50,15 @@ app.post('/artists', artists.create);
 app.get('/artists/:id', artists.show);
 app.delete('/artists/:id', artists.delete);
 
+
+app.get('/genres', genres.index);
+app.get('/genres/new', genres.new);
+app.post('/genres', genres.create);
+app.get('/genres/:id/edit', genres.edit); //shows form to edit genre
+app.put('/genres/:id', genres.update);  //when done editing and want to update
 // start server
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+
