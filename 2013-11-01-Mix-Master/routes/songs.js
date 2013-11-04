@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Song = mongoose.model('Song');
+var Genre = mongoose.model('Genre');
 
 /*
  * GET /songs
@@ -14,10 +15,13 @@ exports.index = function(req, res){
 /*
  * GET /songs/new
  */
-
+//getting genres so that we can list them as checkboxes on the new song page
 exports.new = function(req, res){
-  res.render('songs/new', {title: 'Mix Master'});
+  Genre.find(function(err, genres){
+    res.render('songs/new', {title: 'Mix Master', genres: genres});
+  });
 };
+
 
 /*
  * POST /songs
