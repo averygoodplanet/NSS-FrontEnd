@@ -16,7 +16,8 @@ exports.index = function(req, res){
  */
 
 exports.new = function(req, res){
-  res.render('genres/new', {title: 'Mix Master'});
+  var genre = new Genre(); //only in memory, blank genre object
+  res.render('genres/new', {title: 'New Genre', genre: genre});
 };
 
 /*
@@ -38,7 +39,9 @@ exports.create = function(req, res){
  */
 
 exports.edit = function(req, res){
-  res.render('genres/edit', {title: 'Mix Master',})
+  Genre.findById(req.params.id, function(err, genre) {
+    res.render('genres/edit', {title: 'Edit Genre', genre: genre});
+  });
 };
 
 
@@ -47,4 +50,7 @@ exports.edit = function(req, res){
  */
 
 exports.update = function(req, res){
+  Genre.findByIdAndUpdate(req.params.id, req.body, function (err, genre){
+    res.redirect('/genres');
+  });
 };
