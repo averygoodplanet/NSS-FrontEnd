@@ -36,6 +36,7 @@ if ('development' == app.get('env')) {
 // route definitions
 app.get('/', home.index);
 app.get('/todos', todos.index);
+app.post('/todos', todos.create);
 app.post('/priorities', priorities.create);
 
 // start server

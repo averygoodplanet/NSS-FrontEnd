@@ -26,7 +26,9 @@ function submitAjaxForm(e, form, successFn){
 }
 
 function submitTodo(e){
-
+  submitAjaxForm(e, this, function(data, status, jqXHR){
+    console.log(data);
+  });
 }
 
 
