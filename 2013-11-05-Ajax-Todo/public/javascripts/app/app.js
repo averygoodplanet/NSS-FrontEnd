@@ -19,6 +19,8 @@ function submitPriority(e) {
   options.data = data;
   options.success = function(data, status, jqXHR){
     console.log('success');
+    htmlAddPriorityToSelect(data);
+    console.log(data);
   };
   options.error = function(jqXHR, status, error){
     console.log('error :(');
@@ -29,4 +31,13 @@ function submitPriority(e) {
 
   //e is the event
   e.preventDefault();
+}
+
+function htmlAddPriorityToSelect(data){
+  var option = '<option></option>';
+  var $option = $(option);
+  $option.attr('value', data._id);
+  $option.text(data.name);
+  $option.css('background-color', data.color);
+  $('#priority-select').append($option);
 }
