@@ -56,7 +56,7 @@ function htmlAddToDo(data){
   var $row = $(row);
   $row.css('background-color', data.priority.color);
   var tdTitle = '<td>' + data.title + '</td>';
-  var tdDueDate = '<td>' + data.dueDate + '</td>';
+  var tdDueDate = '<td>' + moment(data.dueDate).format('ddd, MMMM Do YYYY') + '</td>';
   var tdPriorityName = '<td>' + data.priority.name + '</td>';
   $row.append(tdTitle, tdDueDate, tdPriorityName);
   $('#todos tbody').append($row);
