@@ -7,8 +7,10 @@ var Todo = mongoose.model('Todo');
  */
 
 exports.index = function(req, res){
-  Priority.find(function(err, priorities){
-    res.render('todos/index', {title: 'Express', priorities: priorities});
+  Priority.find(function(priorityErr, priorities){
+    Todo.find().populate('priority').exec(function(todoErr, todos){
+      res.render('todos/index', {title: 'Express', priorities: priorities, todos: todos});
+    });
   });
 };
 
