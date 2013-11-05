@@ -40,4 +40,5 @@ function htmlAddPriorityToSelect(data){
   $option.text(data.name);
   $option.css('background-color', data.color);
   $('#priority-select').append($option);
+  $('#priority input').val('');
 }
