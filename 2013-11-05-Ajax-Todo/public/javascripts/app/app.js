@@ -58,6 +58,7 @@ function htmlAddToDo(data){
   var tdTitle = '<td>' + data.title + '</td>';
   var tdDueDate = '<td>' + moment(data.dueDate).format('ddd, MMMM Do YYYY') + '</td>';
   var tdPriorityName = '<td>' + data.priority.name + '</td>';
-  $row.append(tdTitle, tdDueDate, tdPriorityName);
+  var tdDelete = "<td><input type='button' class='button radius small' value='Delete'></td>";
+  $row.append(tdTitle, tdDueDate, tdPriorityName, tdDelete);
   $('#todos tbody').append($row);
 }
