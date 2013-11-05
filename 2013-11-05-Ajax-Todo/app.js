@@ -1,4 +1,5 @@
 require('./models/priority');
+require('./models/todo');
 
 // express application
 var home = require('./routes/home');
