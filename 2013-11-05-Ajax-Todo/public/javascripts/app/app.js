@@ -52,8 +52,10 @@ function htmlAddPriorityToSelect(data){
 }
 
 function htmlAddToDo(data){
+  console.log(data);
   var row = '<tr></tr>';
   var $row = $(row);
+  $row.attr('data-id', data._id);
   $row.css('background-color', data.priority.color);
   var tdTitle = '<td>' + data.title + '</td>';
   var tdDueDate = '<td>' + moment(data.dueDate).format('ddd, MMMM Do YYYY') + '</td>';

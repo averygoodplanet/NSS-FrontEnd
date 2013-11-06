@@ -7,7 +7,7 @@ table#todos
       th
   tbody
     each todo in todos
-      tr(style='background-color:#{todo.priority.color}')
+      tr(style='background-color:#{todo.priority.color}', data-id=todo.id)
         td= todo.title
         td= moment(todo.dueDate).format('dddd, MMMM Do YYYY')
         td= todo.priority.name
