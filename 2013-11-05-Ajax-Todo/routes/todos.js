@@ -29,3 +29,12 @@ exports.create = function(req, res){
     });
   });
 };
+
+/*
+* DELETE /todos/:id
+*/
+exports.delete = function(req, res){
+  Todo.findByIdAndRemove(req.params.id, function(err, todo){
+    res.send("hey");
+  });
+}

@@ -11,5 +11,7 @@ table#todos
         td= todo.title
         td= moment(todo.dueDate).format('dddd, MMMM Do YYYY')
         td= todo.priority.name
-        td: button.radius.small.delete Delete
-
+        td
+          form(action='/todos/#{todo.id}', method='post')
+            input(type='hidden', name='_method', value='delete')
+            button.tiny.radius.alert.delete(type='submit') Delete
