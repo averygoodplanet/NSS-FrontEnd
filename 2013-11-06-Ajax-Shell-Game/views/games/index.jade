@@ -7,3 +7,10 @@ block content
       h2.subheader Shell Game
     .small-6.columns
       include new-game-form
+  .row
+    .small-3.columns
+      h3.subheader#player
+    .small-9.columns
+      #cups
+        each cup in [0, 1, 2]
+          .cup(style="background-color: orange; margin: 10px; float: left" data-position=cup)
