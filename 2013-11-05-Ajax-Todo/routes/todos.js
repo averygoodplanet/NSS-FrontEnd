@@ -35,6 +35,6 @@ exports.create = function(req, res){
 */
 exports.delete = function(req, res){
   Todo.findByIdAndRemove(req.params.id, function(err, todo){
-    res.send("hey");
+    res.redirect('/todos');
   });
 }
