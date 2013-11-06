@@ -1,3 +1,5 @@
+var mongoose = require('mongoose');
+var Game = mongoose.model('Game');
 
 /*
  * GET /
@@ -13,5 +15,11 @@ exports.index = function(req, res){
  */
 
 exports.create = function(req, res){
-  res.send({player: req.query.player});
+  // req.query is e.g. {player: "Ricky"}
+  // create a new game and saves to database
+  new Game(req.query).save(function(err, game){
+    //this code happens when database finishes saving game to database
+    console.log(game);
+    res.send(game);
+  });
 };
