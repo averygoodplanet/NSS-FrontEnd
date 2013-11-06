@@ -5,6 +5,7 @@ function initialize(){
 
   $('form#priority').on('submit', submitPriority);
   $('form#todo').on('submit', submitTodo);
+  $('.delete').on('click', clickDelete);
 }
 
 function submitAjaxForm(e, form, successFn){
@@ -63,4 +64,13 @@ function htmlAddToDo(data){
   var tdDelete = "<td><input type='button' class='button radius small' value='Delete'></td>";
   $row.append(tdTitle, tdDueDate, tdPriorityName, tdDelete);
   $('#todos tbody').append($row);
+}
+
+function clickDelete(){
+  //remove row from html page
+  var clickedButton = $(this);
+  var $thisRow = clickedButton.parent().parent();
+  $thisRow.remove();
+  // var idString = clickedButton.parent().parent().data('id');
+  // debugger;
 }
