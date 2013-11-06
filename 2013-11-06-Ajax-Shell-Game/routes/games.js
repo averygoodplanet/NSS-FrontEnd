@@ -22,3 +22,18 @@ exports.create = function(req, res){
     res.send(game);
   });
 };
+
+/*
+ * PUT /games/:id
+ */
+
+exports.complete = function(req, res){
+  //find the game by id
+  Game.findById(req.params.id, function (err, game) {
+    game.guess = req.body.guess;
+    game.didWin = game.guess == game.actual;
+    game.save(function(err, updatedGame){
+      res.send(updatedGame);
+    });
+  });
+};

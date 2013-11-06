@@ -33,6 +33,8 @@ if ('development' == app.get('env')) {
 // route definitions
 app.get('/', games.index);
 app.post('/games/start', games.create); // you only match path in routes not query string.
+app.put('/games/:id', games.complete);
+
 // start server
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

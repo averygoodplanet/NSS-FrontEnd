@@ -22,8 +22,12 @@ function submitGame(e) {
 }
 
 function clickCup() {
-  var position = $(this).data('position');
-  alert(position);
+  var guess = $(this).data('position');
+  var gameId = $('#cups').data('game');
+  var url = '/games/' + gameId;
+  sendGenericAjaxRequest(url, {guess: guess}, 'post', 'put', null, function(data, status, jqXHR){
+    console.log(data);
+  });
 }
 
 //-----------------------------------------------------------------//
