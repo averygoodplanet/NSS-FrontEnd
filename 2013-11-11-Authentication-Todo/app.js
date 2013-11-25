@@ -20,6 +20,7 @@ mongoose.connect('mongodb://localhost/auth-todo');
 require('./config').initialize(app, RedisStore);
 
 // routes
+// GET '/' is default on page load
 app.get('/', middleware.getTodos, home.index);
 app.post('/users', users.create);
 app.put('/login', users.login);
