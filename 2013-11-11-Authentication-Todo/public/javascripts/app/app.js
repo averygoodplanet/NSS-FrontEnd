@@ -22,6 +22,7 @@ function initialize(){
 function clickRegister(e){
   var url = '/users';
   var data = $('form#authentication').serialize();
+  debugger;
   sendAjaxRequest(url, data, 'post', null, e, function(data){
     htmlRegisterComplete(data);
   });

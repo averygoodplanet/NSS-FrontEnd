@@ -19,14 +19,9 @@ exports.create = function(req, res){
 };
 
 exports.login = function(req, res){
-  //search for the user by email
   User.findOne({email: req.body.email}, function(err, user){
-    //if you find a user do a bcrypt comparison
-    // of the password entered versus the password (or hash) in database
     if(user){
       bcrypt.compare(req.body.password, user.password, function(err, result){
-        //if password is correct, then do some stuff with the session
-        // and send back a status of 'ok' and email property
         if(result){
           req.session.regenerate(function(err){
             req.session.userId = user.id;
@@ -34,15 +29,12 @@ exports.login = function(req, res){
               res.send({status: 'ok', email: user.email});
             });
           });
-        //if password isn't correct then destroy session
-        //and send back status of 'error'
         } else {
           req.session.destroy(function(err){
             res.send({status: 'error'});
           });
         }
       });
-    //if you don't find the user send back status of 'error'
     } else {
       res.send({status: 'error'});
     }

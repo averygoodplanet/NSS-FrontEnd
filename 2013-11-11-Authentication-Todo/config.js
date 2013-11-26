@@ -15,9 +15,12 @@ exports.initialize = function(app, RedisStore){
   app.use(express.static(path.join(__dirname, 'public')));
   app.use('/less', less(__dirname + '/less', { compress: true }));
   app.use(express.cookieParser());
+  //Believe this sets up Express to use Redis as volatile (short/temporary data) database
+  //for session info.
   app.use(express.session({
     store : new RedisStore({host: 'localhost', port: 6379}),
     secret: 'change-this-to-a-super-secret-message',
+    //maximum of 1hr (total? or gone without using?) till cookie expires
     cookie: { maxAge: 60 * 60 * 1000 }
   }));
 
